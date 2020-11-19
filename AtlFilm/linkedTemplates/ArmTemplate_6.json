@@ -1,0 +1,2602 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "AtlFilm"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLCharges')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "nvarchar"
+					},
+					{
+						"name": "amount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "amount_refunded",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "application",
+						"type": "nvarchar"
+					},
+					{
+						"name": "balance_transaction",
+						"type": "nvarchar"
+					},
+					{
+						"name": "captured",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__address_city",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__address_country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__address_line1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__address_line1_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__address_line2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__address_state",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__address_zip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__address_zip_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__brand",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__customer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__cvc_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__exp_month",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "card__exp_year",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "card__fingerprint",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__funding",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__last4",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "card__name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "card__type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created",
+						"type": "nvarchar"
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "customer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "dispute",
+						"type": "nvarchar"
+					},
+					{
+						"name": "failure_code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "failure_message",
+						"type": "nvarchar"
+					},
+					{
+						"name": "fraud_details__stripe_report",
+						"type": "nvarchar"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "invoice",
+						"type": "nvarchar"
+					},
+					{
+						"name": "livemode",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__eventive_event_bucket",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__eventive_link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__eventive_order",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__orderId",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__shipping_address1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__shipping_address2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__shipping_city",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__shipping_country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__shipping_recipient",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__shipping_state",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__shipping_zip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__tax",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__websiteId",
+						"type": "nvarchar"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "outcome__network_status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "outcome__reason",
+						"type": "nvarchar"
+					},
+					{
+						"name": "outcome__risk_level",
+						"type": "nvarchar"
+					},
+					{
+						"name": "outcome__risk_score",
+						"type": "nvarchar"
+					},
+					{
+						"name": "outcome__seller_message",
+						"type": "nvarchar"
+					},
+					{
+						"name": "outcome__type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "paid",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_intent",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__brand",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__checks__address_line1_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__checks__cvc_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__exp_month",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__exp_year",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__fingerprint",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__funding",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__last4",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__network",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__wallet__dynamic_last4",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__card__wallet__type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_details__type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "receipt_email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "receipt_number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "refunded",
+						"type": "nvarchar"
+					},
+					{
+						"name": "review",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__address_city",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__address_country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__address_line1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__address_line1_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__address_line2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__address_state",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__address_zip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__address_zip_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__brand",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__client_secret",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__created",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__customer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__cvc_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__exp_month",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__exp_year",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__fingerprint",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__flow",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__funding",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__last4",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__livemode",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source__usage",
+						"type": "nvarchar"
+					},
+					{
+						"name": "statement_description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "statement_descriptor",
+						"type": "nvarchar"
+					},
+					{
+						"name": "status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_charges"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLChargesRefunds')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_level_0_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_source_key_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "nvarchar"
+					},
+					{
+						"name": "amount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "balance_transaction",
+						"type": "nvarchar"
+					},
+					{
+						"name": "charge",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "metadata__websiteId",
+						"type": "nvarchar"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_intent",
+						"type": "nvarchar"
+					},
+					{
+						"name": "reason",
+						"type": "nvarchar"
+					},
+					{
+						"name": "receipt_number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "status",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_charges__refunds"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLCoupons')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "amount_off",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "duration",
+						"type": "nvarchar"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "livemode",
+						"type": "bit"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "percent_off",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "percent_off_precise",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "times_redeemed",
+						"type": "bit"
+					},
+					{
+						"name": "updated",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "valid",
+						"type": "bit"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_coupons"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLCustomerCards')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_level_0_id",
+						"type": "bit"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_source_key_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "address_zip",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "address_zip_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "brand",
+						"type": "nvarchar"
+					},
+					{
+						"name": "country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "customer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "cvc_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "exp_month",
+						"type": "tinyint",
+						"precision": 3
+					},
+					{
+						"name": "exp_year",
+						"type": "time",
+						"scale": 7
+					},
+					{
+						"name": "fingerprint",
+						"type": "nvarchar"
+					},
+					{
+						"name": "funding",
+						"type": "nvarchar"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "last4",
+						"type": "smallint",
+						"precision": 5
+					},
+					{
+						"name": "name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_customers__cards"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLCustomerSources')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_level_0_id",
+						"type": "bit"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_source_key_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "address_zip",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "address_zip_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "brand",
+						"type": "nvarchar"
+					},
+					{
+						"name": "country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "customer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "cvc_check",
+						"type": "nvarchar"
+					},
+					{
+						"name": "exp_month",
+						"type": "tinyint",
+						"precision": 3
+					},
+					{
+						"name": "exp_year",
+						"type": "time",
+						"scale": 7
+					},
+					{
+						"name": "fingerprint",
+						"type": "nvarchar"
+					},
+					{
+						"name": "funding",
+						"type": "nvarchar"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "last4",
+						"type": "smallint",
+						"precision": 5
+					},
+					{
+						"name": "name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_customers__sources"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLCustomerSubscriptions')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_level_0_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_source_key_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "nvarchar"
+					},
+					{
+						"name": "value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_customers__subscriptions"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLCustomers')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "account_balance",
+						"type": "bit"
+					},
+					{
+						"name": "created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "default_card",
+						"type": "nvarchar"
+					},
+					{
+						"name": "default_source",
+						"type": "nvarchar"
+					},
+					{
+						"name": "delinquent",
+						"type": "bit"
+					},
+					{
+						"name": "email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "invoice_prefix",
+						"type": "nvarchar"
+					},
+					{
+						"name": "livemode",
+						"type": "bit"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated",
+						"type": "datetime2",
+						"scale": 7
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_customers"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLDisputeBalanceTransactions')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_level_0_id",
+						"type": "bit"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_source_key_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_disputes__balance_transactions"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLDisputes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "amount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "charge",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "evidence",
+						"type": "nvarchar"
+					},
+					{
+						"name": "evidence_details__due_by",
+						"type": "nvarchar"
+					},
+					{
+						"name": "evidence_details__has_evidence",
+						"type": "nvarchar"
+					},
+					{
+						"name": "evidence_details__past_due",
+						"type": "nvarchar"
+					},
+					{
+						"name": "evidence_details__submission_count",
+						"type": "tinyint",
+						"precision": 3
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "is_charge_refundable",
+						"type": "bit"
+					},
+					{
+						"name": "livemode",
+						"type": "bit"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "reason",
+						"type": "nvarchar"
+					},
+					{
+						"name": "status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated",
+						"type": "datetime2",
+						"scale": 7
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_disputes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLInvoiceLineItems')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "amount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discountable",
+						"type": "bit"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "invoice",
+						"type": "nvarchar"
+					},
+					{
+						"name": "livemode",
+						"type": "bit"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "period__end",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "period__start",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "plan__active",
+						"type": "bit"
+					},
+					{
+						"name": "plan__amount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "plan__billing_scheme",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "plan__currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__interval",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__interval_count",
+						"type": "bit"
+					},
+					{
+						"name": "plan__livemode",
+						"type": "bit"
+					},
+					{
+						"name": "plan__name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__product",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__statement_description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__statement_descriptor",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__usage_type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "proration",
+						"type": "bit"
+					},
+					{
+						"name": "quantity",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "subscription",
+						"type": "nvarchar"
+					},
+					{
+						"name": "subscription_item",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_invoice_line_items"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLInvoiceLines')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_level_0_id",
+						"type": "bit"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_source_key_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "value",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_invoices__lines"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLInvoices')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "amount_due",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "amount_paid",
+						"type": "bit"
+					},
+					{
+						"name": "amount_remaining",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "application_fee",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "attempt_count",
+						"type": "bit"
+					},
+					{
+						"name": "attempted",
+						"type": "bit"
+					},
+					{
+						"name": "auto_advance",
+						"type": "bit"
+					},
+					{
+						"name": "billing",
+						"type": "nvarchar"
+					},
+					{
+						"name": "billing_reason",
+						"type": "nvarchar"
+					},
+					{
+						"name": "charge",
+						"type": "nvarchar"
+					},
+					{
+						"name": "closed",
+						"type": "bit"
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "customer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "discount__coupon__amount_off",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount__coupon__created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "discount__coupon__currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount__coupon__duration",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount__coupon__id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount__coupon__livemode",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount__coupon__object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount__coupon__percent_off",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "discount__coupon__percent_off_precise",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "discount__coupon__times_redeemed",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "discount__coupon__valid",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount__customer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount__object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount__start",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "discount__subscription",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ending_balance",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "forgiven",
+						"type": "bit"
+					},
+					{
+						"name": "hosted_invoice_url",
+						"type": "nvarchar"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "invoice_pdf",
+						"type": "nvarchar"
+					},
+					{
+						"name": "livemode",
+						"type": "bit"
+					},
+					{
+						"name": "next_payment_attempt",
+						"type": "nvarchar"
+					},
+					{
+						"name": "number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "paid",
+						"type": "bit"
+					},
+					{
+						"name": "payment",
+						"type": "nvarchar"
+					},
+					{
+						"name": "period_end",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "period_start",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "receipt_number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "starting_balance",
+						"type": "bit"
+					},
+					{
+						"name": "status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "subscription",
+						"type": "nvarchar"
+					},
+					{
+						"name": "subtotal",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "tax",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "total",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "updated",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "webhooks_delivered_at",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_invoices"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLLogActions')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "idaction",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "hash",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "type",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "url_prefix",
+						"type": "int",
+						"precision": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "MARKETING_WEBSITE_Matomo_log_action"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLMatomoLogVisits')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "﻿idvisit",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "idsite",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "idvisitor",
+						"type": "nvarchar"
+					},
+					{
+						"name": "visit_last_action_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "config_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location_ip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "user_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "visit_first_action_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "visit_goal_buyer",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_goal_converted",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visitor_days_since_first",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visitor_days_since_order",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visitor_returning",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visitor_count_visits",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_entry_idaction_name",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_entry_idaction_url",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_exit_idaction_name",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_exit_idaction_url",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_total_actions",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_total_interactions",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_total_searches",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "referer_keyword",
+						"type": "nvarchar"
+					},
+					{
+						"name": "referer_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "referer_type",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "referer_url",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location_browser_lang",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_browser_engine",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_browser_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_browser_version",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_device_brand",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_device_model",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_device_type",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "config_os",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_os_version",
+						"type": "nvarchar"
+					},
+					{
+						"name": "visit_total_events",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visitor_localtime",
+						"type": "time",
+						"scale": 7
+					},
+					{
+						"name": "visitor_days_since_last",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "config_resolution",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_cookie",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_director",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_flash",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_gears",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_java",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_pdf",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_quicktime",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_realplayer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_silverlight",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_windowsmedia",
+						"type": "nvarchar"
+					},
+					{
+						"name": "visit_total_time",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "location_city",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location_country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location_latitude",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "location_longitude",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "location_region",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_k1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_v1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_k2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_v2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_k3",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_v3",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_k4",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_v4",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_k5",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_v5",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "MARKETING_WEBSITE_Matomo_log_visit"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLPayoutTransactions')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payout_id",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_payout_transactions"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLPayouts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "amount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "amount_reversed",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "arrival_date",
+						"type": "nvarchar"
+					},
+					{
+						"name": "automatic",
+						"type": "nvarchar"
+					},
+					{
+						"name": "balance_transaction",
+						"type": "nvarchar"
+					},
+					{
+						"name": "bank_account__bank_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "bank_account__country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "bank_account__currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "bank_account__fingerprint",
+						"type": "nvarchar"
+					},
+					{
+						"name": "bank_account__id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "bank_account__last4",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "bank_account__object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "bank_account__routing_number",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "bank_account__status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "destination",
+						"type": "nvarchar"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "livemode",
+						"type": "bit"
+					},
+					{
+						"name": "method",
+						"type": "nvarchar"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "source_type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated",
+						"type": "datetime2",
+						"scale": 7
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_payouts"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLPlans')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "active",
+						"type": "bit"
+					},
+					{
+						"name": "amount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "billing_scheme",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "interval",
+						"type": "nvarchar"
+					},
+					{
+						"name": "interval_count",
+						"type": "bit"
+					},
+					{
+						"name": "livemode",
+						"type": "bit"
+					},
+					{
+						"name": "name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "product",
+						"type": "nvarchar"
+					},
+					{
+						"name": "statement_description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "statement_descriptor",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "usage_type",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_plans"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLProducts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "nvarchar"
+					},
+					{
+						"name": "active",
+						"type": "bit"
+					},
+					{
+						"name": "created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "livemode",
+						"type": "bit"
+					},
+					{
+						"name": "name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "shippable",
+						"type": "bit"
+					},
+					{
+						"name": "statement_descriptor",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated",
+						"type": "datetime2",
+						"scale": 7
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_products"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLSubscription__Items')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_level_0_id",
+						"type": "bit"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_source_key_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "value",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_subscription__items"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLSubscription_item')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__active",
+						"type": "bit"
+					},
+					{
+						"name": "plan__amount",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__billing_scheme",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "plan__currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__interval",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__interval_count",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__livemode",
+						"type": "bit"
+					},
+					{
+						"name": "plan__name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__product",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__statement_description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__statement_descriptor",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__usage_type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "quantity",
+						"type": "nvarchar"
+					},
+					{
+						"name": "subscription",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_subscription_items"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
