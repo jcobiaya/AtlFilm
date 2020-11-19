@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_emx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureTableStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "Table2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

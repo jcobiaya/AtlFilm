@@ -1,0 +1,98 @@
+{
+	"name": "SQLBalanceTransactions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_extracted_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "amount",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "available_on",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "created",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "fee",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "net",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source",
+				"type": "nvarchar"
+			},
+			{
+				"name": "status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_balance_transactions"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

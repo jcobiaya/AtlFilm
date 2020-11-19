@@ -1,0 +1,17 @@
+{
+	"name": "AzureSqlList_members__tags",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "MARKETING_MAILCHIMP_List_members__tags"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

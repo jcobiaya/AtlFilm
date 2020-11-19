@@ -1,0 +1,17 @@
+{
+	"name": "AzureSqlAccounts",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DEVELOPMENT_SALESFORCE_Accounts"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

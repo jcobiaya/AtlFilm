@@ -1,0 +1,45 @@
+{
+	"name": "AzureSqlEventiveEventBuckets",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Event ID",
+				"type": "varchar"
+			},
+			{
+				"name": "Event Bucket Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Event Bucket URL",
+				"type": "varchar"
+			},
+			{
+				"name": "Created_At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Updated_At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Start_Date",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Event_Bucket"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

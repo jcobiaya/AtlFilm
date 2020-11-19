@@ -1,0 +1,16 @@
+{
+	"name": "MySQLMatomoLogVisits",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MatomoData",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "`matomo_log_visit`"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

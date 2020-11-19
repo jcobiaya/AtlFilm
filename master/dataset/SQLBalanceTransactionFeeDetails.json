@@ -1,0 +1,66 @@
+{
+	"name": "SQLBalanceTransactionFeeDetails",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_level_0_id",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "_sdc_source_key_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "amount",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "application",
+				"type": "nvarchar"
+			},
+			{
+				"name": "currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "type",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_balance_transactions__fees_details"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

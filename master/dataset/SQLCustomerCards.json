@@ -1,0 +1,107 @@
+{
+	"name": "SQLCustomerCards",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_level_0_id",
+				"type": "bit"
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "_sdc_source_key_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "bit"
+			},
+			{
+				"name": "address_zip",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "address_zip_check",
+				"type": "nvarchar"
+			},
+			{
+				"name": "brand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "cvc_check",
+				"type": "nvarchar"
+			},
+			{
+				"name": "exp_month",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "exp_year",
+				"type": "time",
+				"scale": 7
+			},
+			{
+				"name": "fingerprint",
+				"type": "nvarchar"
+			},
+			{
+				"name": "funding",
+				"type": "nvarchar"
+			},
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "last4",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "type",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_customers__cards"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

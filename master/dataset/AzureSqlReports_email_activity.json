@@ -1,0 +1,17 @@
+{
+	"name": "AzureSqlReports_email_activity",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "MARKETING_MAILCHIMP_Reports_email_activity"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

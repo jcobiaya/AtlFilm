@@ -1,0 +1,16 @@
+{
+	"name": "EventivePassBuckets",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Eventive",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "pass_buckets"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,120 @@
+{
+	"name": "SQLSubscription_item",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_extracted_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "nvarchar"
+			},
+			{
+				"name": "created",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__active",
+				"type": "bit"
+			},
+			{
+				"name": "plan__amount",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__billing_scheme",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__created",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "plan__currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__interval",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__interval_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__livemode",
+				"type": "bit"
+			},
+			{
+				"name": "plan__name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__product",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__statement_description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__statement_descriptor",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__usage_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quantity",
+				"type": "nvarchar"
+			},
+			{
+				"name": "subscription",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_subscription_items"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

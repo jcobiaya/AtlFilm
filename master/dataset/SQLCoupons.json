@@ -1,0 +1,91 @@
+{
+	"name": "SQLCoupons",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_extracted_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "bit"
+			},
+			{
+				"name": "amount_off",
+				"type": "nvarchar"
+			},
+			{
+				"name": "created",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "duration",
+				"type": "nvarchar"
+			},
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "livemode",
+				"type": "bit"
+			},
+			{
+				"name": "object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "percent_off",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "percent_off_precise",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "times_redeemed",
+				"type": "bit"
+			},
+			{
+				"name": "updated",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "valid",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_coupons"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

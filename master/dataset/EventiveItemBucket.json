@@ -1,0 +1,16 @@
+{
+	"name": "EventiveItemBucket",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Eventive",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "item_buckets"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

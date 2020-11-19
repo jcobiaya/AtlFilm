@@ -1,0 +1,54 @@
+{
+	"name": "AzureSqlEventivePeople",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "﻿name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "phone_number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "mailing_address",
+				"type": "nvarchar"
+			},
+			{
+				"name": "facebook_user_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "do_not_email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_summary",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Person ID",
+				"type": "nchar"
+			},
+			{
+				"name": "sms_tickets_enabled",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_People"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

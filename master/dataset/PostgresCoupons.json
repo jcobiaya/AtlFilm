@@ -1,0 +1,17 @@
+{
+	"name": "PostgresCoupons",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stripe",
+			"table": "coupons"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

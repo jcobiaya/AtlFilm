@@ -1,0 +1,483 @@
+{
+	"name": "SQLCharges",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_extracted_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "nvarchar"
+			},
+			{
+				"name": "amount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "amount_refunded",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "application",
+				"type": "nvarchar"
+			},
+			{
+				"name": "balance_transaction",
+				"type": "nvarchar"
+			},
+			{
+				"name": "captured",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__address_city",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__address_country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__address_line1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__address_line1_check",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__address_line2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__address_state",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__address_zip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__address_zip_check",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__brand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__customer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__cvc_check",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__exp_month",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "card__exp_year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "card__fingerprint",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__funding",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__last4",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "card__name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "card__type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "created",
+				"type": "nvarchar"
+			},
+			{
+				"name": "currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dispute",
+				"type": "nvarchar"
+			},
+			{
+				"name": "failure_code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "failure_message",
+				"type": "nvarchar"
+			},
+			{
+				"name": "fraud_details__stripe_report",
+				"type": "nvarchar"
+			},
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "invoice",
+				"type": "nvarchar"
+			},
+			{
+				"name": "livemode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__eventive_event_bucket",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__eventive_link",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__eventive_order",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__orderId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__shipping_address1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__shipping_address2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__shipping_city",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__shipping_country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__shipping_recipient",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__shipping_state",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__shipping_zip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__tax",
+				"type": "nvarchar"
+			},
+			{
+				"name": "metadata__websiteId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "outcome__network_status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "outcome__reason",
+				"type": "nvarchar"
+			},
+			{
+				"name": "outcome__risk_level",
+				"type": "nvarchar"
+			},
+			{
+				"name": "outcome__risk_score",
+				"type": "nvarchar"
+			},
+			{
+				"name": "outcome__seller_message",
+				"type": "nvarchar"
+			},
+			{
+				"name": "outcome__type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "paid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_intent",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__brand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__checks__address_line1_check",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__checks__cvc_check",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__exp_month",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__exp_year",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__fingerprint",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__funding",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__last4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__network",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__wallet__dynamic_last4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__card__wallet__type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "payment_method_details__type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "receipt_email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "receipt_number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "refunded",
+				"type": "nvarchar"
+			},
+			{
+				"name": "review",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__address_city",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__address_country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__address_line1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__address_line1_check",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__address_line2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__address_state",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__address_zip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__address_zip_check",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__brand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__client_secret",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__created",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__customer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__cvc_check",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__exp_month",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__exp_year",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__fingerprint",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__flow",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__funding",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__last4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__livemode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source__usage",
+				"type": "nvarchar"
+			},
+			{
+				"name": "statement_description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "statement_descriptor",
+				"type": "nvarchar"
+			},
+			{
+				"name": "status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SSMA_TimeStamp",
+				"type": "timestamp"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_charges"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

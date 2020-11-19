@@ -1,0 +1,17 @@
+{
+	"name": "PostgreSql_stripe_sdc_rejected",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "PostgreSqlATLFS_STITCH_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "PostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stripe",
+			"table": "_sdc_rejected"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

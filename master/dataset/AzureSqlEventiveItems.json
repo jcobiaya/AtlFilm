@@ -1,0 +1,64 @@
+{
+	"name": "AzureSqlEventiveItems",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Item ID",
+				"type": "nchar"
+			},
+			{
+				"name": "Item Bucket Code",
+				"type": "nchar"
+			},
+			{
+				"name": "Item Bucket ID",
+				"type": "nchar"
+			},
+			{
+				"name": "Item Name",
+				"type": "nchar"
+			},
+			{
+				"name": "Order",
+				"type": "nchar"
+			},
+			{
+				"name": "Perason Email",
+				"type": "nchar"
+			},
+			{
+				"name": "Person ID",
+				"type": "nchar"
+			},
+			{
+				"name": "Person Name",
+				"type": "nchar"
+			},
+			{
+				"name": "Price",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Variant ID",
+				"type": "nchar"
+			},
+			{
+				"name": "Created At",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Items"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

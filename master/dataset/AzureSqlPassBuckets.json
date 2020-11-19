@@ -1,0 +1,99 @@
+{
+	"name": "AzureSqlPassBuckets",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event_Bucket ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Price",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			},
+			{
+				"name": "Unlimited",
+				"type": "bit"
+			},
+			{
+				"name": "Quantity_Remaining",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			},
+			{
+				"name": "Recurrence_Enabled",
+				"type": "bit"
+			},
+			{
+				"name": "Cancellation_Allowed",
+				"type": "bit"
+			},
+			{
+				"name": "Ticket_Transfer_Allowed",
+				"type": "bit"
+			},
+			{
+				"name": "Gift_Allowed",
+				"type": "bit"
+			},
+			{
+				"name": "Cancellation_Window",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			},
+			{
+				"name": "Volume_Price_Enabled",
+				"type": "bit"
+			},
+			{
+				"name": "Volume_Price",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			},
+			{
+				"name": "Sales_Disabled_Unless_Coupon",
+				"type": "bit"
+			},
+			{
+				"name": "Tickets_Enabled",
+				"type": "bit"
+			},
+			{
+				"name": "Updated_At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Visible_In_Box_Office",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Pass_Buckets"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "AzureSqlList_segments__options__conditions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "MARKETING_MAILCHIMP_List_segments__options__conditions"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

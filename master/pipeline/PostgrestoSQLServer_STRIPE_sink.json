@@ -1,0 +1,6052 @@
+{
+	"name": "PostgrestoSQLServer_STRIPE_sink",
+	"properties": {
+		"activities": [
+			{
+				"name": "Payouts",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "PostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_payouts];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "amount",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "amount_reversed",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount_reversed",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "arrival_date",
+									"type": "String"
+								},
+								"sink": {
+									"name": "arrival_date",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "automatic",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "automatic",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "balance_transaction",
+									"type": "String"
+								},
+								"sink": {
+									"name": "balance_transaction",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "bank_account__bank_name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "bank_account__bank_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "bank_account__country",
+									"type": "String"
+								},
+								"sink": {
+									"name": "bank_account__country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "bank_account__currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "bank_account__currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "bank_account__fingerprint",
+									"type": "String"
+								},
+								"sink": {
+									"name": "bank_account__fingerprint",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "bank_account__id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "bank_account__id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "bank_account__last4",
+									"type": "String"
+								},
+								"sink": {
+									"name": "bank_account__last4",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "bank_account__object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "bank_account__object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "bank_account__routing_number",
+									"type": "String"
+								},
+								"sink": {
+									"name": "bank_account__routing_number",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "bank_account__status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "bank_account__status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "created",
+									"type": "String"
+								},
+								"sink": {
+									"name": "created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "date",
+									"type": "String"
+								},
+								"sink": {
+									"name": "date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "destination",
+									"type": "String"
+								},
+								"sink": {
+									"name": "destination",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "method",
+									"type": "String"
+								},
+								"sink": {
+									"name": "method",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source_type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source_type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "updated",
+									"type": "String"
+								},
+								"sink": {
+									"name": "updated",
+									"type": "DateTime"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Postgre_STRIPE_Payouts",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLPayouts",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Payout Transactions",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_payout_transactions]\n",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payout_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payout_id",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Postgres_STRIPE_Payout_Transactions",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLPayoutTransactions",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Charges",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_charges];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "amount",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "amount_refunded",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount_refunded",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "application",
+									"type": "String"
+								},
+								"sink": {
+									"name": "application",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "balance_transaction",
+									"type": "String"
+								},
+								"sink": {
+									"name": "balance_transaction",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "captured",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "captured",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__address_city",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__address_city",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__address_country",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__address_country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__address_line1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__address_line1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__address_line1_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__address_line1_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__address_line2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__address_line2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__address_state",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__address_state",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__address_zip",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__address_zip",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__address_zip_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__address_zip_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__brand",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__brand",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__country",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__customer",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__customer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__cvc_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__cvc_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__exp_month",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "card__exp_month",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "card__exp_year",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "card__exp_year",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "card__fingerprint",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__fingerprint",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__funding",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__funding",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__last4",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__last4",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "card__name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "card__type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "card__type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "customer",
+									"type": "String"
+								},
+								"sink": {
+									"name": "customer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "dispute",
+									"type": "String"
+								},
+								"sink": {
+									"name": "dispute",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "failure_code",
+									"type": "String"
+								},
+								"sink": {
+									"name": "failure_code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "failure_message",
+									"type": "String"
+								},
+								"sink": {
+									"name": "failure_message",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "fraud_details__stripe_report",
+									"type": "String"
+								},
+								"sink": {
+									"name": "fraud_details__stripe_report",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "invoice",
+									"type": "String"
+								},
+								"sink": {
+									"name": "invoice",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "livemode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__eventive_event_bucket",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__eventive_event_bucket",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__eventive_link",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__eventive_link",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__eventive_order",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__eventive_order",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__orderId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__orderId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__shipping_address1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__shipping_address1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__shipping_address2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__shipping_address2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__shipping_city",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__shipping_city",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__shipping_country",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__shipping_country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__shipping_recipient",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__shipping_recipient",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__shipping_state",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__shipping_state",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__shipping_zip",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__shipping_zip",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__tax",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__tax",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__websiteId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__websiteId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "outcome__network_status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "outcome__network_status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "outcome__reason",
+									"type": "String"
+								},
+								"sink": {
+									"name": "outcome__reason",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "outcome__risk_level",
+									"type": "String"
+								},
+								"sink": {
+									"name": "outcome__risk_level",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "outcome__risk_score",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "outcome__risk_score",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "outcome__seller_message",
+									"type": "String"
+								},
+								"sink": {
+									"name": "outcome__seller_message",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "outcome__type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "outcome__type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "paid",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "paid",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_intent",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_intent",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__brand",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_method_details__card__brand",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__checks__address_line1_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_method_details__card__checks__address_line1_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__checks__cvc_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_method_details__card__checks__cvc_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__country",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_method_details__card__country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__exp_month",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "payment_method_details__card__exp_month",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__exp_year",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "payment_method_details__card__exp_year",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__fingerprint",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_method_details__card__fingerprint",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__funding",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_method_details__card__funding",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__last4",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_method_details__card__last4",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__network",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_method_details__card__network",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__wallet__dynamic_last4",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_method_details__card__wallet__dynamic_last4",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__card__wallet__type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_method_details__card__wallet__type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_method_details__type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_method_details__type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "receipt_email",
+									"type": "String"
+								},
+								"sink": {
+									"name": "receipt_email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "receipt_number",
+									"type": "String"
+								},
+								"sink": {
+									"name": "receipt_number",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "refunded",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "refunded",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "review",
+									"type": "String"
+								},
+								"sink": {
+									"name": "review",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__address_city",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__address_city",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__address_country",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__address_country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__address_line1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__address_line1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__address_line1_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__address_line1_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__address_line2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__address_line2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__address_state",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__address_state",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__address_zip",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__address_zip",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__address_zip_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__address_zip_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__brand",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__brand",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__client_secret",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__client_secret",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__country",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "source__created",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__customer",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__customer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__cvc_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__cvc_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__exp_month",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "source__exp_month",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__exp_year",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "source__exp_year",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__fingerprint",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__fingerprint",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__flow",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__flow",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__funding",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__funding",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__last4",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__last4",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "source__livemode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source__usage",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source__usage",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "statement_description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "statement_description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "statement_descriptor",
+									"type": "String"
+								},
+								"sink": {
+									"name": "statement_descriptor",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "updated",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__person_name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__person_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__person_email",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__person_email",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresStripeCharges",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLCharges",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Charges_Refund",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_charges__refunds];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_level_0_id",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_level_0_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "amount",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "balance_transaction",
+									"type": "String"
+								},
+								"sink": {
+									"name": "balance_transaction",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "charge",
+									"type": "String"
+								},
+								"sink": {
+									"name": "charge",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "created",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "created",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "metadata__websiteId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "metadata__websiteId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_intent",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment_intent",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "reason",
+									"type": "String"
+								},
+								"sink": {
+									"name": "reason",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "receipt_number",
+									"type": "String"
+								},
+								"sink": {
+									"name": "receipt_number",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "status",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresChargesRefunds",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLChargesRefunds",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Balance Transactions",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_balance_transactions];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "amount",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "available_on",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "available_on",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "fee",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "fee",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "net",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "net",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "updated",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated",
+									"type": "DateTime"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresBalanceTransactions",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLBalanceTransactions",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "BalanceTransactionFeeDetails",
+				"description": "",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_balance_transactions__fees_details];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_level_0_id",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_level_0_id",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "amount",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "application",
+									"type": "String"
+								},
+								"sink": {
+									"name": "application",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresBalanceTransactionFeeDetails",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLBalanceTransactionFeeDetails",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Coupons",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_coupons];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "amount_off",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount_off",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "duration",
+									"type": "String"
+								},
+								"sink": {
+									"name": "duration",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "percent_off",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "percent_off",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "percent_off_precise",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "percent_off_precise",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "times_redeemed",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "times_redeemed",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "updated",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "valid",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "valid",
+									"type": "Boolean"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresCoupons",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLCoupons",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Customers",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_customers]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "account_balance",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "account_balance",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "default_card",
+									"type": "String"
+								},
+								"sink": {
+									"name": "default_card",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "default_source",
+									"type": "String"
+								},
+								"sink": {
+									"name": "default_source",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "delinquent",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "delinquent",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "email",
+									"type": "String"
+								},
+								"sink": {
+									"name": "email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "invoice_prefix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "invoice_prefix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "updated",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated",
+									"type": "DateTime"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresCustomers",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLCustomers",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "CustomerCards",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_customers__cards];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_level_0_id",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_level_0_id",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "address_zip",
+									"type": "String"
+								},
+								"sink": {
+									"name": "address_zip",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "address_zip_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "address_zip_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "brand",
+									"type": "String"
+								},
+								"sink": {
+									"name": "brand",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "country",
+									"type": "String"
+								},
+								"sink": {
+									"name": "country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "customer",
+									"type": "String"
+								},
+								"sink": {
+									"name": "customer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "cvc_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cvc_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "exp_month",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "exp_month",
+									"type": "Byte"
+								}
+							},
+							{
+								"source": {
+									"name": "exp_year",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "exp_year",
+									"type": "TimeSpan"
+								}
+							},
+							{
+								"source": {
+									"name": "fingerprint",
+									"type": "String"
+								},
+								"sink": {
+									"name": "fingerprint",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "funding",
+									"type": "String"
+								},
+								"sink": {
+									"name": "funding",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "last4",
+									"type": "String"
+								},
+								"sink": {
+									"name": "last4",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresCustomerCards",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLCustomerCards",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "CustomerSources",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_customers__sources];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_level_0_id",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_level_0_id",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "address_zip",
+									"type": "String"
+								},
+								"sink": {
+									"name": "address_zip",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "address_zip_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "address_zip_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "brand",
+									"type": "String"
+								},
+								"sink": {
+									"name": "brand",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "country",
+									"type": "String"
+								},
+								"sink": {
+									"name": "country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "customer",
+									"type": "String"
+								},
+								"sink": {
+									"name": "customer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "cvc_check",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cvc_check",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "exp_month",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "exp_month",
+									"type": "Byte"
+								}
+							},
+							{
+								"source": {
+									"name": "exp_year",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "exp_year",
+									"type": "TimeSpan"
+								}
+							},
+							{
+								"source": {
+									"name": "fingerprint",
+									"type": "String"
+								},
+								"sink": {
+									"name": "fingerprint",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "funding",
+									"type": "String"
+								},
+								"sink": {
+									"name": "funding",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "last4",
+									"type": "String"
+								},
+								"sink": {
+									"name": "last4",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresCustomerSources",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLCustomerSources",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "CustomerSubscriptions",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_customers__subscriptions];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_level_0_id",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_level_0_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "value",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresCustomerSubscriptions",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLCustomerSubscriptions",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Disputes",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_disputes];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "amount",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "charge",
+									"type": "String"
+								},
+								"sink": {
+									"name": "charge",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "evidence",
+									"type": "String"
+								},
+								"sink": {
+									"name": "evidence",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "evidence_details__due_by",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "evidence_details__due_by",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "evidence_details__has_evidence",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "evidence_details__has_evidence",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "evidence_details__past_due",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "evidence_details__past_due",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "evidence_details__submission_count",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "evidence_details__submission_count",
+									"type": "Byte"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "is_charge_refundable",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "is_charge_refundable",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "reason",
+									"type": "String"
+								},
+								"sink": {
+									"name": "reason",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "updated",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated",
+									"type": "DateTime"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresDisputes",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLDisputes",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "DisputeBalanceTransactions",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_disputes__balance_transactions];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_level_0_id",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_level_0_id",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresDisputeBalanceTransactions",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLDisputeBalanceTransactions",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "InvoiceLineItems",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_invoice_line_items]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "amount",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "discountable",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "discountable",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "invoice",
+									"type": "String"
+								},
+								"sink": {
+									"name": "invoice",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "period__end",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "period__end",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "period__start",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "period__start",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__active",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "plan__active",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__amount",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "plan__amount",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__billing_scheme",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__billing_scheme",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "plan__created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__interval",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__interval",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__interval_count",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "plan__interval_count",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "plan__livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__product",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__product",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__statement_description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__statement_description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__statement_descriptor",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__statement_descriptor",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__usage_type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__usage_type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "proration",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "proration",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "quantity",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "quantity",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "subscription",
+									"type": "String"
+								},
+								"sink": {
+									"name": "subscription",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "subscription_item",
+									"type": "String"
+								},
+								"sink": {
+									"name": "subscription_item",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresInvoiceLineItems",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLInvoiceLineItems",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Invoices",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_invoices];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "amount_due",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount_due",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "amount_paid",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount_paid",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "amount_remaining",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount_remaining",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "application_fee",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "application_fee",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "attempt_count",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "attempt_count",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "attempted",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "attempted",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "auto_advance",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "auto_advance",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "billing",
+									"type": "String"
+								},
+								"sink": {
+									"name": "billing",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "billing_reason",
+									"type": "String"
+								},
+								"sink": {
+									"name": "billing_reason",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "charge",
+									"type": "String"
+								},
+								"sink": {
+									"name": "charge",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "closed",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "closed",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "customer",
+									"type": "String"
+								},
+								"sink": {
+									"name": "customer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "date",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__coupon__amount_off",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "discount__coupon__amount_off",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__coupon__created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "discount__coupon__created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__coupon__currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "discount__coupon__currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__coupon__duration",
+									"type": "String"
+								},
+								"sink": {
+									"name": "discount__coupon__duration",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__coupon__id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "discount__coupon__id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__coupon__livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "discount__coupon__livemode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__coupon__object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "discount__coupon__object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__coupon__percent_off",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "discount__coupon__percent_off",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__coupon__percent_off_precise",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "discount__coupon__percent_off_precise",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__coupon__times_redeemed",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "discount__coupon__times_redeemed",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__coupon__valid",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "discount__coupon__valid",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__customer",
+									"type": "String"
+								},
+								"sink": {
+									"name": "discount__customer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "discount__object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__start",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "discount__start",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "discount__subscription",
+									"type": "String"
+								},
+								"sink": {
+									"name": "discount__subscription",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ending_balance",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "ending_balance",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "forgiven",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "forgiven",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "hosted_invoice_url",
+									"type": "String"
+								},
+								"sink": {
+									"name": "hosted_invoice_url",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "invoice_pdf",
+									"type": "String"
+								},
+								"sink": {
+									"name": "invoice_pdf",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "next_payment_attempt",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "next_payment_attempt",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "number",
+									"type": "String"
+								},
+								"sink": {
+									"name": "number",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "paid",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "paid",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "payment",
+									"type": "String"
+								},
+								"sink": {
+									"name": "payment",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "period_end",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "period_end",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "period_start",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "period_start",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "receipt_number",
+									"type": "String"
+								},
+								"sink": {
+									"name": "receipt_number",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "starting_balance",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "starting_balance",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "subscription",
+									"type": "String"
+								},
+								"sink": {
+									"name": "subscription",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "subtotal",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "subtotal",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "tax",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "tax",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "total",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "total",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "updated",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "webhooks_delivered_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "webhooks_delivered_at",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresInvoices",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLInvoices",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "InvoiceLines",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_invoices__lines];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_level_0_id",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_level_0_id",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "value",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresInvoiceLines",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLInvoiceLines",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Plans",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_plans];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "active",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "active",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "amount",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "amount",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "billing_scheme",
+									"type": "String"
+								},
+								"sink": {
+									"name": "billing_scheme",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "interval",
+									"type": "String"
+								},
+								"sink": {
+									"name": "interval",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "interval_count",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "interval_count",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "product",
+									"type": "String"
+								},
+								"sink": {
+									"name": "product",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "statement_description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "statement_description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "statement_descriptor",
+									"type": "String"
+								},
+								"sink": {
+									"name": "statement_descriptor",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "updated",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "usage_type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "usage_type",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresPlans",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLPlans",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Products",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_products];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "active",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "active",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "shippable",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "shippable",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "statement_descriptor",
+									"type": "String"
+								},
+								"sink": {
+									"name": "statement_descriptor",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "updated",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated",
+									"type": "DateTime"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresProducts",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLProducts",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Subscription__Items",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_subscription__items];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_level_0_id",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_level_0_id",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "value",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresSubscription__Items",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLSubscription__Items",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Subscription_item",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_subscription_items];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__active",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "plan__active",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__amount",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "plan__amount",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__billing_scheme",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__billing_scheme",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "plan__created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__interval",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__interval",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__interval_count",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "plan__interval_count",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "plan__livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__product",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__product",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__statement_description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__statement_description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__statement_descriptor",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__statement_descriptor",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__usage_type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__usage_type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "quantity",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "quantity",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "subscription",
+									"type": "String"
+								},
+								"sink": {
+									"name": "subscription",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresSubscription_item",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLSubscription_item",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Subscriptions",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[FINANCE_STRIPE_subscriptions];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_extracted_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_extracted_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "application_fee_percent",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "application_fee_percent",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "billing",
+									"type": "String"
+								},
+								"sink": {
+									"name": "billing",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "billing_cycle_anchor",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "billing_cycle_anchor",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "cancel_at_period_end",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "cancel_at_period_end",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "canceled_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "canceled_at",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "current_period_end",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "current_period_end",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "current_period_start",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "current_period_start",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "customer",
+									"type": "String"
+								},
+								"sink": {
+									"name": "customer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ended_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "ended_at",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__active",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "plan__active",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__amount",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "plan__amount",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__billing_scheme",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__billing_scheme",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__created",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "plan__created",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__currency",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__interval",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__interval",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__interval_count",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "plan__interval_count",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__livemode",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "plan__livemode",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__object",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__object",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__product",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__product",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__statement_description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__statement_description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__statement_descriptor",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__statement_descriptor",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "plan__usage_type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "plan__usage_type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "quantity",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "quantity",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "start",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "start",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "trial_end",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "trial_end",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "trial_start",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "trial_start",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "updated",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated",
+									"type": "DateTime"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresSubscriptions",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLSubscriptions",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-07-09T20:05:05Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

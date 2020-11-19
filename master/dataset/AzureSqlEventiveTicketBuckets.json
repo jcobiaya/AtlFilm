@@ -1,0 +1,98 @@
+{
+	"name": "AzureSqlEventiveTicketBuckets",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event_Bucket ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Price",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Unlimited",
+				"type": "bit"
+			},
+			{
+				"name": "Quantity",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Quantity_Remaining",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Exclude_Capacity",
+				"type": "bit"
+			},
+			{
+				"name": "Public",
+				"type": "bit"
+			},
+			{
+				"name": "Applicable_Pass_Buckets",
+				"type": "nchar"
+			},
+			{
+				"name": "Lock_Admin_Only",
+				"type": "bit"
+			},
+			{
+				"name": "Variants",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tickets",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quantity_available",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "final_price",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			},
+			{
+				"name": "quantity_scanned",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "quantity_sold",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Ticket Buckets"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

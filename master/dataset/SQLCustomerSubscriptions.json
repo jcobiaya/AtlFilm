@@ -1,0 +1,50 @@
+{
+	"name": "SQLCustomerSubscriptions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_level_0_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_source_key_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "nvarchar"
+			},
+			{
+				"name": "value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SSMA_TimeStamp",
+				"type": "timestamp"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_customers__subscriptions"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

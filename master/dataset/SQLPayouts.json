@@ -1,0 +1,154 @@
+{
+	"name": "SQLPayouts",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_extracted_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "bit"
+			},
+			{
+				"name": "amount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "amount_reversed",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "arrival_date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "automatic",
+				"type": "nvarchar"
+			},
+			{
+				"name": "balance_transaction",
+				"type": "nvarchar"
+			},
+			{
+				"name": "bank_account__bank_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "bank_account__country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "bank_account__currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "bank_account__fingerprint",
+				"type": "nvarchar"
+			},
+			{
+				"name": "bank_account__id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "bank_account__last4",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "bank_account__object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "bank_account__routing_number",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "bank_account__status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "created",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "date",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "destination",
+				"type": "nvarchar"
+			},
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "livemode",
+				"type": "bit"
+			},
+			{
+				"name": "method",
+				"type": "nvarchar"
+			},
+			{
+				"name": "object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_payouts"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

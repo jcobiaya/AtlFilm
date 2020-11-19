@@ -1,0 +1,39 @@
+{
+	"name": "AzureSqlItemBucket",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Item Bucket ID",
+				"type": "nchar"
+			},
+			{
+				"name": "Event Bucket",
+				"type": "nchar"
+			},
+			{
+				"name": "Item Bucket Name",
+				"type": "nchar"
+			},
+			{
+				"name": "Code",
+				"type": "nchar"
+			},
+			{
+				"name": "Updated At",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Item Bucket"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "AzureSqlcampaigns__recipients__segment_opts__conditions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "MARKETING_MAILCHIMP_Campaigns__recipients__segment_opts__conditions"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

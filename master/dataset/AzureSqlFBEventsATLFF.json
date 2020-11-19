@@ -1,0 +1,211 @@
+{
+	"name": "AzureSqlFBEventsATLFF",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "attending_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "can_guest_invite",
+				"type": "bit"
+			},
+			{
+				"name": "category",
+				"type": "nvarchar"
+			},
+			{
+				"name": "declined_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discount_code_enabled",
+				"type": "bit"
+			},
+			{
+				"name": "end_time",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "event_times",
+				"type": "nvarchar"
+			},
+			{
+				"name": "guest_list_enabled",
+				"type": "bit"
+			},
+			{
+				"name": "interested_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "is_canceled",
+				"type": "bit"
+			},
+			{
+				"name": "is_draft",
+				"type": "bit"
+			},
+			{
+				"name": "is_online",
+				"type": "bit"
+			},
+			{
+				"name": "is_page_owned",
+				"type": "bit"
+			},
+			{
+				"name": "maybe_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "noreply_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "owner",
+				"type": "nvarchar"
+			},
+			{
+				"name": "parent_group",
+				"type": "nchar"
+			},
+			{
+				"name": "place.id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.overall_rating",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "place.location.city",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.location.country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.location.country_code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.location.latitude",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "place.location.located_in",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.location.longitude",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "place.location.name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.location.region",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.location.region_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.location.state",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.location.street",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.location.zip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place.location.city_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "scheduled_publish_time",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "start_time",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "ticket_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ticket_uri_start_sales_time",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "ticketing_privacy_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ticketing_terms_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "timezone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated_time",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "MARKETING_FACEBOOK_ATLFF_Events"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

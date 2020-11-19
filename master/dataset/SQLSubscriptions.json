@@ -1,0 +1,189 @@
+{
+	"name": "SQLSubscriptions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_extracted_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "nvarchar"
+			},
+			{
+				"name": "application_fee_percent",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "billing",
+				"type": "nvarchar"
+			},
+			{
+				"name": "billing_cycle_anchor",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "cancel_at_period_end",
+				"type": "bit"
+			},
+			{
+				"name": "canceled_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "created",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "current_period_end",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "current_period_start",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "customer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ended_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "livemode",
+				"type": "bit"
+			},
+			{
+				"name": "object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__active",
+				"type": "bit"
+			},
+			{
+				"name": "plan__amount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "plan__billing_scheme",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__created",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "plan__currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__interval",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__interval_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__livemode",
+				"type": "bit"
+			},
+			{
+				"name": "plan__name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__product",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__statement_description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__statement_descriptor",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__usage_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quantity",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "start",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "trial_end",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "trial_start",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "updated",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_subscriptions"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

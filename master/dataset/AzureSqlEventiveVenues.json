@@ -1,0 +1,55 @@
+{
+	"name": "AzureSqlEventiveVenues",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Venue Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Capacity",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Venue ID",
+				"type": "nchar"
+			},
+			{
+				"name": "Address",
+				"type": "nchar"
+			},
+			{
+				"name": "Color",
+				"type": "nchar"
+			},
+			{
+				"name": "Use Reserved Seating",
+				"type": "bit"
+			},
+			{
+				"name": "Short Name",
+				"type": "nchar"
+			},
+			{
+				"name": "Short Description",
+				"type": "nchar"
+			},
+			{
+				"name": "Event Bucket",
+				"type": "nchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Venues"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

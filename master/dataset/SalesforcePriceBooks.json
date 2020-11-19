@@ -1,0 +1,16 @@
+{
+	"name": "SalesforcePriceBooks",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Salesforce",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SalesforceObject",
+		"schema": [],
+		"typeProperties": {
+			"objectApiName": "Pricebook2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,107 @@
+{
+	"name": "SQLDisputes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_extracted_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "bit"
+			},
+			{
+				"name": "amount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "charge",
+				"type": "nvarchar"
+			},
+			{
+				"name": "created",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "evidence",
+				"type": "nvarchar"
+			},
+			{
+				"name": "evidence_details__due_by",
+				"type": "nvarchar"
+			},
+			{
+				"name": "evidence_details__has_evidence",
+				"type": "nvarchar"
+			},
+			{
+				"name": "evidence_details__past_due",
+				"type": "nvarchar"
+			},
+			{
+				"name": "evidence_details__submission_count",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "is_charge_refundable",
+				"type": "bit"
+			},
+			{
+				"name": "livemode",
+				"type": "bit"
+			},
+			{
+				"name": "object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "reason",
+				"type": "nvarchar"
+			},
+			{
+				"name": "status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_disputes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

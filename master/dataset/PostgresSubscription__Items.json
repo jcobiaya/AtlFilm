@@ -1,0 +1,17 @@
+{
+	"name": "PostgresSubscription__Items",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stripe",
+			"table": "subscriptions__items"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "Postgres_STRIPE_Payout_Transactions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stripe",
+			"table": "payout_transactions"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

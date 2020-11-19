@@ -1,0 +1,16 @@
+{
+	"name": "FBEventsATLFF",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureTableStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "FBEventsATLFF2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

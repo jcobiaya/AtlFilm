@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_yxm",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureTableStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "ATLFSEvents"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

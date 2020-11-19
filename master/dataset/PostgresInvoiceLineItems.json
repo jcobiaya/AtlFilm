@@ -1,0 +1,17 @@
+{
+	"name": "PostgresInvoiceLineItems",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stripe",
+			"table": "invoice_line_items"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

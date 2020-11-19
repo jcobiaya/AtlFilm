@@ -1,0 +1,17 @@
+{
+	"name": "PostgreSqlList_segments",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "mailchimp",
+			"table": "list_segments"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

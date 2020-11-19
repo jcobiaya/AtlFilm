@@ -1,0 +1,17 @@
+{
+	"name": "AzureSqlPriceBooks",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DEVELOPMENT_SALESFORCE_Price_Books"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

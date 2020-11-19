@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_7xa",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureTableStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "SalesforceEvents"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "PostgresBalanceTransactions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stripe",
+			"table": "balance_transactions"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "PostgresCustomerCards",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stripe",
+			"table": "customers__cards"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

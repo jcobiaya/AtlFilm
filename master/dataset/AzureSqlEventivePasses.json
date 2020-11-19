@@ -1,0 +1,82 @@
+{
+	"name": "AzureSqlEventivePasses",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event_Bucket",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Person.ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Person.Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Person.Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Pass_Bucket.ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Pass_Bucket.Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Pass_Bucket.Code",
+				"type": "nchar"
+			},
+			{
+				"name": "Pass_Bucket.Price",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Order_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Created_At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Updated_At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Checked_In_At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Uses",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Passes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

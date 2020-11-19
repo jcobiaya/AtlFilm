@@ -1,0 +1,78 @@
+{
+	"name": "AzureSqlItemBucketVariants",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event_Bucket.ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Item Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Item Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Updated_At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Active",
+				"type": "bit"
+			},
+			{
+				"name": "Variant ID",
+				"type": "nchar"
+			},
+			{
+				"name": "Variant Name",
+				"type": "nchar"
+			},
+			{
+				"name": "Price",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Quantity",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Quantity Remaining",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Unlimited",
+				"type": "bit"
+			},
+			{
+				"name": "Variable Price",
+				"type": "bit"
+			},
+			{
+				"name": "Variable Price Allowed",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Item Bucket Variants"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

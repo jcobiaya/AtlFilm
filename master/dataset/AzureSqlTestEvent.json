@@ -1,0 +1,114 @@
+{
+	"name": "AzureSqlTestEvent",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "event_bucket",
+				"type": "nvarchar"
+			},
+			{
+				"name": "name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "start_time",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "end_time",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "hide_tickets_button",
+				"type": "bit"
+			},
+			{
+				"name": "passholder_ticket_required",
+				"type": "bit"
+			},
+			{
+				"name": "person",
+				"type": "nvarchar"
+			},
+			{
+				"name": "public_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sales_disabled_unless_coupon",
+				"type": "bit"
+			},
+			{
+				"name": "short_description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "standalone_tickets_enabled",
+				"type": "nchar"
+			},
+			{
+				"name": "tags",
+				"type": "nvarchar"
+			},
+			{
+				"name": "tickets_available",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "timezone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "trailer_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "color",
+				"type": "nchar"
+			},
+			{
+				"name": "venue_id",
+				"type": "binary"
+			},
+			{
+				"name": "venue_name",
+				"type": "nchar"
+			},
+			{
+				"name": "use_reserved_seating",
+				"type": "bit"
+			},
+			{
+				"name": "visibility",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "EVENTIVE_EVENTS_TEST_TABLE"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

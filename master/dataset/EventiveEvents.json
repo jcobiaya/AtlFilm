@@ -1,0 +1,22 @@
+{
+	"name": "EventiveEvents",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Eventive",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"api_key": {
+				"type": "string",
+				"defaultValue": "dd67a9b5637524a10ef8934566db6abc"
+			}
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "events?dd67a9b5637524a10ef8934566db6abc"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

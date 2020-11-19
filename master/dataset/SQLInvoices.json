@@ -1,0 +1,259 @@
+{
+	"name": "SQLInvoices",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_extracted_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "bit"
+			},
+			{
+				"name": "amount_due",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "amount_paid",
+				"type": "bit"
+			},
+			{
+				"name": "amount_remaining",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "application_fee",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "attempt_count",
+				"type": "bit"
+			},
+			{
+				"name": "attempted",
+				"type": "bit"
+			},
+			{
+				"name": "auto_advance",
+				"type": "bit"
+			},
+			{
+				"name": "billing",
+				"type": "nvarchar"
+			},
+			{
+				"name": "billing_reason",
+				"type": "nvarchar"
+			},
+			{
+				"name": "charge",
+				"type": "nvarchar"
+			},
+			{
+				"name": "closed",
+				"type": "bit"
+			},
+			{
+				"name": "currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "date",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "discount__coupon__amount_off",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discount__coupon__created",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "discount__coupon__currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discount__coupon__duration",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discount__coupon__id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discount__coupon__livemode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discount__coupon__object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discount__coupon__percent_off",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "discount__coupon__percent_off_precise",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "discount__coupon__times_redeemed",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "discount__coupon__valid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discount__customer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discount__object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discount__start",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "discount__subscription",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ending_balance",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "forgiven",
+				"type": "bit"
+			},
+			{
+				"name": "hosted_invoice_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "invoice_pdf",
+				"type": "nvarchar"
+			},
+			{
+				"name": "livemode",
+				"type": "bit"
+			},
+			{
+				"name": "next_payment_attempt",
+				"type": "nvarchar"
+			},
+			{
+				"name": "number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "paid",
+				"type": "bit"
+			},
+			{
+				"name": "payment",
+				"type": "nvarchar"
+			},
+			{
+				"name": "period_end",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "period_start",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "receipt_number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "starting_balance",
+				"type": "bit"
+			},
+			{
+				"name": "status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "subscription",
+				"type": "nvarchar"
+			},
+			{
+				"name": "subtotal",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "tax",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "total",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "updated",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "webhooks_delivered_at",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_invoices"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

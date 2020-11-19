@@ -1,0 +1,96 @@
+{
+	"name": "AzureSqlEventiveCoupons",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Coupon ID",
+				"type": "nchar"
+			},
+			{
+				"name": "Coupon Code",
+				"type": "nchar"
+			},
+			{
+				"name": "Active",
+				"type": "bit"
+			},
+			{
+				"name": "Event Bucket",
+				"type": "nchar"
+			},
+			{
+				"name": "Multicode",
+				"type": "bit"
+			},
+			{
+				"name": "Coupon Name",
+				"type": "nchar"
+			},
+			{
+				"name": "Recurrence Duration",
+				"type": "nchar"
+			},
+			{
+				"name": "Per Code",
+				"type": "nchar"
+			},
+			{
+				"name": "Per Person",
+				"type": "nchar"
+			},
+			{
+				"name": "Total",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Total Items",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Cents Off",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Percent Off",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Set Price",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "All",
+				"type": "bit"
+			},
+			{
+				"name": "All Passes",
+				"type": "bit"
+			},
+			{
+				"name": "All Tickets",
+				"type": "bit"
+			},
+			{
+				"name": "Uses",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Coupons"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

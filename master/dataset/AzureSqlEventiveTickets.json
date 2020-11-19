@@ -1,0 +1,82 @@
+{
+	"name": "AzureSqlEventiveTickets",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event_Bucket",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ticket_Bucket.Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ticket_Bucket.ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ticket_Bucket.Price",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			},
+			{
+				"name": "Event.ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event.Event_Bucket.ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event.Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event.Venue.ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event.Venue.Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Order_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Created_At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Used_At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Probably_Customer_Cancellable",
+				"type": "bit"
+			},
+			{
+				"name": "Probably_Customer_Transferrable",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Tickets"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

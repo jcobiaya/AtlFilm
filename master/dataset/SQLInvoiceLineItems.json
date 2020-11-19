@@ -1,0 +1,165 @@
+{
+	"name": "SQLInvoiceLineItems",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_sdc_batched_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_extracted_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_received_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_sdc_sequence",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "_sdc_table_version",
+				"type": "bit"
+			},
+			{
+				"name": "amount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discountable",
+				"type": "bit"
+			},
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "invoice",
+				"type": "nvarchar"
+			},
+			{
+				"name": "livemode",
+				"type": "bit"
+			},
+			{
+				"name": "object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "period__end",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "period__start",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "plan__active",
+				"type": "bit"
+			},
+			{
+				"name": "plan__amount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "plan__billing_scheme",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__created",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "plan__currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__interval",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__interval_count",
+				"type": "bit"
+			},
+			{
+				"name": "plan__livemode",
+				"type": "bit"
+			},
+			{
+				"name": "plan__name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__object",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__product",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__statement_description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__statement_descriptor",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plan__usage_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "proration",
+				"type": "bit"
+			},
+			{
+				"name": "quantity",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "subscription",
+				"type": "nvarchar"
+			},
+			{
+				"name": "subscription_item",
+				"type": "nvarchar"
+			},
+			{
+				"name": "type",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FINANCE_STRIPE_invoice_line_items"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

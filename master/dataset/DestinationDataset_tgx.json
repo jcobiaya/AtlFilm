@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_tgx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureTableStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "FacebookMasterEvents"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

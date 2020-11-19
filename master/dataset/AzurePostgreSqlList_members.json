@@ -1,0 +1,17 @@
+{
+	"name": "AzurePostgreSqlList_members",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "mailchimp",
+			"table": "list_members"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

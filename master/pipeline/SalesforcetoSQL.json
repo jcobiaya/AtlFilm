@@ -1,0 +1,1284 @@
+{
+	"name": "SalesforcetoSQL",
+	"properties": {
+		"activities": [
+			{
+				"name": "Events",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Events]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OwnerId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OwnerId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RecordTypeId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RecordTypeId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CreatedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LastModifiedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastActivityDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastActivityDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Total_Revenue__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Total_Revenue__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Event_ID__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Event_ID__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Topic__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Topic__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Start_Time__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "Start_Time__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "End_Time__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "End_Time__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Standard_Price__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Standard_Price__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Category__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Category__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Description__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Description__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Status__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Status__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Ticket_URL__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Ticket_URL__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Venue__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Presenter__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Presenter__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Positive_Highlights__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Positive_Highlights__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Technical_Issues__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Technical_Issues__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Act__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Act__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Early_Bird_Price__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Early_Bird_Price__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Admission_Price__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Admission_Price__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MIN_Attendance__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MIN_Attendance__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "end__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "end__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Start__c",
+									"type": "TimeSpan"
+								},
+								"sink": {
+									"name": "Start__c",
+									"type": "TimeSpan"
+								}
+							},
+							{
+								"source": {
+									"name": "Hours__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Hours__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Standard_Price_Cut_Off_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "Standard_Price_Cut_Off_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Early_Bird_Price_Cut_Off_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "Early_Bird_Price_Cut_Off_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Late_Price_Start_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "Late_Price_Start_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Late_Price__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Late_Price__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Instructor_Revenue__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Instructor_Revenue__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ATLFS_Revenue__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ATLFS_Revenue__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ATLFS_Member_Discount__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ATLFS_Member_Discount__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Other_Agreement_Notes__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Other_Agreement_Notes__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Additional_Presenters__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Additional_Presenters__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Stage__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Stage__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MIN_Gross_Revenue__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MIN_Gross_Revenue__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "MIN_Net_Revenue__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MIN_Net_Revenue__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Forecasted_Net_Revenue__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Forecasted_Net_Revenue__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Interested__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Interested__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Registrations__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Registrations__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Attendance__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Attendance__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Presenter_Email__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Presenter_Email__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Program__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Program__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Proposed_Attendence__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Proposed_Attendence__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Is_the_Event_tied_to_a_pre_existing_ATLF__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Is_the_Event_tied_to_a_pre_existing_ATLF__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Please_list_any_Partner_Organizations_fo__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Please_list_any_Partner_Organizations_fo__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Expected_Attendees__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Expected_Attendees__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Additional_Information__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Additional_Information__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Is_Ticketing_Needed_for_this_Event__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Is_Ticketing_Needed_for_this_Event__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Event_Type__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Event_Type__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Are_there_any_specific_ticketing_details__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Are_there_any_specific_ticketing_details__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ATLFS_Member_Benefit__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ATLFS_Member_Benefit__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Any_other_Community_Partner_Benefits__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Any_other_Community_Partner_Benefits__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Is_there_a_specific_Refund_Policy_for_th__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Is_there_a_specific_Refund_Policy_for_th__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "When_Does_Registration_Need_To_Close__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "When_Does_Registration_Need_To_Close__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Anticipated_Operations_Level__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Anticipated_Operations_Level__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue_Contact_Information__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Venue_Contact_Information__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue_Tech_Set_up__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Venue_Tech_Set_up__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue_Tech_Contact__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Venue_Tech_Contact__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue_Parking_Information__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Venue_Parking_Information__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ATLFS_Point_of_Contact_Day_of_Event__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ATLFS_Point_of_Contact_Day_of_Event__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sync_With_Ticketing__c",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "Sync_With_Ticketing__c",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "Owner_Email__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Owner_Email__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue_Address__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Venue_Address__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue_Capacity__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Venue_Capacity__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Owner_Name__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Owner_Name__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Purpose_of_Event__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Purpose_of_Event__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Log_Event__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "Log_Event__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Submit_Event_Form__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "Submit_Event_Form__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue_Contact__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Venue_Contact__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue_Name__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Venue_Name__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Submitter_Email__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Submitter_Email__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Submit_Ticketing__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "Submit_Ticketing__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Event_Bucket__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Event_Bucket__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Event_Bucket_ID__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Event_Bucket_ID__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue_ID__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Venue_ID__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Ticketing_Image__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Ticketing_Image__c",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SalesforceEvents",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlSalesforceEvents",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Programs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Programs]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SalesforcePrograms",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlSalesforce_Programs",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Opportunity",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Opportunity]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SalesforceOpportunity",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlOpportunity",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "OpportunityProduct",
+				"description": "",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Opportunity_Product]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SalesforceOpportunityProduct",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlOpportunityProduct",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Accounts",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Accounts]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SalesforceAccount",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlAccounts",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Leads",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Leads]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SalesforceLeads",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlLeads",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Campaigns",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Campaigns]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SalesforceCampaigns",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlCampaign",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Products",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Products]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SalesforceProducts",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlProducts",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "PriceBooks",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Price_Books]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SalesforcePriceBooks",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlPriceBooks",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "PriceBookEntry",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Price_Book_Entry]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SalesforcePriceBookEntry",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlPriceBookEntry",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Contacts",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Contacts]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SalesforceContacts",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlContacts",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-06-18T14:44:24Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

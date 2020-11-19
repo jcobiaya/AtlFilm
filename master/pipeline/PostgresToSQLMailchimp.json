@@ -1,0 +1,1080 @@
+{
+	"name": "PostgresToSQLMailchimp",
+	"properties": {
+		"activities": [
+			{
+				"name": "Campaigns",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "USE [RAW ATLFS DATA]\nDELETE FROM [dbo].[MARKETING_MAILCHIMP_Campaigns];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "archive_url",
+									"type": "String"
+								},
+								"sink": {
+									"name": "archive_url",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "content_type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "content_type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "create_time",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "create_time",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "delivery_status__enabled",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "delivery_status__enabled",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "emails_sent",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "emails_sent",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "long_archive_url",
+									"type": "String"
+								},
+								"sink": {
+									"name": "long_archive_url",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "needs_block_refresh",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "needs_block_refresh",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "recipients__list_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "recipients__list_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "recipients__list_is_active",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "recipients__list_is_active",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "recipients__list_name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "recipients__list_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "recipients__recipient_count",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "recipients__recipient_count",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "recipients__segment_opts__match",
+									"type": "String"
+								},
+								"sink": {
+									"name": "recipients__segment_opts__match",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "recipients__segment_opts__prebuilt_segment_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "recipients__segment_opts__prebuilt_segment_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "recipients__segment_opts__saved_segment_id",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "recipients__segment_opts__saved_segment_id",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "recipients__segment_text",
+									"type": "String"
+								},
+								"sink": {
+									"name": "recipients__segment_text",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "report_summary__click_rate",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "report_summary__click_rate",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "report_summary__clicks",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "report_summary__clicks",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "report_summary__ecommerce__total_orders",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "report_summary__ecommerce__total_orders",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "report_summary__ecommerce__total_revenue",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "report_summary__ecommerce__total_revenue",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "report_summary__ecommerce__total_spent",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "report_summary__ecommerce__total_spent",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "report_summary__open_rate",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "report_summary__open_rate",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "report_summary__opens",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "report_summary__opens",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "report_summary__subscriber_clicks",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "report_summary__subscriber_clicks",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "report_summary__unique_opens",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "report_summary__unique_opens",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "resendable",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "resendable",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "send_time",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "send_time",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__authenticate",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "settings__authenticate",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__auto_footer",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "settings__auto_footer",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__auto_tweet",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "settings__auto_tweet",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__drag_and_drop",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "settings__drag_and_drop",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__fb_comments",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "settings__fb_comments",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__folder_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "settings__folder_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__from_name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "settings__from_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__inline_css",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "settings__inline_css",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__preview_text",
+									"type": "String"
+								},
+								"sink": {
+									"name": "settings__preview_text",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__reply_to",
+									"type": "String"
+								},
+								"sink": {
+									"name": "settings__reply_to",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__subject_line",
+									"type": "String"
+								},
+								"sink": {
+									"name": "settings__subject_line",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__template_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "settings__template_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__timewarp",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "settings__timewarp",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__title",
+									"type": "String"
+								},
+								"sink": {
+									"name": "settings__title",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__to_name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "settings__to_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "settings__use_conversation",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "settings__use_conversation",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "social_card__description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "social_card__description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "social_card__image_url",
+									"type": "String"
+								},
+								"sink": {
+									"name": "social_card__image_url",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "social_card__title",
+									"type": "String"
+								},
+								"sink": {
+									"name": "social_card__title",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "tracking__clicktale",
+									"type": "String"
+								},
+								"sink": {
+									"name": "tracking__clicktale",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "tracking__ecomm360",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "tracking__ecomm360",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "tracking__goal_tracking",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "tracking__goal_tracking",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "tracking__google_analytics",
+									"type": "String"
+								},
+								"sink": {
+									"name": "tracking__google_analytics",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "tracking__html_clicks",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "tracking__html_clicks",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "tracking__opens",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "tracking__opens",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "tracking__text_clicks",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "tracking__text_clicks",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "web_id",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "web_id",
+									"type": "Int64"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgresCampaigns",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlCampaigns",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "campaigns__recipients__segment_opts__conditions",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[MARKETING_MAILCHIMP_Campaigns__recipients__segment_opts__conditions]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_batched_at",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_level_0_id",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_level_0_id",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "_sdc_received_at",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_sequence",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "_sdc_source_key_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "_sdc_table_version",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "condition_type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "condition_type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "field",
+									"type": "String"
+								},
+								"sink": {
+									"name": "field",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "op",
+									"type": "String"
+								},
+								"sink": {
+									"name": "op",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "value",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgreSqlcampaigns__recipients__segment_opts__conditions",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlcampaigns__recipients__segment_opts__conditions",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "List_members",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[MARKETING_MAILCHIMP_List_members];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "AzurePostgreSqlList_members",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlList_members",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "List_members__tags",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[MARKETING_MAILCHIMP_List_members__tags];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgreSqlList_members__tags",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlList_members__tags",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "List_segment_members",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[MARKETING_MAILCHIMP_List_segment_members];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgreSqlList_segment_members",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlList_segment_members",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "List_segments",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[MARKETING_MAILCHIMP_List_segments];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgreSqlList_segments",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlList_segments",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "List_segments__options__conditions",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[MARKETING_MAILCHIMP_List_segments__options__conditions];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgreSqlList_segments__options__conditions",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlList_segments__options__conditions",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Lists",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[MARKETING_MAILCHIMP_Lists];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgreSqlLists",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlLists",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Reports_email_activity",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[MARKETING_MAILCHIMP_Reports_email_activity];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgreSqlReports_email_activity",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlReports_email_activity",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Unsubscribes",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM [dbo].[MARKETING_MAILCHIMP_Unsubscribes];",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "PostgreSqlUnsubscribes",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlUnsubscribes",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-06-08T05:41:03Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

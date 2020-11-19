@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_4mh",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureTableStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "SalesforceAccounts"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

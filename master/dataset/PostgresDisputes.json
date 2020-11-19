@@ -1,0 +1,17 @@
+{
+	"name": "PostgresDisputes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stripe",
+			"table": "disputes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

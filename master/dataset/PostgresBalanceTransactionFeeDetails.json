@@ -1,0 +1,17 @@
+{
+	"name": "PostgresBalanceTransactionFeeDetails",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stripe",
+			"table": "balance_transactions__fee_details"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
