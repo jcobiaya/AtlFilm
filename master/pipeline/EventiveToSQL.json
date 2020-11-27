@@ -1093,6 +1093,15 @@
 							},
 							{
 								"source": {
+									"path": "['event']['event_bucket']"
+								},
+								"sink": {
+									"name": "Event.Event_Bucket.ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"path": "['event']['name']"
 								},
 								"sink": {
@@ -1138,15 +1147,6 @@
 							},
 							{
 								"source": {
-									"path": "['used_at']"
-								},
-								"sink": {
-									"name": "Used_At",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
 									"path": "['probably_customer_cancellable']"
 								},
 								"sink": {
@@ -1165,14 +1165,25 @@
 							},
 							{
 								"source": {
-									"path": "['pass'].['id']"
+									"path": "['pass'].['Id']"
 								},
 								"sink": {
-									"name": "Pass_Id"
+									"name": "Pass_Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['used_at']"
+								},
+								"sink": {
+									"name": "Used_At",
+									"type": "DateTime"
 								}
 							}
 						],
-						"collectionReference": "$['tickets']"
+						"collectionReference": "$['tickets']",
+						"mapComplexValuesToString": true
 					}
 				},
 				"inputs": [
