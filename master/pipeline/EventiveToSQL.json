@@ -1168,7 +1168,7 @@
 									"path": "['pass'].['id']"
 								},
 								"sink": {
-									"name": "[Pass_Id]"
+									"name": "Pass_Id"
 								}
 							}
 						],
