@@ -1162,6 +1162,14 @@
 									"name": "Probably_Customer_Transferrable",
 									"type": "Boolean"
 								}
+							},
+							{
+								"source": {
+									"path": "['pass'].['id']"
+								},
+								"sink": {
+									"name": ""
+								}
 							}
 						],
 						"collectionReference": "$['tickets']"
