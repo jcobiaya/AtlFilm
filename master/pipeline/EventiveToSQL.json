@@ -654,11 +654,6 @@
 									"name": "Checked_In_At",
 									"type": "DateTime"
 								}
-							},
-							{
-								"source": {
-									"path": "['uses']"
-								}
 							}
 						],
 						"collectionReference": "$['passes']",
