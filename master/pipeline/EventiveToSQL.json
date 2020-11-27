@@ -558,6 +558,33 @@
 							},
 							{
 								"source": {
+									"path": "['person']['id']"
+								},
+								"sink": {
+									"name": "Person.ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['person']['name']"
+								},
+								"sink": {
+									"name": "Person.Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['person']['email']"
+								},
+								"sink": {
+									"name": "Person.Email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"path": "['pass_bucket']['id']"
 								},
 								"sink": {
@@ -626,6 +653,11 @@
 								"sink": {
 									"name": "Checked_In_At",
 									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['uses']"
 								}
 							}
 						],
