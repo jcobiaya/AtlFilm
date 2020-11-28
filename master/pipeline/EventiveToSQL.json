@@ -660,8 +660,8 @@
 									"path": "['pass_subscription'].['id']"
 								},
 								"sink": {
-									"name": "pass_subscriptions.should_autorenew",
-									"type": "Boolean"
+									"name": "pass_subscriptions.id",
+									"type": "String"
 								}
 							},
 							{
