@@ -654,6 +654,42 @@
 									"name": "Checked_In_At",
 									"type": "DateTime"
 								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription'].['id']"
+								},
+								"sink": {
+									"name": "pass_subscriptions.should_autorenew",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription'].['should_autorenew']"
+								},
+								"sink": {
+									"name": "pass_subscriptions.should_autorenew",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription'].['renewal_date']"
+								},
+								"sink": {
+									"name": "pass_subscriptions.renewal_date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription'].['status']"
+								},
+								"sink": {
+									"name": "pass_subscriptions.status",
+									"type": "String"
+								}
 							}
 						],
 						"collectionReference": "$['passes']",
