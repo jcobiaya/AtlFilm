@@ -15,6 +15,12 @@
 					"referenceName": "FacebookEvents",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "FBATLFFEvents",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
