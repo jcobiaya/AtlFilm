@@ -21,6 +21,12 @@
 					"referenceName": "FBATLFFEvents",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "SalesforcetoSQL",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
