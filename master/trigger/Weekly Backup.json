@@ -33,6 +33,12 @@
 					"referenceName": "PostgresToSQLMailchimp",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "PostgrestoSQLServer_STRIPE_sink",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
