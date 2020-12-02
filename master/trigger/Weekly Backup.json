@@ -27,6 +27,12 @@
 					"referenceName": "MysqlToSQLMatomo",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "PostgresToSQLMailchimp",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
