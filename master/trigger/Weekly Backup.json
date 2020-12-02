@@ -21,6 +21,12 @@
 					"referenceName": "SalesforcetoSQL",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "MysqlToSQLMatomo",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
