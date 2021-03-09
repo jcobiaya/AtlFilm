@@ -39,6 +39,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'MatomoData'"
 		},
+		"Mautic_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Mautic'"
+		},
 		"PostgreSqlATLFS_STITCH_DATA_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'PostgreSqlATLFS_STITCH_DATA'"
@@ -129,6 +133,9 @@
 					},
 					"MatomoData_connectionString": {
 						"value": "[parameters('MatomoData_connectionString')]"
+					},
+					"Mautic_connectionString": {
+						"value": "[parameters('Mautic_connectionString')]"
 					},
 					"PostgreSqlATLFS_STITCH_DATA_connectionString": {
 						"value": "[parameters('PostgreSqlATLFS_STITCH_DATA_connectionString')]"
@@ -322,26 +329,6 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'AtlFilm_ArmTemplate_7')]"
-			]
-		},
-		{
-			"name": "AtlFilm_ArmTemplate_9",
-			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "2018-02-01",
-			"properties": {
-				"mode": "incremental",
-				"templateLink": {
-					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_9.json', parameters('containerSasToken'))]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parameters": {
-					"factoryName": {
-						"value": "[parameters('factoryName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'AtlFilm_ArmTemplate_8')]"
 			]
 		}
 	]

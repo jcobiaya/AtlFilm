@@ -859,6 +859,7 @@
 							"sink": {
 								"type": "AzureSqlSink",
 								"preCopyScript": "DELETE FROM [dbo].[TICKETING_EVENTIVE_Events];",
+								"tableOption": "autoCreate",
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
@@ -1397,6 +1398,33 @@
 									},
 									{
 										"source": {
+											"path": "[['person']['id']"
+										},
+										"sink": {
+											"name": "Person.ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['name']"
+										},
+										"sink": {
+											"name": "Person.Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['email']"
+										},
+										"sink": {
+											"name": "Person.Email",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
 											"path": "[['pass_bucket']['id']"
 										},
 										"sink": {
@@ -1465,6 +1493,42 @@
 										"sink": {
 											"name": "Checked_In_At",
 											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription'].['id']"
+										},
+										"sink": {
+											"name": "pass_subscriptions.id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription'].['should_autorenew']"
+										},
+										"sink": {
+											"name": "pass_subscriptions.should_autorenew",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription'].['renewal_date']"
+										},
+										"sink": {
+											"name": "pass_subscriptions.renewal_date",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription'].['status']"
+										},
+										"sink": {
+											"name": "pass_subscriptions.status",
+											"type": "String"
 										}
 									}
 								],
@@ -1874,17 +1938,11 @@
 							"sink": {
 								"type": "AzureSqlSink",
 								"preCopyScript": "DELETE FROM [dbo].[TICKETING_EVENTIVE_Tickets]",
+								"tableOption": "autoCreate",
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"enableSkipIncompatibleRow": true,
-							"logStorageSettings": {
-								"linkedServiceName": {
-									"referenceName": "AzureBlobStorage1",
-									"type": "LinkedServiceReference"
-								},
-								"path": "azureml-blobstore-10af7d03-7ed2-416c-88a6-88dcd909b4c2"
-							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -1944,6 +2002,15 @@
 									},
 									{
 										"source": {
+											"path": "[['event']['event_bucket']"
+										},
+										"sink": {
+											"name": "Event.Event_Bucket.ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
 											"path": "[['event']['name']"
 										},
 										"sink": {
@@ -1989,15 +2056,6 @@
 									},
 									{
 										"source": {
-											"path": "[['used_at']"
-										},
-										"sink": {
-											"name": "Used_At",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
 											"path": "[['probably_customer_cancellable']"
 										},
 										"sink": {
@@ -2013,9 +2071,28 @@
 											"name": "Probably_Customer_Transferrable",
 											"type": "Boolean"
 										}
+									},
+									{
+										"source": {
+											"path": "[['pass'].['id']"
+										},
+										"sink": {
+											"name": "Pass_Id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['used_at']"
+										},
+										"sink": {
+											"name": "Used_At",
+											"type": "DateTime"
+										}
 									}
 								],
-								"collectionReference": "$['tickets']"
+								"collectionReference": "$['tickets']",
+								"mapComplexValuesToString": true
 							}
 						},
 						"inputs": [
@@ -14320,7 +14397,1322 @@
 								"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Opportunity]",
 								"disableMetricsCollection": false
 							},
-							"enableStaging": false
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "IsDeleted",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "IsDeleted",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "AccountId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AccountId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RecordTypeId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RecordTypeId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "IsPrivate",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "IsPrivate",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "Name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Description",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "StageName",
+											"type": "String"
+										},
+										"sink": {
+											"name": "StageName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Amount",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "Amount",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Probability",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "Probability",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ExpectedRevenue",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "ExpectedRevenue",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TotalOpportunityQuantity",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "TotalOpportunityQuantity",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CloseDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CloseDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "Type",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NextStep",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NextStep",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LeadSource",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LeadSource",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "IsClosed",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "IsClosed",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "IsWon",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "IsWon",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "ForecastCategory",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ForecastCategory",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ForecastCategoryName",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ForecastCategoryName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CampaignId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CampaignId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "HasOpportunityLineItem",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "HasOpportunityLineItem",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "Pricebook2Id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Pricebook2Id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OwnerId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OwnerId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CreatedDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CreatedDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CreatedById",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CreatedById",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LastModifiedDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LastModifiedDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LastModifiedById",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LastModifiedById",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SystemModstamp",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "SystemModstamp",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LastActivityDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LastActivityDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FiscalQuarter",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "FiscalQuarter",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "FiscalYear",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "FiscalYear",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "Fiscal",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Fiscal",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LastViewedDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LastViewedDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LastReferencedDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LastReferencedDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SyncedQuoteId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SyncedQuoteId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ContractId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ContractId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "HasOpenActivity",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "HasOpenActivity",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "HasOverdueTask",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "HasOverdueTask",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "npe01__Amount_Outstanding__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "npe01__Amount_Outstanding__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "npe01__Contact_Id_for_Role__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npe01__Contact_Id_for_Role__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npe01__Do_Not_Automatically_Create_Payment__c",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "npe01__Do_Not_Automatically_Create_Payment__c",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "npe01__Is_Opp_From_Individual__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npe01__Is_Opp_From_Individual__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npe01__Member_Level__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npe01__Member_Level__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npe01__Membership_End_Date__c",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "npe01__Membership_End_Date__c",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "npe01__Membership_Origin__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npe01__Membership_Origin__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npe01__Membership_Start_Date__c",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "npe01__Membership_Start_Date__c",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "npe01__Amount_Written_Off__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "npe01__Amount_Written_Off__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "npe01__Number_of_Payments__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "npe01__Number_of_Payments__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "npe01__Payments_Made__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "npe01__Payments_Made__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "npo02__CombinedRollupFieldset__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npo02__CombinedRollupFieldset__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npo02__systemHouseholdContactRoleProcessor__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npo02__systemHouseholdContactRoleProcessor__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npe03__Recurring_Donation__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npe03__Recurring_Donation__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Batch__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Batch__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Acknowledgment_Date__c",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "npsp__Acknowledgment_Date__c",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Acknowledgment_Status__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Acknowledgment_Status__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Recurring_Donation_Installment_Name__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Recurring_Donation_Installment_Name__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Recurring_Donation_Installment_Number__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "npsp__Recurring_Donation_Installment_Number__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Primary_Contact__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Primary_Contact__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Grant_Contract_Date__c",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "npsp__Grant_Contract_Date__c",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Grant_Contract_Number__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Grant_Contract_Number__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Grant_Period_End_Date__c",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "npsp__Grant_Period_End_Date__c",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Grant_Period_Start_Date__c",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "npsp__Grant_Period_Start_Date__c",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Grant_Program_Area_s__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Grant_Program_Area_s__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Grant_Requirements_Website__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Grant_Requirements_Website__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Is_Grant_Renewal__c",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "npsp__Is_Grant_Renewal__c",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Previous_Grant_Opportunity__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Previous_Grant_Opportunity__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Requested_Amount__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "npsp__Requested_Amount__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Next_Grant_Deadline_Due_Date__c",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "npsp__Next_Grant_Deadline_Due_Date__c",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Primary_Contact_Campaign_Member_Status__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Primary_Contact_Campaign_Member_Status__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Honoree_Contact__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Honoree_Contact__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Honoree_Name__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Honoree_Name__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Notification_Message__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Notification_Message__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Notification_Preference__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Notification_Preference__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Notification_Recipient_Contact__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Notification_Recipient_Contact__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Notification_Recipient_Information__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Notification_Recipient_Information__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Notification_Recipient_Name__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Notification_Recipient_Name__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Tribute_Type__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Tribute_Type__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Matching_Gift_Account__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Matching_Gift_Account__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Matching_Gift_Employer__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Matching_Gift_Employer__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Matching_Gift_Status__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Matching_Gift_Status__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Matching_Gift__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Matching_Gift__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Fair_Market_Value__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "npsp__Fair_Market_Value__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__In_Kind_Description__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__In_Kind_Description__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__In_Kind_Donor_Declared_Value__c",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "npsp__In_Kind_Donor_Declared_Value__c",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__In_Kind_Type__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__In_Kind_Type__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Ask_Date__c",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "npsp__Ask_Date__c",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Closed_Lost_Reason__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Closed_Lost_Reason__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "npsp__Gift_Strategy__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "npsp__Gift_Strategy__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Benefits__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Benefits__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LID__Is_Influenced__c",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "LID__Is_Influenced__c",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "Sponsor_Level__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Sponsor_Level__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Cash_Sponsorship__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "Cash_Sponsorship__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Cash_Likely_Sponsorship__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "Cash_Likely_Sponsorship__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Cash_PITCHING__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "Cash_PITCHING__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "In_Kind_Amount__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "In_Kind_Amount__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "In_Kind_PITCH__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "In_Kind_PITCH__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "In_Kind_LIKELY__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "In_Kind_LIKELY__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Billing_Address__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Billing_Address__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Billing_City__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Billing_City__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Billing_Country__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Billing_Country__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Billing_State__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Billing_State__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Billing_Zip__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Billing_Zip__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Due_Date__c",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "AVSFQB__Due_Date__c",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Generate_Object__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Generate_Object__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__PO_Number__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__PO_Number__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Primary_Contact__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Primary_Contact__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Product_Name__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Product_Name__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__QB_Error__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__QB_Error__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__QuickBooks_ItemType__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__QuickBooks_ItemType__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Quickbooks_Id__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Quickbooks_Id__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Sales_Rep__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Sales_Rep__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Ship_Date__c",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "AVSFQB__Ship_Date__c",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Shipping_Address__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Shipping_Address__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Shipping_City__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Shipping_City__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Shipping_Country__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Shipping_Country__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Shipping_State__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Shipping_State__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Shipping_Zip__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Shipping_Zip__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Terms__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Terms__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Total_Amount__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AVSFQB__Total_Amount__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Transaction_Date__c",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "AVSFQB__Transaction_Date__c",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Transaction_Number__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AVSFQB__Transaction_Number__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVSFQB__Products_Count__c",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AVSFQB__Products_Count__c",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LID__LinkedIn_Company_Id__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LID__LinkedIn_Company_Id__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GCLID__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GCLID__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Quote_Line_Item__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Quote_Line_Item__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Sponsor_Logo__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Sponsor_Logo__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Events__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Events__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Social__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Social__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Activation_Photos__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Activation_Photos__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Pass_Subscription_Id__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Pass_Subscription_Id__c",
+											"type": "String"
+										}
+									}
+								]
+							}
 						},
 						"inputs": [
 							{
@@ -14694,13 +16086,13 @@
 							"name": "Union1"
 						}
 					],
-					"script": "source(output(\n\t\tid as string,\n\t\tattending_count as integer,\n\t\tcan_guest_invite as boolean,\n\t\tcategory as string,\n\t\tdeclined_count as integer,\n\t\tdescription as string,\n\t\tdiscount_code_enabled as boolean,\n\t\tend_time as timestamp,\n\t\tevent_times as string,\n\t\tguest_list_enabled as boolean,\n\t\tinterested_count as integer,\n\t\tis_canceled as boolean,\n\t\tis_draft as boolean,\n\t\tis_online as boolean,\n\t\tis_page_owned as boolean,\n\t\tmaybe_count as integer,\n\t\tname as string,\n\t\tnoreply_count as integer,\n\t\towner as string,\n\t\tparent_group as string,\n\t\t{place.id} as string,\n\t\t{place.name} as string,\n\t\t{place.overall_rating} as double,\n\t\t{place.location.city} as string,\n\t\t{place.location.country} as string,\n\t\t{place.location.country_code} as string,\n\t\t{place.location.latitude} as double,\n\t\t{place.location.located_in} as string,\n\t\t{place.location.longitude} as double,\n\t\t{place.location.name} as string,\n\t\t{place.location.region} as string,\n\t\t{place.location.region_id} as string,\n\t\t{place.location.state} as string,\n\t\t{place.location.street} as string,\n\t\t{place.location.zip} as string,\n\t\t{place.location.city_id} as string,\n\t\tscheduled_publish_time as timestamp,\n\t\tstart_time as timestamp,\n\t\tticket_uri as string,\n\t\tticket_uri_start_sales_time as timestamp,\n\t\tticketing_privacy_uri as string,\n\t\tticketing_terms_uri as string,\n\t\ttimezone as string,\n\t\ttype as string,\n\t\tupdated_time as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> FBEventsATLFF\nsource(output(\n\t\tid as string,\n\t\tattending_count as integer,\n\t\tcan_guest_invite as boolean,\n\t\tcategory as string,\n\t\tdeclined_count as integer,\n\t\tdescription as string,\n\t\tdiscount_code_enabled as boolean,\n\t\tend_time as timestamp,\n\t\tevent_times as string,\n\t\tguest_list_enabled as boolean,\n\t\tinterested_count as integer,\n\t\tis_canceled as boolean,\n\t\tis_draft as boolean,\n\t\tis_online as boolean,\n\t\tis_page_owned as boolean,\n\t\tmaybe_count as integer,\n\t\tname as string,\n\t\tnoreply_count as integer,\n\t\towner as string,\n\t\tparent_group as string,\n\t\t{place.id} as string,\n\t\t{place.name} as string,\n\t\t{place.overall_rating} as double,\n\t\t{place.location.city} as string,\n\t\t{place.location.country} as string,\n\t\t{place.location.country_code} as string,\n\t\t{place.location.latitude} as double,\n\t\t{place.location.located_in} as string,\n\t\t{place.location.longitude} as double,\n\t\t{place.location.name} as string,\n\t\t{place.location.region} as string,\n\t\t{place.location.region_id} as string,\n\t\t{place.location.state} as string,\n\t\t{place.location.street} as string,\n\t\t{place.location.zip} as string,\n\t\t{place.location.city_id} as string,\n\t\tscheduled_publish_time as timestamp,\n\t\tstart_time as timestamp,\n\t\tticket_uri as string,\n\t\tticket_uri_start_sales_time as timestamp,\n\t\tticketing_privacy_uri as string,\n\t\tticketing_terms_uri as string,\n\t\ttimezone as string,\n\t\ttype as string,\n\t\tupdated_time as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> FBEventsATLFS\nFBEventsATLFF, FBEventsATLFS union(byName: true)~> Union1\nUnion1 sink(input(\n\t\tid as string,\n\t\tattending_count as integer,\n\t\tcan_guest_invite as boolean,\n\t\tcategory as string,\n\t\tdeclined_count as integer,\n\t\tdescription as string,\n\t\tdiscount_code_enabled as boolean,\n\t\tend_time as timestamp,\n\t\tevent_times as string,\n\t\tguest_list_enabled as boolean,\n\t\tinterested_count as integer,\n\t\tis_canceled as boolean,\n\t\tis_draft as boolean,\n\t\tis_online as boolean,\n\t\tis_page_owned as boolean,\n\t\tmaybe_count as integer,\n\t\tname as string,\n\t\tnoreply_count as integer,\n\t\t{owner.name} as string,\n\t\tparent_group as string,\n\t\t{place.id} as string,\n\t\t{place.name} as string,\n\t\t{place.overall_rating} as double,\n\t\t{place.location.city} as string,\n\t\t{place.location.country} as string,\n\t\t{place.location.country_code} as string,\n\t\t{place.location.latitude} as double,\n\t\t{place.location.located_in} as string,\n\t\t{place.location.longitude} as double,\n\t\t{place.location.name} as string,\n\t\t{place.location.region} as string,\n\t\t{place.location.region_id} as string,\n\t\t{place.location.state} as string,\n\t\t{place.location.street} as string,\n\t\t{place.location.zip} as string,\n\t\t{place.location.city_id} as string,\n\t\tscheduled_publish_time as timestamp,\n\t\tstart_time as timestamp,\n\t\tticket_uri as string,\n\t\tticket_uri_start_sales_time as timestamp,\n\t\tticketing_privacy_uri as string,\n\t\tticketing_terms_uri as string,\n\t\ttimezone as string,\n\t\ttype as string,\n\t\tupdated_time as timestamp,\n\t\t{owner.id} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:false,\n\tupdateable:false,\n\tupsertable:false,\n\trecreate:true,\n\tformat: 'table',\n\tmapColumn(\n\t\tid,\n\t\tattending_count,\n\t\tcan_guest_invite,\n\t\tcategory,\n\t\tdeclined_count,\n\t\tdescription,\n\t\tdiscount_code_enabled,\n\t\tend_time,\n\t\tevent_times,\n\t\tguest_list_enabled,\n\t\tinterested_count,\n\t\tis_canceled,\n\t\tis_draft,\n\t\tis_online,\n\t\tis_page_owned,\n\t\tmaybe_count,\n\t\tname,\n\t\tnoreply_count,\n\t\tparent_group,\n\t\t{place.id},\n\t\t{place.name},\n\t\t{place.overall_rating},\n\t\t{place.location.city},\n\t\t{place.location.country},\n\t\t{place.location.country_code},\n\t\t{place.location.latitude},\n\t\t{place.location.located_in},\n\t\t{place.location.longitude},\n\t\t{place.location.name},\n\t\t{place.location.region},\n\t\t{place.location.region_id},\n\t\t{place.location.state},\n\t\t{place.location.street},\n\t\t{place.location.zip},\n\t\t{place.location.city_id},\n\t\tscheduled_publish_time,\n\t\tstart_time,\n\t\tticket_uri,\n\t\tticket_uri_start_sales_time,\n\t\tticketing_privacy_uri,\n\t\tticketing_terms_uri,\n\t\ttimezone,\n\t\ttype,\n\t\tupdated_time\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+					"script": "source(output(\n\t\tid as string,\n\t\tattending_count as integer,\n\t\tcan_guest_invite as boolean,\n\t\tcategory as string,\n\t\tdeclined_count as integer,\n\t\tdescription as string,\n\t\tdiscount_code_enabled as boolean,\n\t\tend_time as timestamp,\n\t\tevent_times as string,\n\t\tguest_list_enabled as boolean,\n\t\tinterested_count as integer,\n\t\tis_canceled as boolean,\n\t\tis_draft as boolean,\n\t\tis_online as boolean,\n\t\tis_page_owned as boolean,\n\t\tmaybe_count as integer,\n\t\tname as string,\n\t\tnoreply_count as integer,\n\t\towner as string,\n\t\tparent_group as string,\n\t\t{place.id} as string,\n\t\t{place.name} as string,\n\t\t{place.overall_rating} as double,\n\t\t{place.location.city} as string,\n\t\t{place.location.country} as string,\n\t\t{place.location.country_code} as string,\n\t\t{place.location.latitude} as double,\n\t\t{place.location.located_in} as string,\n\t\t{place.location.longitude} as double,\n\t\t{place.location.name} as string,\n\t\t{place.location.region} as string,\n\t\t{place.location.region_id} as string,\n\t\t{place.location.state} as string,\n\t\t{place.location.street} as string,\n\t\t{place.location.zip} as string,\n\t\t{place.location.city_id} as string,\n\t\tscheduled_publish_time as timestamp,\n\t\tstart_time as timestamp,\n\t\tticket_uri as string,\n\t\tticket_uri_start_sales_time as timestamp,\n\t\tticketing_privacy_uri as string,\n\t\tticketing_terms_uri as string,\n\t\ttimezone as string,\n\t\ttype as string,\n\t\tupdated_time as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> FBEventsATLFF\nsource(output(\n\t\tid as string,\n\t\tattending_count as integer,\n\t\tcan_guest_invite as boolean,\n\t\tcategory as string,\n\t\tdeclined_count as integer,\n\t\tdescription as string,\n\t\tdiscount_code_enabled as boolean,\n\t\tend_time as timestamp,\n\t\tevent_times as string,\n\t\tguest_list_enabled as boolean,\n\t\tinterested_count as integer,\n\t\tis_canceled as boolean,\n\t\tis_draft as boolean,\n\t\tis_online as boolean,\n\t\tis_page_owned as boolean,\n\t\tmaybe_count as integer,\n\t\tname as string,\n\t\tnoreply_count as integer,\n\t\towner as string,\n\t\tparent_group as string,\n\t\t{place.id} as string,\n\t\t{place.name} as string,\n\t\t{place.overall_rating} as double,\n\t\t{place.location.city} as string,\n\t\t{place.location.country} as string,\n\t\t{place.location.country_code} as string,\n\t\t{place.location.latitude} as double,\n\t\t{place.location.located_in} as string,\n\t\t{place.location.longitude} as double,\n\t\t{place.location.name} as string,\n\t\t{place.location.region} as string,\n\t\t{place.location.region_id} as string,\n\t\t{place.location.state} as string,\n\t\t{place.location.street} as string,\n\t\t{place.location.zip} as string,\n\t\t{place.location.city_id} as string,\n\t\tscheduled_publish_time as timestamp,\n\t\tstart_time as timestamp,\n\t\tticket_uri as string,\n\t\tticket_uri_start_sales_time as timestamp,\n\t\tticketing_privacy_uri as string,\n\t\tticketing_terms_uri as string,\n\t\ttimezone as string,\n\t\ttype as string,\n\t\tupdated_time as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> FBEventsATLFS\nFBEventsATLFF, FBEventsATLFS union(byName: true)~> Union1\nUnion1 sink(input(\n\t\tid as string,\n\t\tattending_count as integer,\n\t\tcan_guest_invite as boolean,\n\t\tcategory as string,\n\t\tdeclined_count as integer,\n\t\tdescription as string,\n\t\tdiscount_code_enabled as boolean,\n\t\tend_time as timestamp,\n\t\tevent_times as string,\n\t\tguest_list_enabled as boolean,\n\t\tinterested_count as integer,\n\t\tis_canceled as boolean,\n\t\tis_draft as boolean,\n\t\tis_online as boolean,\n\t\tis_page_owned as boolean,\n\t\tmaybe_count as integer,\n\t\tname as string,\n\t\tnoreply_count as integer,\n\t\t{owner.name} as string,\n\t\tparent_group as string,\n\t\t{place.id} as string,\n\t\t{place.name} as string,\n\t\t{place.overall_rating} as double,\n\t\t{place.location.city} as string,\n\t\t{place.location.country} as string,\n\t\t{place.location.country_code} as string,\n\t\t{place.location.latitude} as double,\n\t\t{place.location.located_in} as string,\n\t\t{place.location.longitude} as double,\n\t\t{place.location.name} as string,\n\t\t{place.location.region} as string,\n\t\t{place.location.region_id} as string,\n\t\t{place.location.state} as string,\n\t\t{place.location.street} as string,\n\t\t{place.location.zip} as string,\n\t\t{place.location.city_id} as string,\n\t\tscheduled_publish_time as timestamp,\n\t\tstart_time as timestamp,\n\t\tticket_uri as string,\n\t\tticket_uri_start_sales_time as timestamp,\n\t\tticketing_privacy_uri as string,\n\t\tticketing_terms_uri as string,\n\t\ttimezone as string,\n\t\ttype as string,\n\t\tupdated_time as timestamp,\n\t\t{owner.id} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:false,\n\tupdateable:false,\n\tupsertable:false,\n\trecreate:true,\n\tformat: 'table',\n\tmapColumn(\n\t\tid,\n\t\tattending_count,\n\t\tcan_guest_invite,\n\t\tcategory,\n\t\tdeclined_count,\n\t\tdescription,\n\t\tdiscount_code_enabled,\n\t\tend_time,\n\t\tevent_times,\n\t\tguest_list_enabled,\n\t\tinterested_count,\n\t\tis_canceled,\n\t\tis_draft,\n\t\tis_online,\n\t\tis_page_owned,\n\t\tmaybe_count,\n\t\tname,\n\t\tnoreply_count,\n\t\tparent_group,\n\t\t{place.id},\n\t\t{place.name},\n\t\t{place.overall_rating},\n\t\t{place.location.city},\n\t\t{place.location.country},\n\t\t{place.location.country_code},\n\t\t{place.location.latitude},\n\t\t{place.location.located_in},\n\t\t{place.location.longitude},\n\t\t{place.location.name},\n\t\t{place.location.region},\n\t\t{place.location.region_id},\n\t\t{place.location.state},\n\t\t{place.location.street},\n\t\t{place.location.zip},\n\t\t{place.location.city_id},\n\t\tscheduled_publish_time,\n\t\tstart_time,\n\t\tticket_uri,\n\t\tticket_uri_start_sales_time,\n\t\tticketing_privacy_uri,\n\t\tticketing_terms_uri,\n\t\ttimezone,\n\t\ttype,\n\t\tupdated_time\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/EventiveDailyBackup')]",
+			"name": "[concat(parameters('factoryName'), '/Weekly Backup')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -14713,129 +16105,41 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Week",
-						"interval": 1,
-						"startTime": "2020-06-22T09:26:00Z",
-						"timeZone": "UTC",
-						"schedule": {
-							"minutes": [
-								0
-							],
-							"hours": [
-								0
-							],
-							"weekDays": [
-								"Sunday"
-							]
-						}
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/EventiveToSQL')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/FacebookEventsDailyBackup')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
+					},
 					{
 						"pipelineReference": {
 							"referenceName": "FacebookEvents",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Week",
-						"interval": 1,
-						"startTime": "2020-06-17T18:56:00Z",
-						"timeZone": "UTC",
-						"schedule": {
-							"minutes": [
-								0
-							],
-							"hours": [
-								4
-							],
-							"weekDays": [
-								"Sunday"
-							]
-						}
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/FacebookEvents')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/MailchimpDailyBackup')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
+					},
 					{
 						"pipelineReference": {
-							"referenceName": "PostgresToSQLMailchimp",
+							"referenceName": "SalesforcetoSQL",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Week",
-						"interval": 1,
-						"startTime": "2020-06-14T05:44:00Z",
-						"timeZone": "UTC",
-						"schedule": {
-							"minutes": [
-								0
-							],
-							"hours": [
-								11
-							],
-							"weekDays": [
-								"Sunday"
-							]
-						}
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/PostgresToSQLMailchimp')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/MatomoDailyBackupMIDNIGHT')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
+					},
 					{
 						"pipelineReference": {
 							"referenceName": "MysqlToSQLMatomo",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "PostgresToSQLMailchimp",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "PostgrestoSQLServer_STRIPE_sink",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -14843,14 +16147,14 @@
 					"recurrence": {
 						"frequency": "Week",
 						"interval": 1,
-						"startTime": "2020-06-02T04:00:00Z",
-						"timeZone": "UTC",
+						"startTime": "2020-11-30T06:33:00",
+						"timeZone": "Eastern Standard Time",
 						"schedule": {
 							"minutes": [
 								0
 							],
 							"hours": [
-								4
+								2
 							],
 							"weekDays": [
 								"Sunday"
@@ -14860,7 +16164,12 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/MysqlToSQLMatomo')]"
+				"[concat(variables('factoryId'), '/pipelines/EventiveToSQL')]",
+				"[concat(variables('factoryId'), '/pipelines/FacebookEvents')]",
+				"[concat(variables('factoryId'), '/pipelines/SalesforcetoSQL')]",
+				"[concat(variables('factoryId'), '/pipelines/MysqlToSQLMatomo')]",
+				"[concat(variables('factoryId'), '/pipelines/PostgresToSQLMailchimp')]",
+				"[concat(variables('factoryId'), '/pipelines/PostgrestoSQLServer_STRIPE_sink')]"
 			]
 		}
 	]
