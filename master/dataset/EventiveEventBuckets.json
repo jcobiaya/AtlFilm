@@ -8,7 +8,7 @@
 		"annotations": [],
 		"type": "RestResource",
 		"typeProperties": {
-			"relativeUrl": "event_buckets"
+			"relativeUrl": "event_buckets?api_key=dd67a9b5637524a10ef8934566db6abc"
 		},
 		"schema": []
 	},
