@@ -24,6 +24,7 @@
 					"sink": {
 						"type": "AzureSqlSink",
 						"preCopyScript": "DELETE FROM [dbo].[TICKETING_EVENTIVE_Events];",
+						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
@@ -557,6 +558,33 @@
 							},
 							{
 								"source": {
+									"path": "['person']['id']"
+								},
+								"sink": {
+									"name": "Person.ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['person']['name']"
+								},
+								"sink": {
+									"name": "Person.Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['person']['email']"
+								},
+								"sink": {
+									"name": "Person.Email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"path": "['pass_bucket']['id']"
 								},
 								"sink": {
@@ -625,6 +653,42 @@
 								"sink": {
 									"name": "Checked_In_At",
 									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription'].['id']"
+								},
+								"sink": {
+									"name": "pass_subscriptions.id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription'].['should_autorenew']"
+								},
+								"sink": {
+									"name": "pass_subscriptions.should_autorenew",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription'].['renewal_date']"
+								},
+								"sink": {
+									"name": "pass_subscriptions.renewal_date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription'].['status']"
+								},
+								"sink": {
+									"name": "pass_subscriptions.status",
+									"type": "String"
 								}
 							}
 						],
@@ -1028,17 +1092,11 @@
 					"sink": {
 						"type": "AzureSqlSink",
 						"preCopyScript": "DELETE FROM [dbo].[TICKETING_EVENTIVE_Tickets]",
+						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": true,
-					"logStorageSettings": {
-						"linkedServiceName": {
-							"referenceName": "AzureBlobStorage1",
-							"type": "LinkedServiceReference"
-						},
-						"path": "azureml-blobstore-10af7d03-7ed2-416c-88a6-88dcd909b4c2"
-					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -1098,6 +1156,15 @@
 							},
 							{
 								"source": {
+									"path": "['event']['event_bucket']"
+								},
+								"sink": {
+									"name": "Event.Event_Bucket.ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"path": "['event']['name']"
 								},
 								"sink": {
@@ -1143,15 +1210,6 @@
 							},
 							{
 								"source": {
-									"path": "['used_at']"
-								},
-								"sink": {
-									"name": "Used_At",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
 									"path": "['probably_customer_cancellable']"
 								},
 								"sink": {
@@ -1167,9 +1225,28 @@
 									"name": "Probably_Customer_Transferrable",
 									"type": "Boolean"
 								}
+							},
+							{
+								"source": {
+									"path": "['pass'].['id']"
+								},
+								"sink": {
+									"name": "Pass_Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['used_at']"
+								},
+								"sink": {
+									"name": "Used_At",
+									"type": "DateTime"
+								}
 							}
 						],
-						"collectionReference": "$['tickets']"
+						"collectionReference": "$['tickets']",
+						"mapComplexValuesToString": true
 					}
 				},
 				"inputs": [
