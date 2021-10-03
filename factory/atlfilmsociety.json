@@ -1,0 +1,9 @@
+{
+	"name": "atlfilmsociety",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "784cccbf-197d-4a37-906f-30948959f4a2",
+		"tenantId": "b2727bf4-80b0-4dad-942c-c9d27a4d37cc"
+	}
+}
