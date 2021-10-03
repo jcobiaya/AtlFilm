@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Backs up once a week on Sunday at midnight",
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
