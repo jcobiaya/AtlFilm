@@ -1024,6 +1024,24 @@
 									"name": "Lock_Admin_Only",
 									"type": "Boolean"
 								}
+							},
+							{
+								"source": {
+									"path": "['variants'][0]"
+								},
+								"sink": {
+									"name": "Variants",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['tickets'][0]"
+								},
+								"sink": {
+									"name": "Tickets",
+									"type": "String"
+								}
 							}
 						],
 						"collectionReference": "$['ticket_buckets']"
