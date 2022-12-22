@@ -42,8 +42,8 @@
 			},
 			{
 				"name": "Price",
-				"type": "int",
-				"precision": 10
+				"type": "float",
+				"precision": 15
 			},
 			{
 				"name": "Variant ID",
