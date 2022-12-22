@@ -1088,7 +1088,7 @@
 						"requestInterval": "00.00:00:00.010",
 						"requestMethod": "GET",
 						"paginationRules": {
-							"QueryParameters.limit": "100"
+							"QueryParameters.limit": "Headers.100"
 						}
 					},
 					"sink": {
