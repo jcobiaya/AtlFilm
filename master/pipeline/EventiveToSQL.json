@@ -1134,6 +1134,15 @@
 							},
 							{
 								"source": {
+									"path": "['event']['event_bucket']"
+								},
+								"sink": {
+									"name": "Event_Bucket",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"path": "['event']['name']"
 								},
 								"sink": {
