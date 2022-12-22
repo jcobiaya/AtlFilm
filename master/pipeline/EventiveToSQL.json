@@ -1014,28 +1014,10 @@
 							},
 							{
 								"source": {
-									"path": "['exclude_capacity']"
-								},
-								"sink": {
-									"name": "Exclude_Capacity",
-									"type": "Boolean"
-								}
-							},
-							{
-								"source": {
 									"path": "['public']"
 								},
 								"sink": {
 									"name": "Public",
-									"type": "Boolean"
-								}
-							},
-							{
-								"source": {
-									"path": "['lock_admin_only']"
-								},
-								"sink": {
-									"name": "Lock_Admin_Only",
 									"type": "Boolean"
 								}
 							}
