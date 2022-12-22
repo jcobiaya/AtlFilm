@@ -929,7 +929,10 @@
 						"preCopyScript": "DELETE FROM [dbo].[TICKETING_EVENTIVE_Ticket Buckets]",
 						"writeBehavior": "upsert",
 						"upsertSettings": {
-							"useTempDB": true
+							"useTempDB": true,
+							"keys": [
+								"ID"
+							]
 						},
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
