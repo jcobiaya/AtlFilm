@@ -921,10 +921,7 @@
 					"sink": {
 						"type": "AzureSqlSink",
 						"preCopyScript": "DELETE FROM [dbo].[TICKETING_EVENTIVE_Ticket Buckets]",
-						"writeBehavior": "upsert",
-						"upsertSettings": {
-							"useTempDB": true
-						},
+						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
@@ -1088,10 +1085,7 @@
 					"sink": {
 						"type": "AzureSqlSink",
 						"preCopyScript": "DELETE FROM [dbo].[TICKETING_EVENTIVE_Tickets]",
-						"writeBehavior": "upsert",
-						"upsertSettings": {
-							"useTempDB": true
-						},
+						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
