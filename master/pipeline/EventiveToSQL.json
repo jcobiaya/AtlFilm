@@ -927,7 +927,10 @@
 					"sink": {
 						"type": "AzureSqlSink",
 						"preCopyScript": "DELETE FROM [dbo].[TICKETING_EVENTIVE_Ticket Buckets]",
-						"writeBehavior": "insert",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true
+						},
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
@@ -1033,24 +1036,6 @@
 									"name": "Lock_Admin_Only",
 									"type": "Boolean"
 								}
-							},
-							{
-								"source": {
-									"path": "['variants'][0]"
-								},
-								"sink": {
-									"name": "Variants",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['tickets'][0]"
-								},
-								"sink": {
-									"name": "Tickets",
-									"type": "String"
-								}
 							}
 						],
 						"collectionReference": "$['ticket_buckets']"
@@ -1086,10 +1071,7 @@
 						"type": "RestSource",
 						"httpRequestTimeout": "00:01:40",
 						"requestInterval": "00.00:00:00.010",
-						"requestMethod": "GET",
-						"paginationRules": {
-							"AbsoluteUrl.limit": "100"
-						}
+						"requestMethod": "GET"
 					},
 					"sink": {
 						"type": "AzureSqlSink",
