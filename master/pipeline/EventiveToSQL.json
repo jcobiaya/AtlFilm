@@ -1105,13 +1105,6 @@
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": true,
-					"logStorageSettings": {
-						"linkedServiceName": {
-							"referenceName": "AzureBlobStorage1",
-							"type": "LinkedServiceReference"
-						},
-						"path": "azureml-blobstore-10af7d03-7ed2-416c-88a6-88dcd909b4c2"
-					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
