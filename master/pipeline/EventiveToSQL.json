@@ -621,6 +621,10 @@
 							{
 								"source": {
 									"path": "['order']"
+								},
+								"sink": {
+									"name": "Order_ID",
+									"type": "String"
 								}
 							},
 							{
@@ -628,8 +632,8 @@
 									"path": "['created_at']"
 								},
 								"sink": {
-									"name": "Order_ID",
-									"type": "String"
+									"name": "Created_At",
+									"type": "DateTime"
 								}
 							},
 							{
