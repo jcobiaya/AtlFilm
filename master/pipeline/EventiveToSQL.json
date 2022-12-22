@@ -709,7 +709,14 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "DELETE FROM [dbo].[TICKETING_EVENTIVE_Films]",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"ID"
+							]
+						},
+						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
