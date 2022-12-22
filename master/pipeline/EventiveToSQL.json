@@ -926,7 +926,6 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "DELETE FROM [dbo].[TICKETING_EVENTIVE_Ticket Buckets]",
 						"writeBehavior": "upsert",
 						"upsertSettings": {
 							"useTempDB": true,
