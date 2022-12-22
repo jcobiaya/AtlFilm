@@ -1574,7 +1574,7 @@
 								},
 								"sink": {
 									"name": "Price",
-									"type": "Int32"
+									"type": "Double"
 								}
 							},
 							{
