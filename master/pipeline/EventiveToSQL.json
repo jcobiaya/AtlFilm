@@ -1152,15 +1152,6 @@
 							},
 							{
 								"source": {
-									"path": "['event']['event_bucket']"
-								},
-								"sink": {
-									"name": "Event_Bucket",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"path": "['event']['name']"
 								},
 								"sink": {
@@ -1174,15 +1165,6 @@
 								},
 								"sink": {
 									"name": "Event.Venue.ID",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['event']['venue']['name']"
-								},
-								"sink": {
-									"name": "Event.Venue.Name",
 									"type": "String"
 								}
 							},
@@ -1211,24 +1193,6 @@
 								"sink": {
 									"name": "Used_At",
 									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"path": "['probably_customer_cancellable']"
-								},
-								"sink": {
-									"name": "Probably_Customer_Cancellable",
-									"type": "Boolean"
-								}
-							},
-							{
-								"source": {
-									"path": "['probably_customer_transferable']"
-								},
-								"sink": {
-									"name": "Probably_Customer_Transferrable",
-									"type": "Boolean"
 								}
 							}
 						],
