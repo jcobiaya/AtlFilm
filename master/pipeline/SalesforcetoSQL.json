@@ -21,7 +21,14 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Events]",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Id"
+							]
+						},
+						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
@@ -923,10 +930,192 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Programs]",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Id"
+							]
+						},
+						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OwnerId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OwnerId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RecordTypeId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RecordTypeId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CreatedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LastModifiedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastActivityDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastActivityDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "TYPE__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TYPE__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Category__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Category__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ProgramDescription__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ProgramDescription__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Status__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Status__c",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
