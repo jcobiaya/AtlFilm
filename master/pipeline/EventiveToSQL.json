@@ -1209,7 +1209,7 @@
 							},
 							{
 								"source": {
-									"path": "['person_id']"
+									"path": "['person']['id']"
 								},
 								"sink": {
 									"name": "Person_ID",
