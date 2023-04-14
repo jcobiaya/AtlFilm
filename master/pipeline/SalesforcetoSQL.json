@@ -3345,11 +3345,443 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Campaigns]",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Id"
+							]
+						},
+						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
-					"enableSkipIncompatibleRow": false
+					"enableSkipIncompatibleRow": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ParentId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ParentId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RecordTypeId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RecordTypeId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "StartDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "StartDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "EndDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "EndDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "ExpectedRevenue",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ExpectedRevenue",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "BudgetedCost",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "BudgetedCost",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ActualCost",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ActualCost",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ExpectedResponse",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ExpectedResponse",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "NumberSent",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "NumberSent",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IsActive",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsActive",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "Description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NumberOfLeads",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "NumberOfLeads",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "NumberOfConvertedLeads",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "NumberOfConvertedLeads",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "NumberOfContacts",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "NumberOfContacts",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "NumberOfResponses",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "NumberOfResponses",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "NumberOfOpportunities",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "NumberOfOpportunities",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "NumberOfWonOpportunities",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "NumberOfWonOpportunities",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "AmountAllOpportunities",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "AmountAllOpportunities",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "AmountWonOpportunities",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "AmountWonOpportunities",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "OwnerId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OwnerId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CreatedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LastModifiedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastActivityDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastActivityDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "CampaignMemberRecordTypeId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CampaignMemberRecordTypeId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "GW_Volunteers__Volunteer_Website_Time_Zone__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "GW_Volunteers__Volunteer_Website_Time_Zone__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "GW_Volunteers__Number_of_Volunteers__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "GW_Volunteers__Number_of_Volunteers__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "GW_Volunteers__Volunteer_Completed_Hours__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "GW_Volunteers__Volunteer_Completed_Hours__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "GW_Volunteers__Volunteer_Jobs__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "GW_Volunteers__Volunteer_Jobs__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "GW_Volunteers__Volunteer_Shifts__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "GW_Volunteers__Volunteer_Shifts__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "GW_Volunteers__Volunteers_Still_Needed__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "GW_Volunteers__Volunteers_Still_Needed__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Goal_Number__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Goal_Number__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Tagging_Code__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Tagging_Code__c",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
