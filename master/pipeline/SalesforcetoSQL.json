@@ -960,7 +960,6 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Opportunity]",
 						"writeBehavior": "upsert",
 						"upsertSettings": {
 							"useTempDB": true,
