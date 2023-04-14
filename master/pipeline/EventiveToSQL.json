@@ -1146,15 +1146,6 @@
 							},
 							{
 								"source": {
-									"path": "['ticket_bucket']['price']"
-								},
-								"sink": {
-									"name": "Ticket_Bucket.Price",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
 									"path": "['event']['id']"
 								},
 								"sink": {
@@ -1164,10 +1155,28 @@
 							},
 							{
 								"source": {
+									"path": "['event']['name']"
+								},
+								"sink": {
+									"name": "Event.Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"path": "['event']['venue']['id']"
 								},
 								"sink": {
 									"name": "Event.Venue.ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['event']['venue']['name']"
+								},
+								"sink": {
+									"name": "Event.Venue.Name",
 									"type": "String"
 								}
 							},
@@ -1196,6 +1205,24 @@
 								"sink": {
 									"name": "Used_At",
 									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['person_id']"
+								},
+								"sink": {
+									"name": "Person_ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "[person_email']"
+								},
+								"sink": {
+									"name": "Person_Email",
+									"type": "String"
 								}
 							}
 						],
