@@ -2311,10 +2311,282 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Opportunity_Product]",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Id"
+							]
+						},
+						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OpportunityId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OpportunityId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SortOrder",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "SortOrder",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "PricebookEntryId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PricebookEntryId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Product2Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Product2Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ProductCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ProductCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Quantity",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Quantity",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalPrice",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "TotalPrice",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "UnitPrice",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "UnitPrice",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ListPrice",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ListPrice",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ServiceDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "ServiceDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "HasRevenueSchedule",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "HasRevenueSchedule",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "HasQuantitySchedule",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "HasQuantitySchedule",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "Description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HasSchedule",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "HasSchedule",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "CanUseQuantitySchedule",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "CanUseQuantitySchedule",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "CanUseRevenueSchedule",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "CanUseRevenueSchedule",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CreatedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LastModifiedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Quickbooks_Id__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Quickbooks_Id__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Exclusive__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Exclusive__c",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
