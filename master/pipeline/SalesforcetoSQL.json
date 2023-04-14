@@ -961,9 +961,1322 @@
 					"sink": {
 						"type": "AzureSqlSink",
 						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Opportunity]",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Id"
+							]
+						},
+						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "AccountId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AccountId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RecordTypeId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RecordTypeId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IsPrivate",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsPrivate",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "StageName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "StageName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Amount",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Amount",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Probability",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Probability",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ExpectedRevenue",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ExpectedRevenue",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalOpportunityQuantity",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "TotalOpportunityQuantity",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "CloseDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CloseDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NextStep",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NextStep",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LeadSource",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LeadSource",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IsClosed",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsClosed",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "IsWon",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsWon",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "ForecastCategory",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ForecastCategory",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ForecastCategoryName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ForecastCategoryName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CampaignId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CampaignId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HasOpportunityLineItem",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "HasOpportunityLineItem",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "Pricebook2Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Pricebook2Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OwnerId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OwnerId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CreatedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LastModifiedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastActivityDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastActivityDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "FiscalQuarter",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "FiscalQuarter",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "FiscalYear",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "FiscalYear",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "Fiscal",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Fiscal",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SyncedQuoteId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SyncedQuoteId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ContractId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ContractId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HasOpenActivity",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "HasOpenActivity",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "HasOverdueTask",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "HasOverdueTask",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "npe01__Amount_Outstanding__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "npe01__Amount_Outstanding__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "npe01__Contact_Id_for_Role__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npe01__Contact_Id_for_Role__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npe01__Do_Not_Automatically_Create_Payment__c",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "npe01__Do_Not_Automatically_Create_Payment__c",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "npe01__Is_Opp_From_Individual__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npe01__Is_Opp_From_Individual__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npe01__Member_Level__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npe01__Member_Level__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npe01__Membership_End_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "npe01__Membership_End_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "npe01__Membership_Origin__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npe01__Membership_Origin__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npe01__Membership_Start_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "npe01__Membership_Start_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "npe01__Amount_Written_Off__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "npe01__Amount_Written_Off__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "npe01__Number_of_Payments__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "npe01__Number_of_Payments__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "npe01__Payments_Made__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "npe01__Payments_Made__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "npo02__CombinedRollupFieldset__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npo02__CombinedRollupFieldset__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npo02__systemHouseholdContactRoleProcessor__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npo02__systemHouseholdContactRoleProcessor__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npe03__Recurring_Donation__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npe03__Recurring_Donation__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Batch__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Batch__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Acknowledgment_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "npsp__Acknowledgment_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Acknowledgment_Status__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Acknowledgment_Status__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Recurring_Donation_Installment_Name__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Recurring_Donation_Installment_Name__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Recurring_Donation_Installment_Number__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "npsp__Recurring_Donation_Installment_Number__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Primary_Contact__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Primary_Contact__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Grant_Contract_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "npsp__Grant_Contract_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Grant_Contract_Number__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Grant_Contract_Number__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Grant_Period_End_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "npsp__Grant_Period_End_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Grant_Period_Start_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "npsp__Grant_Period_Start_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Grant_Program_Area_s__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Grant_Program_Area_s__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Grant_Requirements_Website__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Grant_Requirements_Website__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Is_Grant_Renewal__c",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "npsp__Is_Grant_Renewal__c",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Previous_Grant_Opportunity__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Previous_Grant_Opportunity__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Requested_Amount__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "npsp__Requested_Amount__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Next_Grant_Deadline_Due_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "npsp__Next_Grant_Deadline_Due_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Primary_Contact_Campaign_Member_Status__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Primary_Contact_Campaign_Member_Status__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Honoree_Contact__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Honoree_Contact__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Honoree_Name__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Honoree_Name__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Notification_Message__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Notification_Message__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Notification_Preference__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Notification_Preference__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Notification_Recipient_Contact__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Notification_Recipient_Contact__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Notification_Recipient_Information__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Notification_Recipient_Information__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Notification_Recipient_Name__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Notification_Recipient_Name__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Tribute_Type__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Tribute_Type__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Matching_Gift_Account__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Matching_Gift_Account__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Matching_Gift_Employer__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Matching_Gift_Employer__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Matching_Gift_Status__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Matching_Gift_Status__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Matching_Gift__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Matching_Gift__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Fair_Market_Value__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "npsp__Fair_Market_Value__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__In_Kind_Description__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__In_Kind_Description__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__In_Kind_Donor_Declared_Value__c",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "npsp__In_Kind_Donor_Declared_Value__c",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__In_Kind_Type__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__In_Kind_Type__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Ask_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "npsp__Ask_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Closed_Lost_Reason__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Closed_Lost_Reason__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "npsp__Gift_Strategy__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "npsp__Gift_Strategy__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Benefits__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Benefits__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LID__Is_Influenced__c",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "LID__Is_Influenced__c",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "Sponsor_Level__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Sponsor_Level__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cash_Sponsorship__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Cash_Sponsorship__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Cash_Likely_Sponsorship__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Cash_Likely_Sponsorship__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Cash_PITCHING__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Cash_PITCHING__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "In_Kind_Amount__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "In_Kind_Amount__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "In_Kind_PITCH__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "In_Kind_PITCH__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "In_Kind_LIKELY__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "In_Kind_LIKELY__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Billing_Address__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Billing_Address__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Billing_City__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Billing_City__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Billing_Country__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Billing_Country__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Billing_State__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Billing_State__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Billing_Zip__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Billing_Zip__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Due_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "AVSFQB__Due_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Generate_Object__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Generate_Object__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__PO_Number__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__PO_Number__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Primary_Contact__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Primary_Contact__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Product_Name__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Product_Name__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__QB_Error__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__QB_Error__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__QuickBooks_ItemType__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__QuickBooks_ItemType__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Quickbooks_Id__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Quickbooks_Id__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Sales_Rep__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Sales_Rep__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Ship_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "AVSFQB__Ship_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Shipping_Address__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Shipping_Address__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Shipping_City__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Shipping_City__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Shipping_Country__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Shipping_Country__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Shipping_State__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Shipping_State__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Shipping_Zip__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Shipping_Zip__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Terms__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Terms__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Total_Amount__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "AVSFQB__Total_Amount__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Transaction_Date__c",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "AVSFQB__Transaction_Date__c",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Transaction_Number__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Transaction_Number__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Products_Count__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "AVSFQB__Products_Count__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "LID__LinkedIn_Company_Id__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LID__LinkedIn_Company_Id__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "GCLID__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "GCLID__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Quote_Line_Item__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Quote_Line_Item__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sponsor_Logo__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Sponsor_Logo__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Events__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Events__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Social__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Social__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Activation_Photos__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Activation_Photos__c",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
