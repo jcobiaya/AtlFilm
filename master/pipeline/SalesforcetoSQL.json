@@ -4383,10 +4383,172 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Price_Book_Entry]",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Id"
+							]
+						},
+						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Pricebook2Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Pricebook2Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Product2Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Product2Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "UnitPrice",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "UnitPrice",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IsActive",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsActive",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "UseStandardPrice",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "UseStandardPrice",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CreatedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LastModifiedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "ProductCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ProductCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "IsArchived",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsArchived",
+									"type": "Boolean"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
