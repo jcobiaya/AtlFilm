@@ -1215,6 +1215,15 @@
 									"name": "Person_ID",
 									"type": "String"
 								}
+							},
+							{
+								"source": {
+									"path": "['person_email']"
+								},
+								"sink": {
+									"name": "Person_Email",
+									"type": "String"
+								}
 							}
 						],
 						"collectionReference": "$['tickets']"
