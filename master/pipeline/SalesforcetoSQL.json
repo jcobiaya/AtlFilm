@@ -3815,10 +3815,352 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "DELETE FROM [dbo].[DEVELOPMENT_SALESFORCE_Products]",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Id"
+							]
+						},
+						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ProductCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ProductCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "QuantityScheduleType",
+									"type": "String"
+								},
+								"sink": {
+									"name": "QuantityScheduleType",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "QuantityInstallmentPeriod",
+									"type": "String"
+								},
+								"sink": {
+									"name": "QuantityInstallmentPeriod",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NumberOfQuantityInstallments",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "NumberOfQuantityInstallments",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "RevenueScheduleType",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RevenueScheduleType",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RevenueInstallmentPeriod",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RevenueInstallmentPeriod",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NumberOfRevenueInstallments",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "NumberOfRevenueInstallments",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "IsActive",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsActive",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CreatedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LastModifiedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Family",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Family",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ExternalDataSourceId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ExternalDataSourceId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ExternalId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ExternalId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DisplayUrl",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DisplayUrl",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "QuantityUnitOfMeasure",
+									"type": "String"
+								},
+								"sink": {
+									"name": "QuantityUnitOfMeasure",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "IsArchived",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsArchived",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "StockKeepingUnit",
+									"type": "String"
+								},
+								"sink": {
+									"name": "StockKeepingUnit",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__COGS__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "AVSFQB__COGS__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Integration__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Integration__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__OnHand__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "AVSFQB__OnHand__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__QB_Error__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__QB_Error__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__QuickBooks_ItemType__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__QuickBooks_ItemType__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVSFQB__Quickbooks_Id__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVSFQB__Quickbooks_Id__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Events__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Events__c",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
