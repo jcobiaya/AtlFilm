@@ -22,7 +22,7 @@
 			},
 			{
 				"name": "class",
-				"type": "binary"
+				"type": "nvarchar"
 			},
 			{
 				"name": "reason",
