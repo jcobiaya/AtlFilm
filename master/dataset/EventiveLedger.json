@@ -1,0 +1,119 @@
+{
+	"name": "EventiveLedger",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_owner",
+				"type": "nvarchar"
+			},
+			{
+				"name": "type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "class",
+				"type": "binary"
+			},
+			{
+				"name": "reason",
+				"type": "nchar"
+			},
+			{
+				"name": "currency",
+				"type": "nchar"
+			},
+			{
+				"name": "balance_account.type",
+				"type": "nchar"
+			},
+			{
+				"name": "balance_account.currency",
+				"type": "nchar"
+			},
+			{
+				"name": "category.ref_type",
+				"type": "nchar"
+			},
+			{
+				"name": "category.ref_id",
+				"type": "nchar"
+			},
+			{
+				"name": "category.ref_label",
+				"type": "nchar"
+			},
+			{
+				"name": "item.ref_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "item.ref_label",
+				"type": "nchar"
+			},
+			{
+				"name": "net",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "fee",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "fee_nonrefundable",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "date",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "gross",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "person",
+				"type": "nvarchar"
+			},
+			{
+				"name": "order",
+				"type": "nvarchar"
+			},
+			{
+				"name": "pricing_plan",
+				"type": "nchar"
+			},
+			{
+				"name": "event_bucket",
+				"type": "nvarchar"
+			},
+			{
+				"name": "price_tier",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "stripe_charge_id",
+				"type": "nchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Ledger"
+		}
+	}
+}
