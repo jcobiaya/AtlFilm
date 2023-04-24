@@ -26,31 +26,31 @@
 			},
 			{
 				"name": "reason",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "currency",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "balance_account.type",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "balance_account.currency",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "category.ref_type",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "category.ref_id",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "category.ref_label",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "item.ref_id",
@@ -58,7 +58,7 @@
 			},
 			{
 				"name": "item.ref_label",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "net",
@@ -95,7 +95,7 @@
 			},
 			{
 				"name": "pricing_plan",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "event_bucket",
@@ -108,7 +108,7 @@
 			},
 			{
 				"name": "stripe_charge_id",
-				"type": "nchar"
+				"type": "nvarchar"
 			}
 		],
 		"typeProperties": {

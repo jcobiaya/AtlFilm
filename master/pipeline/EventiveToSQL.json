@@ -2020,15 +2020,6 @@
 							},
 							{
 								"source": {
-									"path": "$['transactions'][0]['category']['ref_label']"
-								},
-								"sink": {
-									"name": "category.ref_label",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"path": "$['transactions'][0]['item']['ref_id']"
 								},
 								"sink": {
