@@ -1,5 +1,5 @@
 {
-	"name": "EventiveLedger",
+	"name": "AzureSqlEventiveLedger",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
