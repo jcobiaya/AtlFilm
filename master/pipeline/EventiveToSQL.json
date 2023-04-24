@@ -2366,6 +2366,15 @@
 									"name": "summary",
 									"type": "String"
 								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['coupon']['id']"
+								},
+								"sink": {
+									"name": "Coupon ID",
+									"type": "String"
+								}
 							}
 						]
 					}
