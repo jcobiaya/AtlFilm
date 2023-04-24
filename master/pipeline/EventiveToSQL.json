@@ -1909,7 +1909,7 @@
 						"requestInterval": "00.00:00:00.010",
 						"requestMethod": "GET",
 						"paginationRules": {
-							"QueryParameters.{skip}": "RANGE:0:20000:100"
+							"QueryParameters.{skip}": "RANGE:0:20000:50"
 						}
 					},
 					"sink": {
