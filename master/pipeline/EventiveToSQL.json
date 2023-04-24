@@ -2204,6 +2204,15 @@
 							},
 							{
 								"source": {
+									"path": "$['orders'][0]['tax_collected']"
+								},
+								"sink": {
+									"name": "tax collected",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
 									"path": "$['orders'][0]['event_bucket']['id']"
 								},
 								"sink": {
@@ -2352,15 +2361,6 @@
 								},
 								"sink": {
 									"name": "summary",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['orders'][0]['coupon']['id']"
-								},
-								"sink": {
-									"name": "Coupon Code",
 									"type": "String"
 								}
 							}
