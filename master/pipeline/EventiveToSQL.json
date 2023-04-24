@@ -1903,8 +1903,211 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"enableStaging": false
-				}
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"paginationRules": {
+							"supportRFC5988": "true"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"_id"
+							]
+						},
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['transactions'][0]['_id']"
+								},
+								"sink": {
+									"name": "_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['_owner']"
+								},
+								"sink": {
+									"name": "_owner",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['type']"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['class']"
+								},
+								"sink": {
+									"name": "class",
+									"type": "Byte[]"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['reason']"
+								},
+								"sink": {
+									"name": "reason",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['currency']"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['balance_account']['type']"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['balance_account']['currency']"
+								},
+								"sink": {
+									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['category']['ref_type']"
+								},
+								"sink": {
+									"name": "category.ref_type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['category']['ref_id']"
+								},
+								"sink": {
+									"name": "category.ref_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['category']['ref_label']"
+								},
+								"sink": {
+									"name": "category.ref_label",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['item']['ref_id']"
+								},
+								"sink": {
+									"name": "item.ref_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['item']['ref_label']"
+								},
+								"sink": {
+									"name": "item.ref_label",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['net']"
+								},
+								"sink": {
+									"name": "net",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['fee']"
+								},
+								"sink": {
+									"name": "fee",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['fee_nonrefundable']"
+								},
+								"sink": {
+									"name": "fee_nonrefundable",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['date']"
+								},
+								"sink": {
+									"name": "date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['transactions'][0]['gross']"
+								},
+								"sink": {
+									"name": "gross",
+									"type": "Int64"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "EventiveLedger",
+						"type": "DatasetReference",
+						"parameters": {
+							"api_key": "dd67a9b5637524a10ef8934566db6abc"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlEventiveLedger",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": [],
