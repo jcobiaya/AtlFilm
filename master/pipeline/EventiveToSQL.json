@@ -1961,7 +1961,7 @@
 								},
 								"sink": {
 									"name": "class",
-									"type": "Byte[]"
+									"type": "String"
 								}
 							},
 							{
@@ -2090,7 +2090,8 @@
 									"type": "Int64"
 								}
 							}
-						]
+						],
+						"collectionReference": ""
 					}
 				},
 				"inputs": [
