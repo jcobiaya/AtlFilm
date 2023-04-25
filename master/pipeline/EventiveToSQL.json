@@ -1990,7 +1990,7 @@
 									"path": "$['balance_account']['type']"
 								},
 								"sink": {
-									"name": "type",
+									"name": "balance_account.type",
 									"type": "String"
 								}
 							},
@@ -1999,7 +1999,7 @@
 									"path": "$['balance_account']['currency']"
 								},
 								"sink": {
-									"name": "currency",
+									"name": "balance_account.currency",
 									"type": "String"
 								}
 							},
