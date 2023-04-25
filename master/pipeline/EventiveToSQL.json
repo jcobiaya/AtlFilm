@@ -1924,7 +1924,7 @@
 								"_id"
 							]
 						},
-						"sqlWriterUseTableLock": false,
+						"sqlWriterUseTableLock": true,
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
