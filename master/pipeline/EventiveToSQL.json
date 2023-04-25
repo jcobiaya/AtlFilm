@@ -2083,6 +2083,15 @@
 									"name": "gross",
 									"type": "Int64"
 								}
+							},
+							{
+								"source": {
+									"path": "['stripe_charge_id']"
+								},
+								"sink": {
+									"name": "stripe_charge_id",
+									"type": "String"
+								}
 							}
 						],
 						"collectionReference": "$['transactions']"
