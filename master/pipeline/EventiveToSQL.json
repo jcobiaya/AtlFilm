@@ -2432,8 +2432,14 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false,
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Order Id"
+							]
+						},
+						"sqlWriterUseTableLock": true,
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
