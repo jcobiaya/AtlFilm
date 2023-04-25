@@ -2041,7 +2041,7 @@
 							},
 							{
 								"source": {
-									"path": "['transactions'][0]['net']"
+									"path": "['net']"
 								},
 								"sink": {
 									"name": "net",
@@ -2050,7 +2050,7 @@
 							},
 							{
 								"source": {
-									"path": "['transactions'][0]['fee']"
+									"path": "['fee']"
 								},
 								"sink": {
 									"name": "fee",
@@ -2059,7 +2059,7 @@
 							},
 							{
 								"source": {
-									"path": "['transactions'][0]['fee_nonrefundable']"
+									"path": "['fee_nonrefundable']"
 								},
 								"sink": {
 									"name": "fee_nonrefundable",
@@ -2068,7 +2068,7 @@
 							},
 							{
 								"source": {
-									"path": "['transactions'][0]['date']"
+									"path": "['date']"
 								},
 								"sink": {
 									"name": "date",
@@ -2077,7 +2077,7 @@
 							},
 							{
 								"source": {
-									"path": "['transactions'][0]['gross']"
+									"path": "['gross']"
 								},
 								"sink": {
 									"name": "gross",
