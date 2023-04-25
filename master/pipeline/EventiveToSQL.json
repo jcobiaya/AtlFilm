@@ -1933,7 +1933,7 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['transactions'][0]['_id']"
+									"path": "['_id']"
 								},
 								"sink": {
 									"name": "_id",
@@ -1942,7 +1942,7 @@
 							},
 							{
 								"source": {
-									"path": "['_owner']"
+									"path": "$['_owner']"
 								},
 								"sink": {
 									"name": "_owner",
@@ -1951,7 +1951,7 @@
 							},
 							{
 								"source": {
-									"path": "['type']"
+									"path": "$['type']"
 								},
 								"sink": {
 									"name": "type",
@@ -1960,7 +1960,7 @@
 							},
 							{
 								"source": {
-									"path": "['class']"
+									"path": "$['class']"
 								},
 								"sink": {
 									"name": "class",
@@ -1969,7 +1969,7 @@
 							},
 							{
 								"source": {
-									"path": "['reason']"
+									"path": "$['reason']"
 								},
 								"sink": {
 									"name": "reason",
@@ -1978,7 +1978,7 @@
 							},
 							{
 								"source": {
-									"path": "['currency']"
+									"path": "$['currency']"
 								},
 								"sink": {
 									"name": "currency",
@@ -1987,7 +1987,7 @@
 							},
 							{
 								"source": {
-									"path": "['balance_account']['type']"
+									"path": "$['balance_account']['type']"
 								},
 								"sink": {
 									"name": "type",
@@ -1996,7 +1996,7 @@
 							},
 							{
 								"source": {
-									"path": "['balance_account']['currency']"
+									"path": "$['balance_account']['currency']"
 								},
 								"sink": {
 									"name": "currency",
@@ -2005,7 +2005,7 @@
 							},
 							{
 								"source": {
-									"path": "['category']['ref_type']"
+									"path": "$['category']['ref_type']"
 								},
 								"sink": {
 									"name": "category.ref_type",
@@ -2014,7 +2014,7 @@
 							},
 							{
 								"source": {
-									"path": "['category']['ref_id']"
+									"path": "$['category']['ref_id']"
 								},
 								"sink": {
 									"name": "category.ref_id",
@@ -2023,7 +2023,7 @@
 							},
 							{
 								"source": {
-									"path": "['category']['ref_label']"
+									"path": "$['category']['ref_label']"
 								},
 								"sink": {
 									"name": "category.ref_label",
@@ -2032,7 +2032,7 @@
 							},
 							{
 								"source": {
-									"path": "['item']['ref_id']"
+									"path": "$['item']['ref_id']"
 								},
 								"sink": {
 									"name": "item.ref_id",
@@ -2041,7 +2041,7 @@
 							},
 							{
 								"source": {
-									"path": "['item']['ref_label']"
+									"path": "$['item']['ref_label']"
 								},
 								"sink": {
 									"name": "item.ref_label",
