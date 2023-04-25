@@ -1190,15 +1190,6 @@
 							},
 							{
 								"source": {
-									"path": "['event_bucket']"
-								},
-								"sink": {
-									"name": "Event_Bucket",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"path": "['event']['venue']['id']"
 								},
 								"sink": {
