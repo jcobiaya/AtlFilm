@@ -71,6 +71,18 @@
 			{
 				"name": "Probably_Customer_Transferrable",
 				"type": "bit"
+			},
+			{
+				"name": "Person_ID",
+				"type": "nchar"
+			},
+			{
+				"name": "Person_Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Pass_ID",
+				"type": "nvarchar"
 			}
 		],
 		"typeProperties": {
