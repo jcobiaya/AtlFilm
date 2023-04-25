@@ -2386,7 +2386,8 @@
 								}
 							}
 						],
-						"collectionReference": "$['orders']"
+						"collectionReference": "$['orders']",
+						"mapComplexValuesToString": false
 					}
 				},
 				"inputs": [
@@ -2436,7 +2437,7 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['orders'][0]['id']"
+									"path": "['id']"
 								},
 								"sink": {
 									"name": "Order Id",
@@ -2445,7 +2446,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['owner']"
+									"path": "['owner']"
 								},
 								"sink": {
 									"name": "owner",
@@ -2454,7 +2455,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['created_at']"
+									"path": "['created_at']"
 								},
 								"sink": {
 									"name": "Created At",
@@ -2463,7 +2464,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['purchase_price']"
+									"path": "['purchase_price']"
 								},
 								"sink": {
 									"name": "Purchase Price",
@@ -2472,7 +2473,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['net_price']"
+									"path": "['net_price']"
 								},
 								"sink": {
 									"name": "net_price",
@@ -2481,7 +2482,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['type']"
+									"path": "['type']"
 								},
 								"sink": {
 									"name": "type",
@@ -2490,7 +2491,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['success']"
+									"path": "['success']"
 								},
 								"sink": {
 									"name": "success",
@@ -2499,7 +2500,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['tax_collected']"
+									"path": "['tax_collected']"
 								},
 								"sink": {
 									"name": "tax collected",
@@ -2508,7 +2509,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['event_bucket']['id']"
+									"path": "['event_bucket']['id']"
 								},
 								"sink": {
 									"name": "Event Bucket ID",
@@ -2517,7 +2518,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['person']['id']"
+									"path": "['person']['id']"
 								},
 								"sink": {
 									"name": "Person ID",
@@ -2526,7 +2527,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['person']['details']['email']"
+									"path": "['person']['details']['email']"
 								},
 								"sink": {
 									"name": "email",
@@ -2535,7 +2536,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['ip']"
+									"path": "['origin_location']['ip']"
 								},
 								"sink": {
 									"name": "ip",
@@ -2544,7 +2545,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['city']"
+									"path": "['origin_location']['city']"
 								},
 								"sink": {
 									"name": "city",
@@ -2553,7 +2554,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['continent']"
+									"path": "['origin_location']['continent']"
 								},
 								"sink": {
 									"name": "continent",
@@ -2562,7 +2563,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['continent_name']"
+									"path": "['origin_location']['continent_name']"
 								},
 								"sink": {
 									"name": "continent_name",
@@ -2571,7 +2572,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['region']"
+									"path": "['origin_location']['region']"
 								},
 								"sink": {
 									"name": "region",
@@ -2580,7 +2581,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['region_code']"
+									"path": "['origin_location']['region_code']"
 								},
 								"sink": {
 									"name": "region_code",
@@ -2589,7 +2590,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['country']"
+									"path": "['origin_location']['country']"
 								},
 								"sink": {
 									"name": "country",
@@ -2598,7 +2599,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['country_name']"
+									"path": "['origin_location']['country_name']"
 								},
 								"sink": {
 									"name": "country_name",
@@ -2607,7 +2608,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['postal']"
+									"path": "['origin_location']['postal']"
 								},
 								"sink": {
 									"name": "postal",
@@ -2616,7 +2617,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['latitude']"
+									"path": "['origin_location']['latitude']"
 								},
 								"sink": {
 									"name": "latitude",
@@ -2625,7 +2626,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['longitude']"
+									"path": "['origin_location']['longitude']"
 								},
 								"sink": {
 									"name": "longitude",
@@ -2634,7 +2635,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['asn']"
+									"path": "['origin_location']['asn']"
 								},
 								"sink": {
 									"name": "asn",
@@ -2643,7 +2644,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['origin_location']['org']"
+									"path": "['origin_location']['org']"
 								},
 								"sink": {
 									"name": "org",
@@ -2652,7 +2653,7 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['summary']"
+									"path": "['summary']"
 								},
 								"sink": {
 									"name": "summary",
@@ -2661,14 +2662,15 @@
 							},
 							{
 								"source": {
-									"path": "$['orders'][0]['coupon']['id']"
+									"path": "['coupon']['id']"
 								},
 								"sink": {
 									"name": "Coupon ID",
 									"type": "String"
 								}
 							}
-						]
+						],
+						"collectionReference": "$['orders']"
 					}
 				},
 				"inputs": [
