@@ -2023,15 +2023,6 @@
 							},
 							{
 								"source": {
-									"path": "['category']['ref_label']"
-								},
-								"sink": {
-									"name": "category.ref_label",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"path": "['item']['ref_id']"
 								},
 								"sink": {
