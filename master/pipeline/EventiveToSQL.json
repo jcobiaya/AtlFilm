@@ -1136,6 +1136,24 @@
 							},
 							{
 								"source": {
+									"path": "['person']['id']"
+								},
+								"sink": {
+									"name": "Person_ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['person']['email']"
+								},
+								"sink": {
+									"name": "Person_Email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"path": "['ticket_bucket']['id']"
 								},
 								"sink": {
@@ -1154,6 +1172,15 @@
 							},
 							{
 								"source": {
+									"path": "['ticket_bucket']['price']"
+								},
+								"sink": {
+									"name": "Ticket_Bucket.Price",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
 									"path": "['event']['id']"
 								},
 								"sink": {
@@ -1163,10 +1190,10 @@
 							},
 							{
 								"source": {
-									"path": "['event']['name']"
+									"path": "['event_bucket']"
 								},
 								"sink": {
-									"name": "Event.Name",
+									"name": "Event_Bucket",
 									"type": "String"
 								}
 							},
@@ -1181,19 +1208,19 @@
 							},
 							{
 								"source": {
-									"path": "['event']['venue']['name']"
+									"path": "['order']"
 								},
 								"sink": {
-									"name": "Event.Venue.Name",
+									"name": "Order_ID",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['order']"
+									"path": "['pass']['id']"
 								},
 								"sink": {
-									"name": "Order_ID",
+									"name": "Pass_ID",
 									"type": "String"
 								}
 							},
@@ -1204,33 +1231,6 @@
 								"sink": {
 									"name": "Created_At",
 									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"path": "['used_at']"
-								},
-								"sink": {
-									"name": "Used_At",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"path": "['person']['id']"
-								},
-								"sink": {
-									"name": "Person_ID",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['person_email']"
-								},
-								"sink": {
-									"name": "Person_Email",
-									"type": "String"
 								}
 							}
 						],
