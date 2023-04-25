@@ -2391,6 +2391,288 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Orders_copy1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"paginationRules": {
+							"QueryParameters.{skip}": "RANGE:0:20000:100"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['orders'][0]['id']"
+								},
+								"sink": {
+									"name": "Order Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['owner']"
+								},
+								"sink": {
+									"name": "owner",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['created_at']"
+								},
+								"sink": {
+									"name": "Created At",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['purchase_price']"
+								},
+								"sink": {
+									"name": "Purchase Price",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['net_price']"
+								},
+								"sink": {
+									"name": "net_price",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['type']"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['success']"
+								},
+								"sink": {
+									"name": "success",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['tax_collected']"
+								},
+								"sink": {
+									"name": "tax collected",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['event_bucket']['id']"
+								},
+								"sink": {
+									"name": "Event Bucket ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['person']['id']"
+								},
+								"sink": {
+									"name": "Person ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['person']['details']['email']"
+								},
+								"sink": {
+									"name": "email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['ip']"
+								},
+								"sink": {
+									"name": "ip",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['city']"
+								},
+								"sink": {
+									"name": "city",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['continent']"
+								},
+								"sink": {
+									"name": "continent",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['continent_name']"
+								},
+								"sink": {
+									"name": "continent_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['region']"
+								},
+								"sink": {
+									"name": "region",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['region_code']"
+								},
+								"sink": {
+									"name": "region_code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['country']"
+								},
+								"sink": {
+									"name": "country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['country_name']"
+								},
+								"sink": {
+									"name": "country_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['postal']"
+								},
+								"sink": {
+									"name": "postal",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['latitude']"
+								},
+								"sink": {
+									"name": "latitude",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['longitude']"
+								},
+								"sink": {
+									"name": "longitude",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['asn']"
+								},
+								"sink": {
+									"name": "asn",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['origin_location']['org']"
+								},
+								"sink": {
+									"name": "org",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['summary']"
+								},
+								"sink": {
+									"name": "summary",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['orders'][0]['coupon']['id']"
+								},
+								"sink": {
+									"name": "Coupon ID",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "EventiveOrders",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlEventiveOrders_2",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": [],
