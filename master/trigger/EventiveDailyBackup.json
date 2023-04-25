@@ -26,7 +26,11 @@
 						0
 					],
 					"weekDays": [
-						"Sunday"
+						"Monday",
+						"Tuesday",
+						"Wednesday",
+						"Thursday",
+						"Friday"
 					]
 				}
 			}
