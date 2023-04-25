@@ -1,0 +1,169 @@
+{
+	"name": "AzureSqlEventiveOrders_2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Order Id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "price",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Coupon ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Items Coupon Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Items Coupon Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "tax collected",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Created At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Event Bucket ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event Bucket Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "net_price",
+				"type": "decimal",
+				"precision": 16,
+				"scale": 2
+			},
+			{
+				"name": "ip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "owner",
+				"type": "nchar"
+			},
+			{
+				"name": "email",
+				"type": "nchar"
+			},
+			{
+				"name": "Person Name",
+				"type": "nchar"
+			},
+			{
+				"name": "Person ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Purchase Price",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "subtype",
+				"type": "nchar"
+			},
+			{
+				"name": "Sold By User ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shift",
+				"type": "nvarchar"
+			},
+			{
+				"name": "success",
+				"type": "bit"
+			},
+			{
+				"name": "summary",
+				"type": "nvarchar"
+			},
+			{
+				"name": "type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SSMA_TimeStamp",
+				"type": "timestamp"
+			},
+			{
+				"name": "Refunded At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "city",
+				"type": "nvarchar"
+			},
+			{
+				"name": "continent",
+				"type": "nvarchar"
+			},
+			{
+				"name": "continent_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "region",
+				"type": "nvarchar"
+			},
+			{
+				"name": "region_code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "country_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "postal",
+				"type": "nvarchar"
+			},
+			{
+				"name": "latitude",
+				"type": "nvarchar"
+			},
+			{
+				"name": "longitude",
+				"type": "nvarchar"
+			},
+			{
+				"name": "asn",
+				"type": "nvarchar"
+			},
+			{
+				"name": "org",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Orders"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
