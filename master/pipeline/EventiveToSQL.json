@@ -1933,7 +1933,7 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['transactions]['_id']"
+									"path": "['_id']"
 								},
 								"sink": {
 									"name": "_id",
@@ -2094,7 +2094,7 @@
 								}
 							}
 						],
-						"collectionReference": ""
+						"collectionReference": "$['transactions']"
 					}
 				},
 				"inputs": [
