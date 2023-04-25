@@ -2153,7 +2153,7 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['orders'][0]['id']"
+									"path": "['id']"
 								},
 								"sink": {
 									"name": "Order Id",
