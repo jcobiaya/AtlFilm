@@ -1986,16 +1986,7 @@
 									"path": "['balance_account']['type']"
 								},
 								"sink": {
-									"name": "balance_account.type",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['balance_account']['currency']"
-								},
-								"sink": {
-									"name": "balance_account.currency",
+									"name": "type",
 									"type": "String"
 								}
 							},
@@ -2023,15 +2014,6 @@
 								},
 								"sink": {
 									"name": "item.ref_id",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['item']['ref_label']"
-								},
-								"sink": {
-									"name": "item.ref_label",
 									"type": "String"
 								}
 							},
@@ -2082,10 +2064,10 @@
 							},
 							{
 								"source": {
-									"path": "['stripe_charge_id']"
+									"path": "['order']"
 								},
 								"sink": {
-									"name": "stripe_charge_id",
+									"name": "order",
 									"type": "String"
 								}
 							}
