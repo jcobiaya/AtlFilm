@@ -1986,7 +1986,7 @@
 									"path": "['balance_account']['type']"
 								},
 								"sink": {
-									"name": "type",
+									"name": "balance_account.type",
 									"type": "String"
 								}
 							},
