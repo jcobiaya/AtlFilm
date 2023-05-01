@@ -71,6 +71,27 @@
 			{
 				"name": "Uses",
 				"type": "nvarchar"
+			},
+			{
+				"name": "Is_active",
+				"type": "bit"
+			},
+			{
+				"name": "Pass_Subscriptions.ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Pass_Subscriptions.should_renew",
+				"type": "bit"
+			},
+			{
+				"name": "Pass_Subscriptions.renewal_date",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Pass_Subscriptions.status",
+				"type": "nvarchar"
 			}
 		],
 		"typeProperties": {
