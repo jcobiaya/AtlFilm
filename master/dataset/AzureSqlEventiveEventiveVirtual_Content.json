@@ -1,0 +1,195 @@
+{
+	"name": "AzureSqlEventiveEventiveVirtual_Content",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Event_Bucket ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Film Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Details.Year",
+				"type": "nchar"
+			},
+			{
+				"name": "Details.Runtime",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Details.Language",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Details.Country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Details.Premiere",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Details.Rating",
+				"type": "nchar"
+			},
+			{
+				"name": "Details.Note",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Director",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Screenwriter",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Producer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Executive_Producer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Co_Producer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Filmmaker",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Cast",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Cinematographer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Editor",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Animator",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Production_Design",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Composer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Sound_Design",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credits.Music",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tags ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Trailer_URL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Short_Description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Visibility",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Created_At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Updated_At",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Event Bucket Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Platform",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Status",
+				"type": "nchar"
+			},
+			{
+				"name": "File Size",
+				"type": "nchar"
+			},
+			{
+				"name": "Virtual Content.Type",
+				"type": "nchar"
+			},
+			{
+				"name": "Duration",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Owner Organization",
+				"type": "nchar"
+			},
+			{
+				"name": "Label",
+				"type": "nchar"
+			},
+			{
+				"name": "livestream_started_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "livestream_stopped_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Virtual Content ID",
+				"type": "nchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TICKETING_EVENTIVE_Virtual Content"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
