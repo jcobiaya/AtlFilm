@@ -2786,7 +2786,7 @@
 								},
 								"sink": {
 									"name": "duration",
-									"type": "Int64"
+									"type": "Double"
 								}
 							},
 							{
