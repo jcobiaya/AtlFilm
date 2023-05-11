@@ -880,6 +880,33 @@
 									"name": "Virtual Content ID",
 									"type": "String"
 								}
+							},
+							{
+								"source": {
+									"path": "['credits']['producer']"
+								},
+								"sink": {
+									"name": "Credits.Producer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['credits']['screenwriter']"
+								},
+								"sink": {
+									"name": "Credits.Screenwriter",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['credits']['director']"
+								},
+								"sink": {
+									"name": "Credits.Director",
+									"type": "String"
+								}
 							}
 						],
 						"collectionReference": "$['films']",
