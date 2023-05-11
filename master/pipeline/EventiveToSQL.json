@@ -802,37 +802,10 @@
 							},
 							{
 								"source": {
-									"path": "['short_description']"
-								},
-								"sink": {
-									"name": "Short_Description",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"path": "['description']"
 								},
 								"sink": {
 									"name": "Description",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['trailer_url']"
-								},
-								"sink": {
-									"name": "Trailer_URL",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['details']['premiere']"
-								},
-								"sink": {
-									"name": "Details.Premiere",
 									"type": "String"
 								}
 							},
@@ -869,42 +842,6 @@
 								},
 								"sink": {
 									"name": "Details.Year",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['credits']['editor']"
-								},
-								"sink": {
-									"name": "Credits.Editor",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['credits']['producer']"
-								},
-								"sink": {
-									"name": "Credits.Producer",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['credits']['screenwriter']"
-								},
-								"sink": {
-									"name": "Credits.Screenwriter",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['credits']['director']"
-								},
-								"sink": {
-									"name": "Credits.Director",
 									"type": "String"
 								}
 							},
