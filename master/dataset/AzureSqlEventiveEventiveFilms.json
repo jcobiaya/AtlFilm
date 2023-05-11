@@ -137,6 +137,53 @@
 			{
 				"name": "Event Bucket Name",
 				"type": "nvarchar"
+			},
+			{
+				"name": "Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Platform",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Status",
+				"type": "nchar"
+			},
+			{
+				"name": "File Size",
+				"type": "nchar"
+			},
+			{
+				"name": "Virtual Content.Type",
+				"type": "nchar"
+			},
+			{
+				"name": "Duration",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Owner Organization",
+				"type": "nchar"
+			},
+			{
+				"name": "Label",
+				"type": "nchar"
+			},
+			{
+				"name": "livestream_started_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "livestream_stopped_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Virtual Content ID",
+				"type": "nchar"
 			}
 		],
 		"typeProperties": {
