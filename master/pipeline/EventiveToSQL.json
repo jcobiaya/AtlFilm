@@ -871,6 +871,15 @@
 									"name": "Updated_At",
 									"type": "DateTime"
 								}
+							},
+							{
+								"source": {
+									"path": "['virtual_content']['id']"
+								},
+								"sink": {
+									"name": "Virtual Content ID",
+									"type": "String"
+								}
 							}
 						],
 						"collectionReference": "$['films']",
