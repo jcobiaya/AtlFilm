@@ -1190,10 +1190,28 @@
 							},
 							{
 								"source": {
+									"path": "['event']['name']"
+								},
+								"sink": {
+									"name": "Event.Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"path": "['event']['venue']['id']"
 								},
 								"sink": {
-									"name": "Event.Venue.ID",
+									"name": "Event.ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['event']['venue']['name']"
+								},
+								"sink": {
+									"name": "Event.Venue.Name",
 									"type": "String"
 								}
 							},
@@ -1208,20 +1226,20 @@
 							},
 							{
 								"source": {
-									"path": "['pass']['id']"
-								},
-								"sink": {
-									"name": "Pass_ID",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"path": "['created_at']"
 								},
 								"sink": {
 									"name": "Created_At",
 									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$"
+								},
+								"sink": {
+									"name": "Pass_ID",
+									"type": "String"
 								}
 							}
 						],
