@@ -1202,7 +1202,7 @@
 									"path": "['event']['venue']['id']"
 								},
 								"sink": {
-									"name": "Event.ID",
+									"name": "Event.Venue.ID",
 									"type": "String"
 								}
 							},
