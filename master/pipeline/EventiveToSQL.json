@@ -1235,11 +1235,20 @@
 							},
 							{
 								"source": {
-									"path": "$"
+									"path": "['pass']['id']"
 								},
 								"sink": {
 									"name": "Pass_ID",
 									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['used_at']"
+								},
+								"sink": {
+									"name": "Used_At",
+									"type": "DateTime"
 								}
 							}
 						],
