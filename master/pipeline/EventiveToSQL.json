@@ -2046,6 +2046,24 @@
 							},
 							{
 								"source": {
+									"path": "['date']"
+								},
+								"sink": {
+									"name": "date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['class']"
+								},
+								"sink": {
+									"name": "class",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"path": "['category']['ref_type']"
 								},
 								"sink": {
