@@ -2082,15 +2082,6 @@
 							},
 							{
 								"source": {
-									"path": "['price_tier']"
-								},
-								"sink": {
-									"name": "price_tier",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
 									"path": "['gross']"
 								},
 								"sink": {
