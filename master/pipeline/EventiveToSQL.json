@@ -1965,28 +1965,10 @@
 							},
 							{
 								"source": {
-									"path": "['_owner']"
-								},
-								"sink": {
-									"name": "_owner",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"path": "['type']"
 								},
 								"sink": {
 									"name": "type",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['class']"
-								},
-								"sink": {
-									"name": "class",
 									"type": "String"
 								}
 							},
@@ -2005,6 +1987,51 @@
 								},
 								"sink": {
 									"name": "currency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['_owner']"
+								},
+								"sink": {
+									"name": "_owner",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['pricing_plan']"
+								},
+								"sink": {
+									"name": "pricing_plan",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['order']"
+								},
+								"sink": {
+									"name": "order",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['person']"
+								},
+								"sink": {
+									"name": "person",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['event_bucket']"
+								},
+								"sink": {
+									"name": "event_bucket",
 									"type": "String"
 								}
 							},
@@ -2037,11 +2064,29 @@
 							},
 							{
 								"source": {
-									"path": "['item']['ref_id']"
+									"path": "['category']['ref_label']"
 								},
 								"sink": {
-									"name": "item.ref_id",
+									"name": "category.ref_label",
 									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['price_tier']"
+								},
+								"sink": {
+									"name": "price_tier",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['gross']"
+								},
+								"sink": {
+									"name": "gross",
+									"type": "Int64"
 								}
 							},
 							{
@@ -2073,28 +2118,19 @@
 							},
 							{
 								"source": {
-									"path": "['date']"
+									"path": "['stripe_charge_id']"
 								},
 								"sink": {
-									"name": "date",
-									"type": "DateTime"
+									"name": "stripe_charge_id",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['gross']"
+									"path": "['item']['ref_id']"
 								},
 								"sink": {
-									"name": "gross",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "['order']"
-								},
-								"sink": {
-									"name": "order",
+									"name": "item.ref_id",
 									"type": "String"
 								}
 							}
