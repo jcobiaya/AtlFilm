@@ -1935,7 +1935,7 @@
 						"requestInterval": "00.00:00:00.030",
 						"requestMethod": "GET",
 						"paginationRules": {
-							"QueryParameters.{skip}": "RANGE:0:30000:1000"
+							"QueryParameters.{skip}": "RANGE:0:45000:1000"
 						}
 					},
 					"sink": {
