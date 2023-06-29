@@ -141,266 +141,133 @@
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['card']"
+									"path": "['card']"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['created']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['currency']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['customer']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['description']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['destination']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['dispute']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['disputed']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['failure_balance_transaction']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['failure_code']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['failure_message']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['fee']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['fee_details'][0]['amount']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['fee_details'][0]['application']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['fee_details'][0]['currency']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['fee_details'][0]['description']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['fee_details'][0]['type']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['fraud_details']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['invoice']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['livemode']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['metadata']['id']"
+									"path": "['created']"
 								},
 								"sink": {
-									"name": "id",
+									"name": "Created (UTC)",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['currency']"
+								},
+								"sink": {
+									"name": "Currency",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['metadata']['idempotencyKey']"
+									"path": "['customer']"
+								},
+								"sink": {
+									"name": "Customer ID",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['metadata']['orderId']"
+									"path": "['description']"
+								},
+								"sink": {
+									"name": "Description",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['metadata']['websiteId']"
+									"path": "['destination']"
+								},
+								"sink": {
+									"name": "Destination",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['on_behalf_of']"
+									"path": "['dispute']"
+								},
+								"sink": {
+									"name": "Dispute Status",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['order']"
+									"path": "['fee']"
+								},
+								"sink": {
+									"name": "Fee",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['outcome']['network_status']"
+									"path": "['invoice']"
+								},
+								"sink": {
+									"name": "Invoice ID",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['outcome']['reason']"
+									"path": "['livemode']"
+								},
+								"sink": {
+									"name": "Mode",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['outcome']['risk_level']"
+									"path": "['id']"
+								},
+								"sink": {
+									"name": "id (metadata)",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['outcome']['risk_score']"
+									"path": "['metadata']['websiteId']"
+								},
+								"sink": {
+									"name": "websiteId (metadata)",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['outcome']['seller_message']"
+									"path": "['order']"
+								},
+								"sink": {
+									"name": "orderId (metadata)",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['outcome']['type']"
+									"path": "['payment_intent']"
+								},
+								"sink": {
+									"name": "PaymentIntent ID",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['paid']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_intent']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['brand']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['checks']['address_line1_check']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['checks']['address_postal_code_check']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['checks']['cvc_check']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['country']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['exp_month']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['exp_year']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['fingerprint']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['funding']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['installments']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['last4']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['mandate']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['network']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['network_token']['used']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['three_d_secure']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['card']['wallet']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['payment_method_details']['type']"
+									"path": "['payment_method_details']['card']['brand']"
+								},
+								"sink": {
+									"name": "Card Brand",
+									"type": "String"
 								}
 							},
 							{
