@@ -1,0 +1,332 @@
+{
+	"name": "SQLStripeCharges",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Seller Message",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Created (UTC)",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "Amount",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Amount Refunded",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Converted Amount",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Converted Amount Refunded",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Fee",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Taxes On Fee",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Converted Currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Mode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Statement Descriptor",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Customer ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Customer Description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Customer Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Captured",
+				"type": "bit"
+			},
+			{
+				"name": "Card ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Last4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Brand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Funding",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Exp Month",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Exp Year",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Address Line1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Address Line2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Address City",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Address State",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Address Country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Address Zip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Issue Country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Fingerprint",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card CVC Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card AVS Zip Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card AVS Line1 Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Card Tokenization Method",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping Address Line1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping Address Line2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping Address City",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping Address State",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping Address Country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping Address Postal Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Disputed Amount",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Dispute Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Dispute Reason",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Dispute Date (UTC)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Dispute Evidence Due (UTC)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Invoice ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Invoice Number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Payment Source Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Is Link",
+				"type": "bit"
+			},
+			{
+				"name": "Destination",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Transfer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Transfer Group",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PaymentIntent ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "orderId (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "shipping_zip (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "id (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "shipping_state (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "websiteId (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "shipping_city (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "shipping_address2 (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "shipping_address1 (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "shipping_recipient (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "shipping_country (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "eventive_link (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "eventive_order (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "eventive_event_bucket (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "tax (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "idempotencyKey (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "person_name (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "person_email (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "eventive_organization_id (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "eventive_organization_name (metadata)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SSMA_TimeStamp",
+				"type": "timestamp"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "STRIPE_Charges"
+		}
+	}
+}
