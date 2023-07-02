@@ -94,7 +94,7 @@
 				"     inferDriftedColumnTypes: true,",
 				"     limit: 100,",
 				"     ignoreNoFilesFound: false) ~> SubmissionExcel",
-				"SubmissionExcel alterRow() ~> AlterRow1",
+				"SubmissionExcel alterRow(upsertIf({Submission ID}=={Submission ID})) ~> AlterRow1",
 				"AlterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
