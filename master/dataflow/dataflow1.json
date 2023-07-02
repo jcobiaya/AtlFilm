@@ -21,7 +21,11 @@
 					"name": "sink1"
 				}
 			],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "AlterRow1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          {Project Website} as string,",
@@ -90,17 +94,17 @@
 				"     inferDriftedColumnTypes: true,",
 				"     limit: 100,",
 				"     ignoreNoFilesFound: false) ~> SubmissionExcel",
-				"SubmissionExcel sink(allowSchemaDrift: true,",
+				"SubmissionExcel alterRow() ~> AlterRow1",
+				"AlterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'table',",
 				"     store: 'sqlserver',",
-				"     schemaName: 'Filmfreeway_FILMS',",
-				"     tableName: 'Test',",
-				"     insertable: true,",
+				"     schemaName: 'dbo',",
+				"     tableName: 'PROGRAMMING_SUBMISSIONS_FILMFREEWAY_Films',",
+				"     insertable: false,",
 				"     updateable: false,",
 				"     deletable: false,",
-				"     upsertable: false,",
-				"     recreate: true,",
+				"     upsertable: true,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     saveOrder: 1,",
