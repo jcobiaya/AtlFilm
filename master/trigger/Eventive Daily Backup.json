@@ -1,0 +1,33 @@
+{
+	"name": "Eventive Daily Backup",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "EventiveToSQL",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2023-07-02T09:28:00",
+				"endTime": "2024-05-18T09:28:00",
+				"timeZone": "Eastern Standard Time",
+				"schedule": {
+					"minutes": [
+						0
+					],
+					"hours": [
+						1
+					]
+				}
+			}
+		}
+	}
+}
