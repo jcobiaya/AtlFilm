@@ -1,0 +1,266 @@
+{
+	"name": "AzureSqlFilmfreewayFilmSubmissions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Project_Website",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Twitter",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Facebook",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Country_of_Origin",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Language",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Trailer_URL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Country_of_Filming",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Project_Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Genres",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Student_Project",
+				"type": "bit"
+			},
+			{
+				"name": "Completion_Date",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Production_Budget",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shooting_Format",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Aspect_Ratio",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Film_Color",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Camera",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Lens",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Focal_Length",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shutter_Speed",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Aperture",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ISO___Film",
+				"type": "nvarchar"
+			},
+			{
+				"name": "First_time_Filmmaker",
+				"type": "bit"
+			},
+			{
+				"name": "Directors",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Writers",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Producers",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Key_Cast",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Other_Credits",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Screenings___Awards",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Distributor_Information",
+				"type": "nvarchar"
+			},
+			{
+				"name": "First_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Last_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Birthdate",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Gender",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Phone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Address",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Address_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "City",
+				"type": "nvarchar"
+			},
+			{
+				"name": "State",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Postal_Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tracking_Number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Project_Title",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Project_Title__Original_Language_",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Synopsis",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Synopsis__Original_Language_",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Lyrics",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Duration",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submission_Date",
+				"type": "date"
+			},
+			{
+				"name": "Submission_Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Judging_Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submission_Deadlines",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submission_Categories",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submission_Fee",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "Discount_Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submission_Link",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submission_Password",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Assigned_Judges",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Rating",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submission_ID",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Submission_Notes",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "SUBMSSIONS_FILMFREEWAY_Films"
+		}
+	}
+}
