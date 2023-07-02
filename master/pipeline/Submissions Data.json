@@ -367,6 +367,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Screenings / Awards",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Screenings___Awards",
 									"type": "String",
@@ -374,6 +379,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Distributor Information",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Distributor_Information",
 									"type": "String",
@@ -381,6 +391,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "First Name",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "First_Name",
 									"type": "String",
@@ -388,6 +403,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Last Name",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Last_Name",
 									"type": "String",
@@ -455,6 +475,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Address 2",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Address_2",
 									"type": "String",
@@ -486,6 +511,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Postal Code",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Postal_Code",
 									"type": "String",
@@ -505,6 +535,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Tracking Number",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Tracking_Number",
 									"type": "String",
@@ -512,6 +547,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Project Title",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Project_Title",
 									"type": "String",
@@ -519,6 +559,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Project Title (Original Language)",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Project_Title__Original_Language_",
 									"type": "String",
@@ -538,6 +583,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Synopsis (Original Language)",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Synopsis__Original_Language_",
 									"type": "String",
@@ -569,6 +619,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Submission Date",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Submission_Date",
 									"type": "DateTime",
@@ -576,6 +631,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Submission Status",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Submission_Status",
 									"type": "String",
@@ -583,6 +643,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Judging Status",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Judging_Status",
 									"type": "String",
@@ -590,6 +655,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Submission Deadlines",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Submission_Deadlines",
 									"type": "String",
@@ -597,6 +667,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Submission Categories",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Submission_Categories",
 									"type": "String",
@@ -604,6 +679,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Submission Fee",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Submission_Fee",
 									"type": "Decimal",
@@ -613,6 +693,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Discount Code",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Discount_Code",
 									"type": "String",
@@ -620,6 +705,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Submission Link",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Submission_Link",
 									"type": "String",
@@ -627,6 +717,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Submission Password",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Submission_Password",
 									"type": "String",
@@ -634,15 +729,13 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Assigned Judges",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "Assigned_Judges",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"sink": {
-									"name": "Rating",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
