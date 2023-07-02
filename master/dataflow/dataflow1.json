@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Filmfreeway_Submissions_Film",
+						"referenceName": "Submissions_Filmfreeway_Films",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -72,7 +72,7 @@
 				"          {Synopsis (Original Language)} as string,",
 				"          Lyrics as string,",
 				"          Duration as string,",
-				"          {Submission Date} as date,",
+				"          {Submission Date} as string,",
 				"          {Submission Status} as string,",
 				"          {Judging Status} as string,",
 				"          {Submission Deadlines} as string,",
@@ -87,6 +87,8 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     inferDriftedColumnTypes: true,",
+				"     limit: 100,",
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
