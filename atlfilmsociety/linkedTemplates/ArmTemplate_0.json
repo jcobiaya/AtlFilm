@@ -326,6 +326,68 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/EventiveDailyBackup')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Week",
+						"interval": 1,
+						"startTime": "2020-06-22T09:26:00Z",
+						"timeZone": "UTC",
+						"schedule": {
+							"minutes": [
+								0
+							],
+							"hours": [
+								0
+							],
+							"weekDays": [
+								"Sunday"
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SalesforceDailyBackup')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Week",
+						"interval": 1,
+						"startTime": "2020-06-14T05:48:00Z",
+						"timeZone": "UTC",
+						"schedule": {
+							"minutes": [
+								0
+							],
+							"hours": [
+								4
+							],
+							"weekDays": [
+								"Sunday"
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/StripeDailyBackUp')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -406,46 +468,6 @@
 				}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ATLFFEvents')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "FacebookATLFS",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": "6251553423/events?fields=attending_count,category,declined_count,end_time,event_times,id,interested_count,maybe_count,name,noreply_count,owner,place,start_time,ticket_uri,type,parent_group,description,can_guests_invite,discount_code_enabled,guest_list_enabled,is_canceled,is_draft,is_online,is_page_owned,scheduled_publish_time,ticket_uri_start_sales_time,ticketing_privacy_uri,ticketing_terms_uri,timezone,updated_time&pretty=0&limit=500&access_token=EAAJQIFyOneABAKjFMvDohL4pRT0tZCTNUZAGy12CZBhFSZC93tGw8olZCJ7xjwqKobNom2b84GL2p7zyKgaZCacgwp8XiBBDD2r954qsgB8o7fgZBSXTZC3ZBZCvRkKdGZB5ehuv0Iqv3dimLlmMHzLWJtvlAhmRHiZB73c1clX73HRkpQZDZD"
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/FacebookATLFS')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ATLFSEvents')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "FacebookATLFS",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": "710409332435854/events?fields=attending_count,category,declined_count,end_time,event_times,id,interested_count,maybe_count,name,noreply_count,owner,place,start_time,ticket_uri,type,parent_group,description,can_guests_invite,discount_code_enabled,guest_list_enabled,is_canceled,is_draft,is_online,is_page_owned,scheduled_publish_time,ticket_uri_start_sales_time,ticketing_privacy_uri,ticketing_terms_uri,timezone,updated_time&pretty=0&limit=5000&access_token= EAAJQIFyOneABAHrEaG6qogxbMIqthpVsZAYFwZAirAJUI8s9H4btU0V0v6gMjNqZA46zME3QhoxZAXlafCD68AcQGR5EIq9CEYi0M60Y81GIIx4tvogSgmQoMu7G63utmJcGLjg8ZByIHCZCretwi2kgghfo7LbYZCjmrdQ2nXobQ6YJwQOp4YwXktJhMZBebZCEehHJVFkMC7cfsz6fRlVbItUPYa93SZAOcZD"
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/FacebookATLFS')]"
-			]
 		}
 	]
 }

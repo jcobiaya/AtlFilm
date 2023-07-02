@@ -13,6 +13,42 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/ATLFFEvents')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "FacebookATLFS",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": "6251553423/events?fields=attending_count,category,declined_count,end_time,event_times,id,interested_count,maybe_count,name,noreply_count,owner,place,start_time,ticket_uri,type,parent_group,description,can_guests_invite,discount_code_enabled,guest_list_enabled,is_canceled,is_draft,is_online,is_page_owned,scheduled_publish_time,ticket_uri_start_sales_time,ticketing_privacy_uri,ticketing_terms_uri,timezone,updated_time&pretty=0&limit=500&access_token=EAAJQIFyOneABAKjFMvDohL4pRT0tZCTNUZAGy12CZBhFSZC93tGw8olZCJ7xjwqKobNom2b84GL2p7zyKgaZCacgwp8XiBBDD2r954qsgB8o7fgZBSXTZC3ZBZCvRkKdGZB5ehuv0Iqv3dimLlmMHzLWJtvlAhmRHiZB73c1clX73HRkpQZDZD"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ATLFSEvents')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "FacebookATLFS",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": "710409332435854/events?fields=attending_count,category,declined_count,end_time,event_times,id,interested_count,maybe_count,name,noreply_count,owner,place,start_time,ticket_uri,type,parent_group,description,can_guests_invite,discount_code_enabled,guest_list_enabled,is_canceled,is_draft,is_online,is_page_owned,scheduled_publish_time,ticket_uri_start_sales_time,ticketing_privacy_uri,ticketing_terms_uri,timezone,updated_time&pretty=0&limit=5000&access_token= EAAJQIFyOneABAHrEaG6qogxbMIqthpVsZAYFwZAirAJUI8s9H4btU0V0v6gMjNqZA46zME3QhoxZAXlafCD68AcQGR5EIq9CEYi0M60Y81GIIx4tvogSgmQoMu7G63utmJcGLjg8ZByIHCZCretwi2kgghfo7LbYZCjmrdQ2nXobQ6YJwQOp4YwXktJhMZBebZCEehHJVFkMC7cfsz6fRlVbItUPYa93SZAOcZD"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureFBMMasterEvents')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1787,280 +1823,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "TICKETING_EVENTIVE_Tickets"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveVenues')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "Venue Name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Capacity",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "Venue ID",
-						"type": "nchar"
-					},
-					{
-						"name": "Address",
-						"type": "nchar"
-					},
-					{
-						"name": "Color",
-						"type": "nchar"
-					},
-					{
-						"name": "Use Reserved Seating",
-						"type": "bit"
-					},
-					{
-						"name": "Short Name",
-						"type": "nchar"
-					},
-					{
-						"name": "Short Description",
-						"type": "nchar"
-					},
-					{
-						"name": "Event Bucket",
-						"type": "nchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "TICKETING_EVENTIVE_Venues"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlFBEventsALL')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "id",
-						"type": "nvarchar"
-					},
-					{
-						"name": "attending_count",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "can_guest_invite",
-						"type": "bit"
-					},
-					{
-						"name": "category",
-						"type": "nvarchar"
-					},
-					{
-						"name": "declined_count",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "description",
-						"type": "nvarchar"
-					},
-					{
-						"name": "discount_code_enabled",
-						"type": "bit"
-					},
-					{
-						"name": "end_time",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "event_times",
-						"type": "nvarchar"
-					},
-					{
-						"name": "guest_list_enabled",
-						"type": "bit"
-					},
-					{
-						"name": "interested_count",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "is_canceled",
-						"type": "bit"
-					},
-					{
-						"name": "is_draft",
-						"type": "bit"
-					},
-					{
-						"name": "is_online",
-						"type": "bit"
-					},
-					{
-						"name": "is_page_owned",
-						"type": "bit"
-					},
-					{
-						"name": "maybe_count",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "noreply_count",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "owner.name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "parent_group",
-						"type": "nchar"
-					},
-					{
-						"name": "place.id",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.overall_rating",
-						"type": "float",
-						"precision": 15
-					},
-					{
-						"name": "place.location.city",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.location.country",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.location.country_code",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.location.latitude",
-						"type": "float",
-						"precision": 15
-					},
-					{
-						"name": "place.location.located_in",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.location.longitude",
-						"type": "float",
-						"precision": 15
-					},
-					{
-						"name": "place.location.name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.location.region",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.location.region_id",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.location.state",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.location.street",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.location.zip",
-						"type": "nvarchar"
-					},
-					{
-						"name": "place.location.city_id",
-						"type": "nvarchar"
-					},
-					{
-						"name": "scheduled_publish_time",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "start_time",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "ticket_uri",
-						"type": "nvarchar"
-					},
-					{
-						"name": "ticket_uri_start_sales_time",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "ticketing_privacy_uri",
-						"type": "nvarchar"
-					},
-					{
-						"name": "ticketing_terms_uri",
-						"type": "nvarchar"
-					},
-					{
-						"name": "timezone",
-						"type": "nvarchar"
-					},
-					{
-						"name": "type",
-						"type": "nvarchar"
-					},
-					{
-						"name": "updated_time",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "owner.id",
-						"type": "nvarchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "MARKETING_FACEBOOK_ALL_PAGES_Events"
 				}
 			},
 			"dependsOn": []
