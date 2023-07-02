@@ -9,7 +9,7 @@
 						"referenceName": "Submissions_Filmfreeway_Films",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "SubmissionExcel"
 				}
 			],
 			"sinks": [
@@ -89,8 +89,8 @@
 				"     validateSchema: false,",
 				"     inferDriftedColumnTypes: true,",
 				"     limit: 100,",
-				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 sink(allowSchemaDrift: true,",
+				"     ignoreNoFilesFound: false) ~> SubmissionExcel",
+				"SubmissionExcel sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'table',",
 				"     store: 'sqlserver',",
