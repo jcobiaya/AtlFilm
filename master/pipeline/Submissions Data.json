@@ -152,18 +152,6 @@
 							},
 							{
 								"source": {
-									"name": "Student Project",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Student_Project",
-									"type": "Boolean",
-									"physicalType": "bit"
-								}
-							},
-							{
-								"source": {
 									"name": "Completion Date",
 									"type": "String",
 									"physicalType": "String"
@@ -292,18 +280,6 @@
 									"name": "ISO___Film",
 									"type": "String",
 									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "First-time Filmmaker",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "First_time_Filmmaker",
-									"type": "Boolean",
-									"physicalType": "bit"
 								}
 							},
 							{
