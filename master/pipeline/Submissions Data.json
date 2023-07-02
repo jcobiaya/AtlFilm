@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Filmfreeway_FILMS",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
