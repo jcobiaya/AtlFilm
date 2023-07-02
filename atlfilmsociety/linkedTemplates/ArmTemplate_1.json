@@ -1,0 +1,2069 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "atlfilmsociety"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureFBMMasterEvents')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureTableStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureTable",
+				"schema": [],
+				"typeProperties": {
+					"tableName": "FacebookMasterEvents"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlAccounts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DEVELOPMENT_SALESFORCE_Accounts"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlCampaign')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DEVELOPMENT_SALESFORCE_Campaigns"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlCampaigns')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "archive_url",
+						"type": "nvarchar"
+					},
+					{
+						"name": "content_type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "create_time",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "delivery_status__enabled",
+						"type": "bit"
+					},
+					{
+						"name": "emails_sent",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "long_archive_url",
+						"type": "nvarchar"
+					},
+					{
+						"name": "needs_block_refresh",
+						"type": "bit"
+					},
+					{
+						"name": "recipients__list_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "recipients__list_is_active",
+						"type": "bit"
+					},
+					{
+						"name": "recipients__list_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "recipients__recipient_count",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "recipients__segment_opts__match",
+						"type": "nvarchar"
+					},
+					{
+						"name": "recipients__segment_opts__prebuilt_segment_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "recipients__segment_opts__saved_segment_id",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "recipients__segment_text",
+						"type": "nvarchar"
+					},
+					{
+						"name": "report_summary__click_rate",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "report_summary__clicks",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "report_summary__ecommerce__total_orders",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "report_summary__ecommerce__total_revenue",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "report_summary__ecommerce__total_spent",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "report_summary__open_rate",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "report_summary__opens",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "report_summary__subscriber_clicks",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "report_summary__unique_opens",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "resendable",
+						"type": "bit"
+					},
+					{
+						"name": "send_time",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "settings__authenticate",
+						"type": "bit"
+					},
+					{
+						"name": "settings__auto_footer",
+						"type": "bit"
+					},
+					{
+						"name": "settings__auto_tweet",
+						"type": "bit"
+					},
+					{
+						"name": "settings__drag_and_drop",
+						"type": "bit"
+					},
+					{
+						"name": "settings__fb_comments",
+						"type": "bit"
+					},
+					{
+						"name": "settings__folder_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "settings__from_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "settings__inline_css",
+						"type": "bit"
+					},
+					{
+						"name": "settings__preview_text",
+						"type": "nvarchar"
+					},
+					{
+						"name": "settings__reply_to",
+						"type": "nvarchar"
+					},
+					{
+						"name": "settings__subject_line",
+						"type": "nvarchar"
+					},
+					{
+						"name": "settings__template_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "settings__timewarp",
+						"type": "bit"
+					},
+					{
+						"name": "settings__title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "settings__to_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "settings__use_conversation",
+						"type": "bit"
+					},
+					{
+						"name": "social_card__description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "social_card__image_url",
+						"type": "nvarchar"
+					},
+					{
+						"name": "social_card__title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "tracking__clicktale",
+						"type": "nvarchar"
+					},
+					{
+						"name": "tracking__ecomm360",
+						"type": "bit"
+					},
+					{
+						"name": "tracking__goal_tracking",
+						"type": "bit"
+					},
+					{
+						"name": "tracking__google_analytics",
+						"type": "nvarchar"
+					},
+					{
+						"name": "tracking__html_clicks",
+						"type": "bit"
+					},
+					{
+						"name": "tracking__opens",
+						"type": "bit"
+					},
+					{
+						"name": "tracking__text_clicks",
+						"type": "bit"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "web_id",
+						"type": "bigint",
+						"precision": 19
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "MARKETING_MAILCHIMP_Campaigns"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlContacts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DEVELOPMENT_SALESFORCE_Contacts"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveCoupons')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Coupon ID",
+						"type": "nchar"
+					},
+					{
+						"name": "Coupon Code",
+						"type": "nchar"
+					},
+					{
+						"name": "Active",
+						"type": "bit"
+					},
+					{
+						"name": "Event Bucket",
+						"type": "nchar"
+					},
+					{
+						"name": "Multicode",
+						"type": "bit"
+					},
+					{
+						"name": "Coupon Name",
+						"type": "nchar"
+					},
+					{
+						"name": "Recurrence Duration",
+						"type": "nchar"
+					},
+					{
+						"name": "Per Code",
+						"type": "nchar"
+					},
+					{
+						"name": "Per Person",
+						"type": "nchar"
+					},
+					{
+						"name": "Total",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Total Items",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Cents Off",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Percent Off",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Set Price",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "All",
+						"type": "bit"
+					},
+					{
+						"name": "All Passes",
+						"type": "bit"
+					},
+					{
+						"name": "All Tickets",
+						"type": "bit"
+					},
+					{
+						"name": "Uses",
+						"type": "int",
+						"precision": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Coupons"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveEventBuckets')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Event ID",
+						"type": "varchar"
+					},
+					{
+						"name": "Event Bucket Name",
+						"type": "varchar"
+					},
+					{
+						"name": "Event Bucket URL",
+						"type": "varchar"
+					},
+					{
+						"name": "Created_At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Updated_At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Start_Date",
+						"type": "datetime2",
+						"scale": 7
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Event_Bucket"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveEventiveFilms')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event_Bucket ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Film Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Details.Year",
+						"type": "nchar"
+					},
+					{
+						"name": "Details.Runtime",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Details.Language",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Details.Country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Details.Premiere",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Details.Rating",
+						"type": "nchar"
+					},
+					{
+						"name": "Details.Note",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Director",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Screenwriter",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Producer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Executive_Producer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Co_Producer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Filmmaker",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Cast",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Cinematographer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Editor",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Animator",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Production_Design",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Composer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Sound_Design",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Credits.Music",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tags ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Trailer_URL",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Short_Description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Visibility",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Created_At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Updated_At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Event Bucket Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Platform",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Status",
+						"type": "nchar"
+					},
+					{
+						"name": "File Size",
+						"type": "nchar"
+					},
+					{
+						"name": "Virtual Content.Type",
+						"type": "nchar"
+					},
+					{
+						"name": "Duration",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "Owner Organization",
+						"type": "nchar"
+					},
+					{
+						"name": "Label",
+						"type": "nchar"
+					},
+					{
+						"name": "livestream_started_at",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "livestream_stopped_at",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Virtual Content ID",
+						"type": "nchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Films"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveEventiveVirtual_Content')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "live_chat_visible",
+						"type": "bit"
+					},
+					{
+						"name": "live_chat_participation_enabled",
+						"type": "bit"
+					},
+					{
+						"name": "live_chat_show_viewer_count",
+						"type": "bit"
+					},
+					{
+						"name": "ams_drm_enabled",
+						"type": "bit"
+					},
+					{
+						"name": "egress_url",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created_at",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "updated_at",
+						"type": "datetimeoffset",
+						"scale": 7
+					},
+					{
+						"name": "platform",
+						"type": "nvarchar"
+					},
+					{
+						"name": "file_size",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "duration",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "label",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Virtual Content"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveEvents')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "event_bucket",
+						"type": "nvarchar"
+					},
+					{
+						"name": "name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "start_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "end_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "hide_tickets_button",
+						"type": "bit"
+					},
+					{
+						"name": "passholder_ticket_required",
+						"type": "bit"
+					},
+					{
+						"name": "person",
+						"type": "nvarchar"
+					},
+					{
+						"name": "public_url",
+						"type": "nvarchar"
+					},
+					{
+						"name": "sales_disabled_unless_coupon",
+						"type": "bit"
+					},
+					{
+						"name": "short_description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "standalone_tickets_enabled",
+						"type": "nchar"
+					},
+					{
+						"name": "tags",
+						"type": "nvarchar"
+					},
+					{
+						"name": "tickets_available",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "timezone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "trailer_url",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated_at",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "color",
+						"type": "nchar"
+					},
+					{
+						"name": "venue_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "venue_name",
+						"type": "nchar"
+					},
+					{
+						"name": "use_reserved_seating",
+						"type": "bit"
+					},
+					{
+						"name": "visibility",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Events"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveItems')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Item ID",
+						"type": "nchar"
+					},
+					{
+						"name": "Item Bucket Code",
+						"type": "nchar"
+					},
+					{
+						"name": "Item Bucket ID",
+						"type": "nchar"
+					},
+					{
+						"name": "Item Name",
+						"type": "nchar"
+					},
+					{
+						"name": "Order",
+						"type": "nchar"
+					},
+					{
+						"name": "Perason Email",
+						"type": "nchar"
+					},
+					{
+						"name": "Person ID",
+						"type": "nchar"
+					},
+					{
+						"name": "Person Name",
+						"type": "nchar"
+					},
+					{
+						"name": "Price",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Variant ID",
+						"type": "nchar"
+					},
+					{
+						"name": "Created At",
+						"type": "datetime2",
+						"scale": 7
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Items"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveLedger')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_owner",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "class",
+						"type": "nvarchar"
+					},
+					{
+						"name": "reason",
+						"type": "nvarchar"
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "balance_account.type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "balance_account.currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "category.ref_type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "category.ref_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "category.ref_label",
+						"type": "nvarchar"
+					},
+					{
+						"name": "item.ref_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "item.ref_label",
+						"type": "nvarchar"
+					},
+					{
+						"name": "net",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "fee",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "fee_nonrefundable",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "gross",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "person",
+						"type": "nvarchar"
+					},
+					{
+						"name": "order",
+						"type": "nvarchar"
+					},
+					{
+						"name": "pricing_plan",
+						"type": "nvarchar"
+					},
+					{
+						"name": "event_bucket",
+						"type": "nvarchar"
+					},
+					{
+						"name": "price_tier",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "stripe_charge_id",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Ledger"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveOrders')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Order Id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "price",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Coupon ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Items Coupon Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Items Coupon Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "tax collected",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Created At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Event Bucket ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event Bucket Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "net_price",
+						"type": "decimal",
+						"precision": 16,
+						"scale": 2
+					},
+					{
+						"name": "ip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "owner",
+						"type": "nchar"
+					},
+					{
+						"name": "email",
+						"type": "nchar"
+					},
+					{
+						"name": "Person Name",
+						"type": "nchar"
+					},
+					{
+						"name": "Person ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Purchase Price",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "subtype",
+						"type": "nchar"
+					},
+					{
+						"name": "Sold By User ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Shift",
+						"type": "nvarchar"
+					},
+					{
+						"name": "success",
+						"type": "bit"
+					},
+					{
+						"name": "summary",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					},
+					{
+						"name": "Refunded At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "city",
+						"type": "nvarchar"
+					},
+					{
+						"name": "continent",
+						"type": "nvarchar"
+					},
+					{
+						"name": "continent_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "region",
+						"type": "nvarchar"
+					},
+					{
+						"name": "region_code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "country_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "postal",
+						"type": "nvarchar"
+					},
+					{
+						"name": "latitude",
+						"type": "nvarchar"
+					},
+					{
+						"name": "longitude",
+						"type": "nvarchar"
+					},
+					{
+						"name": "asn",
+						"type": "nvarchar"
+					},
+					{
+						"name": "org",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Orders"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveOrders_2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Order Id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "price",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Coupon ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Items Coupon Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Items Coupon Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "tax collected",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Created At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Event Bucket ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event Bucket Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "net_price",
+						"type": "decimal",
+						"precision": 16,
+						"scale": 2
+					},
+					{
+						"name": "ip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "owner",
+						"type": "nchar"
+					},
+					{
+						"name": "email",
+						"type": "nchar"
+					},
+					{
+						"name": "Person Name",
+						"type": "nchar"
+					},
+					{
+						"name": "Person ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Purchase Price",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "subtype",
+						"type": "nchar"
+					},
+					{
+						"name": "Sold By User ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Shift",
+						"type": "nvarchar"
+					},
+					{
+						"name": "success",
+						"type": "bit"
+					},
+					{
+						"name": "summary",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					},
+					{
+						"name": "Refunded At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "city",
+						"type": "nvarchar"
+					},
+					{
+						"name": "continent",
+						"type": "nvarchar"
+					},
+					{
+						"name": "continent_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "region",
+						"type": "nvarchar"
+					},
+					{
+						"name": "region_code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "country_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "postal",
+						"type": "nvarchar"
+					},
+					{
+						"name": "latitude",
+						"type": "nvarchar"
+					},
+					{
+						"name": "longitude",
+						"type": "nvarchar"
+					},
+					{
+						"name": "asn",
+						"type": "nvarchar"
+					},
+					{
+						"name": "org",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Orders"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventivePasses')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event_Bucket",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Person.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Person.Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Person.Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Pass_Bucket.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Pass_Bucket.Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Pass_Bucket.Code",
+						"type": "nchar"
+					},
+					{
+						"name": "Pass_Bucket.Price",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Order_ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Created_At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Updated_At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Checked_In_At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Uses",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Is_active",
+						"type": "bit"
+					},
+					{
+						"name": "Pass_Subscriptions.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Pass_Subscriptions.should_renew",
+						"type": "bit"
+					},
+					{
+						"name": "Pass_Subscriptions.renewal_date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Pass_Subscriptions.status",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Passes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventivePeople')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "﻿name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "phone_number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "mailing_address",
+						"type": "nvarchar"
+					},
+					{
+						"name": "facebook_user_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "do_not_email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "payment_method_summary",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Person ID",
+						"type": "nchar"
+					},
+					{
+						"name": "sms_tickets_enabled",
+						"type": "bit"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_People"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveTicketBuckets')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event_Bucket ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Price",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Unlimited",
+						"type": "bit"
+					},
+					{
+						"name": "Quantity",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Quantity_Remaining",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "Exclude_Capacity",
+						"type": "bit"
+					},
+					{
+						"name": "Public",
+						"type": "bit"
+					},
+					{
+						"name": "Applicable_Pass_Buckets",
+						"type": "nchar"
+					},
+					{
+						"name": "Lock_Admin_Only",
+						"type": "bit"
+					},
+					{
+						"name": "Variants",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tickets",
+						"type": "nvarchar"
+					},
+					{
+						"name": "quantity_available",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "final_price",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "quantity_scanned",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "quantity_sold",
+						"type": "int",
+						"precision": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Ticket Buckets"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveTickets')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event_Bucket",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Ticket_Bucket.Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Ticket_Bucket.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Ticket_Bucket.Price",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "Event.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event.Event_Bucket.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event.Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event.Venue.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event.Venue.Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Order_ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Created_At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Used_At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Probably_Customer_Cancellable",
+						"type": "bit"
+					},
+					{
+						"name": "Probably_Customer_Transferrable",
+						"type": "bit"
+					},
+					{
+						"name": "Person_ID",
+						"type": "nchar"
+					},
+					{
+						"name": "Person_Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Pass_ID",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Tickets"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveVenues')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Venue Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Capacity",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Venue ID",
+						"type": "nchar"
+					},
+					{
+						"name": "Address",
+						"type": "nchar"
+					},
+					{
+						"name": "Color",
+						"type": "nchar"
+					},
+					{
+						"name": "Use Reserved Seating",
+						"type": "bit"
+					},
+					{
+						"name": "Short Name",
+						"type": "nchar"
+					},
+					{
+						"name": "Short Description",
+						"type": "nchar"
+					},
+					{
+						"name": "Event Bucket",
+						"type": "nchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Venues"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlFBEventsALL')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "attending_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "can_guest_invite",
+						"type": "bit"
+					},
+					{
+						"name": "category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "declined_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount_code_enabled",
+						"type": "bit"
+					},
+					{
+						"name": "end_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "event_times",
+						"type": "nvarchar"
+					},
+					{
+						"name": "guest_list_enabled",
+						"type": "bit"
+					},
+					{
+						"name": "interested_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "is_canceled",
+						"type": "bit"
+					},
+					{
+						"name": "is_draft",
+						"type": "bit"
+					},
+					{
+						"name": "is_online",
+						"type": "bit"
+					},
+					{
+						"name": "is_page_owned",
+						"type": "bit"
+					},
+					{
+						"name": "maybe_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "noreply_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "owner.name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "parent_group",
+						"type": "nchar"
+					},
+					{
+						"name": "place.id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.overall_rating",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "place.location.city",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.country_code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.latitude",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "place.location.located_in",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.longitude",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "place.location.name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.region",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.region_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.state",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.street",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.zip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.city_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "scheduled_publish_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "start_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "ticket_uri",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ticket_uri_start_sales_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "ticketing_privacy_uri",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ticketing_terms_uri",
+						"type": "nvarchar"
+					},
+					{
+						"name": "timezone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "owner.id",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "MARKETING_FACEBOOK_ALL_PAGES_Events"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

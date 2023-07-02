@@ -1,0 +1,3986 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "atlfilmsociety"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/SalesforceOpportunity')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Opportunity"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SalesforceOpportunityProduct')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "OpportunityLineItem"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SalesforcePriceBookEntry')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "PricebookEntry"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SalesforcePriceBooks')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Pricebook2"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SalesforceProducts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Product2"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SalesforcePrograms')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Program__c"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Salesforce_Accounts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureTableStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureTable",
+				"schema": [],
+				"typeProperties": {
+					"tableName": "SalesforceAccounts"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_4mh')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Account"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_7xa')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Events__c"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_brj')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Eventive",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": "/events"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_emx')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Eventive",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": "events"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_gb0')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "attending_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "can_guest_invite",
+						"type": "bit"
+					},
+					{
+						"name": "category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "declined_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount_code_enabled",
+						"type": "bit"
+					},
+					{
+						"name": "end_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "event_times",
+						"type": "nvarchar"
+					},
+					{
+						"name": "guest_list_enabled",
+						"type": "bit"
+					},
+					{
+						"name": "interested_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "is_canceled",
+						"type": "bit"
+					},
+					{
+						"name": "is_draft",
+						"type": "bit"
+					},
+					{
+						"name": "is_online",
+						"type": "bit"
+					},
+					{
+						"name": "is_page_owned",
+						"type": "bit"
+					},
+					{
+						"name": "maybe_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "noreply_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "owner.name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "parent_group",
+						"type": "nchar"
+					},
+					{
+						"name": "place.id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.overall_rating",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "place.location.city",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.country_code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.latitude",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "place.location.located_in",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.longitude",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "place.location.name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.region",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.region_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.state",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.street",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.zip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.city_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "scheduled_publish_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "start_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "ticket_uri",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ticket_uri_start_sales_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "ticketing_privacy_uri",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ticketing_terms_uri",
+						"type": "nvarchar"
+					},
+					{
+						"name": "timezone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "owner.id",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "MARKETING_FACEBOOK_ATLFF_Events"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_pcs')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "start_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "end_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "attending_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "interested_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "maybe_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "noreply_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "declined_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount_code_enabled",
+						"type": "bit"
+					},
+					{
+						"name": "event_times",
+						"type": "nvarchar"
+					},
+					{
+						"name": "guest_list_enabled",
+						"type": "bit"
+					},
+					{
+						"name": "can_guest_invite",
+						"type": "bit"
+					},
+					{
+						"name": "is_canceled",
+						"type": "bit"
+					},
+					{
+						"name": "is_draft",
+						"type": "bit"
+					},
+					{
+						"name": "is_online",
+						"type": "bit"
+					},
+					{
+						"name": "is_page_owned",
+						"type": "bit"
+					},
+					{
+						"name": "owner.id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "owner.name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "parent_group",
+						"type": "nchar"
+					},
+					{
+						"name": "place.id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.overall_rating",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "place.location.city",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.country_code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.latitude",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "place.location.located_in",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.longitude",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "place.location.name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.region",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.region_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.state",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.street",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.zip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "place.location.city_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "scheduled_publish_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "ticket_uri",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ticket_uri_start_sales_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "ticketing_privacy_uri",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ticketing_terms_uri",
+						"type": "nvarchar"
+					},
+					{
+						"name": "timezone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated_time",
+						"type": "datetime2",
+						"scale": 7
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "MARKETING_FACEBOOK_ATLFS_Events"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_tgx')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "attending_count",
+						"type": "int",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "can_guest_invite",
+						"type": "bit",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "category",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "declined_count",
+						"type": "int",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "description",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "discount_code_enabled",
+						"type": "bit",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "end_time",
+						"type": "datetime2",
+						"precision": 27,
+						"scale": 7
+					},
+					{
+						"name": "event_times",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "guest_list_enabled",
+						"type": "bit",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "interested_count",
+						"type": "int",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "is_canceled",
+						"type": "bit",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "is_draft",
+						"type": "bit",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "is_online",
+						"type": "bit",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "is_page_owned",
+						"type": "bit",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "maybe_count",
+						"type": "int",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "name",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "noreply_count",
+						"type": "int",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "owner.name",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "parent_group",
+						"type": "nchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.id",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.name",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.overall_rating",
+						"type": "float",
+						"precision": 53,
+						"scale": 0
+					},
+					{
+						"name": "place.location.city",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.location.country",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.location.country_code",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.location.latitude",
+						"type": "float",
+						"precision": 53,
+						"scale": 0
+					},
+					{
+						"name": "place.location.located_in",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.location.longitude",
+						"type": "float",
+						"precision": 53,
+						"scale": 0
+					},
+					{
+						"name": "place.location.name",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.location.region",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.location.region_id",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.location.state",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.location.street",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.location.zip",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "place.location.city_id",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "scheduled_publish_time",
+						"type": "datetime2",
+						"precision": 27,
+						"scale": 7
+					},
+					{
+						"name": "start_time",
+						"type": "datetime2",
+						"precision": 27,
+						"scale": 7
+					},
+					{
+						"name": "ticket_uri",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "ticket_uri_start_sales_time",
+						"type": "datetime2",
+						"precision": 27,
+						"scale": 7
+					},
+					{
+						"name": "ticketing_privacy_uri",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "ticketing_terms_uri",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "timezone",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "type",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "updated_time",
+						"type": "datetime2",
+						"precision": 27,
+						"scale": 7
+					},
+					{
+						"name": "owner.id",
+						"type": "nvarchar",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "MARKETING_FACEBOOK_ATLFF_Events"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_vyp')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"cw_objectApiName": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": {
+						"value": "@dataset().cw_objectApiName",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_yxm')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "FacebookATLFS",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": "710409332435854/events?fields=attending_count,category,declined_count,end_time,event_times,id,interested_count,maybe_count,name,noreply_count,owner,place,start_time,ticket_uri,type,parent_group,can_guests_invite,description,guest_list_enabled,discount_code_enabled,is_canceled,is_draft,is_online,is_page_owned,scheduled_publish_time,ticketing_privacy_uri,updated_time,ticket_uri_start_sales_time,ticketing_terms_uri,timezone&after=QVFIUmhDVU96dTFlcGhKNlR1R193RGw1cFZAmcWpJV29sQ2FVNWF5MkxiQkpGcFZAlMFUwV3ducHp0d0FWeTFnR1BTdFZAVbmJlLW5XZAUNqSXhuc09sMkJJdHhR&limit=1000&pretty=0&access_token=EAAJQIFyOneABAIipZBruESCqZCqeUNo8DOpSGEqZAtwdNzjxC9yAIzVH0knZBeCDVzbaUEaBpXQKu3odNKAYbo6ZBv8QqrgukFZCyHb75TC8qK4fAYoq4HVwGf678mpLoR4casr6qqn8T7qcLG6o6eaeM8VylA4SeVZAO647D22ZC8i8CelkZAEfWaIPrcQhbmTQZD"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Stripe')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Stripe",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation",
+						"relativeUrl": "/charges"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/StripeCharges')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Stripe_Data",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": "charges"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/EventiveToSQL')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Events",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "DELETE FROM [dbo].[TICKETING_EVENTIVE_Events];",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "Id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket']"
+										},
+										"sink": {
+											"name": "event_bucket",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['timezone']"
+										},
+										"sink": {
+											"name": "timezone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['name']"
+										},
+										"sink": {
+											"name": "name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['visibility']"
+										},
+										"sink": {
+											"name": "visibility",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['hide_tickets_button']"
+										},
+										"sink": {
+											"name": "hide_tickets_button",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['standalone_ticket_sales_enabled']"
+										},
+										"sink": {
+											"name": "standalone_tickets_enabled",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['sales_disabled_unless_coupon']"
+										},
+										"sink": {
+											"name": "sales_disabled_unless_coupon",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['venue'].['id']"
+										},
+										"sink": {
+											"name": "venue_id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['venue'].['name']"
+										},
+										"sink": {
+											"name": "venue_name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['start_time']"
+										},
+										"sink": {
+											"name": "start_time",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['end_time']"
+										},
+										"sink": {
+											"name": "end_time",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['description']"
+										},
+										"sink": {
+											"name": "Description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['short_description']"
+										},
+										"sink": {
+											"name": "short_description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['public_url']"
+										},
+										"sink": {
+											"name": "public_url",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['trailer_url']"
+										},
+										"sink": {
+											"name": "trailer_url",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['updated_at']"
+										},
+										"sink": {
+											"name": "updated_at",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['use_reserved_seating']"
+										},
+										"sink": {
+											"name": "use_reserved_seating",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_virtual']"
+										},
+										"sink": {
+											"name": "is_virtual"
+										}
+									}
+								],
+								"collectionReference": "$['events']",
+								"mapComplexValuesToString": true
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveEvents",
+								"type": "DatasetReference",
+								"parameters": {
+									"api_key": "dd67a9b5637524a10ef8934566db6abc"
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveEvents",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Event Buckets",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"Event ID"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "Event ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['created_at']"
+										},
+										"sink": {
+											"name": "Created_At",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['updated_at']"
+										},
+										"sink": {
+											"name": "Updated_At",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['name']"
+										},
+										"sink": {
+											"name": "Event Bucket Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['urls']['root']"
+										},
+										"sink": {
+											"name": "Event Bucket URL",
+											"type": "String"
+										}
+									}
+								],
+								"collectionReference": "$['event_buckets']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveEventBuckets",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveEventBuckets",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "PassBuckets",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"ID"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket']"
+										},
+										"sink": {
+											"name": "Event_Bucket ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['name']"
+										},
+										"sink": {
+											"name": "Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['price']"
+										},
+										"sink": {
+											"name": "Price",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"path": "[['unlimited']"
+										},
+										"sink": {
+											"name": "Unlimited",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['quantity_remaining']"
+										},
+										"sink": {
+											"name": "Quantity_Remaining",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"path": "[['recurrence_enabled']"
+										},
+										"sink": {
+											"name": "Recurrence_Enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['cancellation_allowed']"
+										},
+										"sink": {
+											"name": "Cancellation_Allowed",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['ticket_transfer_allowed']"
+										},
+										"sink": {
+											"name": "Ticket_Transfer_Allowed",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['gift_allowed']"
+										},
+										"sink": {
+											"name": "Gift_Allowed",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['cancellation_window']"
+										},
+										"sink": {
+											"name": "Cancellation_Window",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"path": "[['volume_price_enabled']"
+										},
+										"sink": {
+											"name": "Volume_Price_Enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['sales_disabled_unless_coupon']"
+										},
+										"sink": {
+											"name": "Sales_Disabled_Unless_Coupon",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['tickets_enabled']"
+										},
+										"sink": {
+											"name": "Tickets_Enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['updated_at']"
+										},
+										"sink": {
+											"name": "Updated_At",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['visible_in_box_office']"
+										},
+										"sink": {
+											"name": "Visible_In_Box_Office",
+											"type": "Boolean"
+										}
+									}
+								],
+								"collectionReference": "$['pass_buckets']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventivePassBuckets",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlPassBuckets",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Passes",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"ID"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['name']"
+										},
+										"sink": {
+											"name": "Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket']"
+										},
+										"sink": {
+											"name": "Event_Bucket",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['id']"
+										},
+										"sink": {
+											"name": "Person.ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['name']"
+										},
+										"sink": {
+											"name": "Person.Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['email']"
+										},
+										"sink": {
+											"name": "Person.Email",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_bucket']['id']"
+										},
+										"sink": {
+											"name": "Pass_Bucket.ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_bucket']['name']"
+										},
+										"sink": {
+											"name": "Pass_Bucket.Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_bucket']['code']"
+										},
+										"sink": {
+											"name": "Pass_Bucket.Code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_bucket']['price']"
+										},
+										"sink": {
+											"name": "Pass_Bucket.Price",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['order']"
+										},
+										"sink": {
+											"name": "Order_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['created_at']"
+										},
+										"sink": {
+											"name": "Created_At",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['updated_at']"
+										},
+										"sink": {
+											"name": "Updated_At",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_active']"
+										},
+										"sink": {
+											"name": "Is_active",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['id']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['should_autorenew']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.should_renew",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['renewal_date']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.renewal_date",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['status']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.status",
+											"type": "String"
+										}
+									}
+								],
+								"collectionReference": "$['passes']",
+								"mapComplexValuesToString": false
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventivePasses",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventivePasses",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Films",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"ID"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket']"
+										},
+										"sink": {
+											"name": "Event_Bucket ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket_name']"
+										},
+										"sink": {
+											"name": "Event Bucket Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['name']"
+										},
+										"sink": {
+											"name": "Film Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['description']"
+										},
+										"sink": {
+											"name": "Description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['details']['country']"
+										},
+										"sink": {
+											"name": "Details.Country",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['details']['language']"
+										},
+										"sink": {
+											"name": "Details.Language",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['details']['runtime']"
+										},
+										"sink": {
+											"name": "Details.Runtime",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['details']['year']"
+										},
+										"sink": {
+											"name": "Details.Year",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['visibility']"
+										},
+										"sink": {
+											"name": "Visibility",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['created_at']"
+										},
+										"sink": {
+											"name": "Created_At",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['updated_at']"
+										},
+										"sink": {
+											"name": "Updated_At",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['virtual_content']['id']"
+										},
+										"sink": {
+											"name": "Virtual Content ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['credits']['producer']"
+										},
+										"sink": {
+											"name": "Credits.Producer",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['credits']['screenwriter']"
+										},
+										"sink": {
+											"name": "Credits.Screenwriter",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['credits']['director']"
+										},
+										"sink": {
+											"name": "Credits.Director",
+											"type": "String"
+										}
+									}
+								],
+								"collectionReference": "$['films']",
+								"mapComplexValuesToString": true
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveFilms",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveEventiveFilms",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "TicketBuckets",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"ID"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket']"
+										},
+										"sink": {
+											"name": "Event_Bucket ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event']"
+										},
+										"sink": {
+											"name": "Event ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['name']"
+										},
+										"sink": {
+											"name": "Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['price']"
+										},
+										"sink": {
+											"name": "Price",
+											"type": "Double"
+										}
+									},
+									{
+										"source": {
+											"path": "[['unlimited']"
+										},
+										"sink": {
+											"name": "Unlimited",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['quantity']"
+										},
+										"sink": {
+											"name": "Quantity",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['quantity_remaining']"
+										},
+										"sink": {
+											"name": "Quantity_Remaining",
+											"type": "Int64"
+										}
+									},
+									{
+										"source": {
+											"path": "[['exclude_capacity']"
+										},
+										"sink": {
+											"name": "Exclude_Capacity",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['public']"
+										},
+										"sink": {
+											"name": "Public",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['lock_admin_only']"
+										},
+										"sink": {
+											"name": "Lock_Admin_Only",
+											"type": "Boolean"
+										}
+									}
+								],
+								"collectionReference": "$['ticket_buckets']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveTicketBuckets",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveTicketBuckets",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Tickets",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"QueryParameters.{skip}": "RANGE:0:75000:1000"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"ID"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"enableSkipIncompatibleRow": true,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket']"
+										},
+										"sink": {
+											"name": "Event_Bucket",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['id']"
+										},
+										"sink": {
+											"name": "Person_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['email']"
+										},
+										"sink": {
+											"name": "Person_Email",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['ticket_bucket']['id']"
+										},
+										"sink": {
+											"name": "Ticket_Bucket.ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['ticket_bucket']['name']"
+										},
+										"sink": {
+											"name": "Ticket_Bucket.Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['ticket_bucket']['price']"
+										},
+										"sink": {
+											"name": "Ticket_Bucket.Price",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event']['id']"
+										},
+										"sink": {
+											"name": "Event.ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event']['name']"
+										},
+										"sink": {
+											"name": "Event.Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event']['venue']['id']"
+										},
+										"sink": {
+											"name": "Event.Venue.ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event']['venue']['name']"
+										},
+										"sink": {
+											"name": "Event.Venue.Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['order']"
+										},
+										"sink": {
+											"name": "Order_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['created_at']"
+										},
+										"sink": {
+											"name": "Created_At",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass']['id']"
+										},
+										"sink": {
+											"name": "Pass_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['used_at']"
+										},
+										"sink": {
+											"name": "Used_At",
+											"type": "DateTime"
+										}
+									}
+								],
+								"collectionReference": "$['tickets']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveTickets",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveTickets",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Coupons",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"Coupon ID"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "Coupon ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket']"
+										},
+										"sink": {
+											"name": "Event Bucket",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['name']"
+										},
+										"sink": {
+											"name": "Coupon Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['multicode']"
+										},
+										"sink": {
+											"name": "Multicode",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['code']"
+										},
+										"sink": {
+											"name": "Coupon Code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['active']"
+										},
+										"sink": {
+											"name": "Active",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['target']['all']"
+										},
+										"sink": {
+											"name": "All",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['target']['all_tickets']"
+										},
+										"sink": {
+											"name": "All Tickets",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['target']['all_passes']"
+										},
+										"sink": {
+											"name": "All Passes",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['result']['price']['percent_off']"
+										},
+										"sink": {
+											"name": "Percent Off",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['result']['price']['cents_off']"
+										},
+										"sink": {
+											"name": "Cents Off",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['result']['price']['set_price']"
+										},
+										"sink": {
+											"name": "Set Price",
+											"type": "Int32"
+										}
+									}
+								],
+								"collectionReference": "$['coupons']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveCoupons",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveCoupons",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Venues",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"Venue ID"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "Venue ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket']"
+										},
+										"sink": {
+											"name": "Event Bucket",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['name']"
+										},
+										"sink": {
+											"name": "Venue Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['short_name']"
+										},
+										"sink": {
+											"name": "Short Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['address']"
+										},
+										"sink": {
+											"name": "Address",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['default_capacity']"
+										},
+										"sink": {
+											"name": "Capacity",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['color']"
+										},
+										"sink": {
+											"name": "Color",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['use_reserved_seating']"
+										},
+										"sink": {
+											"name": "Use Reserved Seating",
+											"type": "Boolean"
+										}
+									}
+								],
+								"collectionReference": "$['venues']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveVenues",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveVenues",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Items",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"Item ID"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "Item ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['order']"
+										},
+										"sink": {
+											"name": "Order",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['price']"
+										},
+										"sink": {
+											"name": "Price",
+											"type": "Double"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['id']"
+										},
+										"sink": {
+											"name": "Person ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['name']"
+										},
+										"sink": {
+											"name": "Person Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['email']"
+										},
+										"sink": {
+											"name": "Perason Email",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['item_bucket']['id']"
+										},
+										"sink": {
+											"name": "Item Bucket ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['item_bucket']['code']"
+										},
+										"sink": {
+											"name": "Item Bucket Code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['variant']['id']"
+										},
+										"sink": {
+											"name": "Variant ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['created_at']"
+										},
+										"sink": {
+											"name": "Created At",
+											"type": "DateTime"
+										}
+									}
+								],
+								"collectionReference": "$['items']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveItems",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveItems",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "ItemBucket",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"Item Bucket ID"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "Item Bucket ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket']"
+										},
+										"sink": {
+											"name": "Event Bucket",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['name']"
+										},
+										"sink": {
+											"name": "Item Bucket Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['code']"
+										},
+										"sink": {
+											"name": "Code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['updated_at']"
+										},
+										"sink": {
+											"name": "Updated At",
+											"type": "DateTime"
+										}
+									}
+								],
+								"collectionReference": "$['item_buckets']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveItemBucket",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlItemBucket",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "People",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"Person ID"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "Person ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['details']['name']"
+										},
+										"sink": {
+											"name": "﻿name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['details']['email']"
+										},
+										"sink": {
+											"name": "email",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['details']['phone_number']"
+										},
+										"sink": {
+											"name": "phone_number",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['details']['sms_tickets_enabled']"
+										},
+										"sink": {
+											"name": "sms_tickets_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['details']['payment_method_summary']"
+										},
+										"sink": {
+											"name": "payment_method_summary",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['details']['do_not_email']"
+										},
+										"sink": {
+											"name": "do_not_email",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['details']['facebook_user_id']"
+										},
+										"sink": {
+											"name": "facebook_user_id",
+											"type": "String"
+										}
+									}
+								],
+								"collectionReference": "$['people']",
+								"mapComplexValuesToString": false
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventivePeople",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventivePeople",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Ledger",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.030",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"QueryParameters.{skip}": "RANGE:0:70000:1000"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"_id"
+									]
+								},
+								"sqlWriterUseTableLock": true,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['_id']"
+										},
+										"sink": {
+											"name": "_id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['type']"
+										},
+										"sink": {
+											"name": "type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['reason']"
+										},
+										"sink": {
+											"name": "reason",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['currency']"
+										},
+										"sink": {
+											"name": "currency",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['_owner']"
+										},
+										"sink": {
+											"name": "_owner",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pricing_plan']"
+										},
+										"sink": {
+											"name": "pricing_plan",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['order']"
+										},
+										"sink": {
+											"name": "order",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']"
+										},
+										"sink": {
+											"name": "person",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket']"
+										},
+										"sink": {
+											"name": "event_bucket",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['balance_account']['type']"
+										},
+										"sink": {
+											"name": "balance_account.type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['date']"
+										},
+										"sink": {
+											"name": "date",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['class']"
+										},
+										"sink": {
+											"name": "class",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['category']['ref_type']"
+										},
+										"sink": {
+											"name": "category.ref_type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['category']['ref_id']"
+										},
+										"sink": {
+											"name": "category.ref_id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['gross']"
+										},
+										"sink": {
+											"name": "gross",
+											"type": "Int64"
+										}
+									},
+									{
+										"source": {
+											"path": "[['net']"
+										},
+										"sink": {
+											"name": "net",
+											"type": "Int64"
+										}
+									},
+									{
+										"source": {
+											"path": "[['fee']"
+										},
+										"sink": {
+											"name": "fee",
+											"type": "Int64"
+										}
+									},
+									{
+										"source": {
+											"path": "[['fee_nonrefundable']"
+										},
+										"sink": {
+											"name": "fee_nonrefundable",
+											"type": "Int64"
+										}
+									},
+									{
+										"source": {
+											"path": "[['stripe_charge_id']"
+										},
+										"sink": {
+											"name": "stripe_charge_id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['item']['ref_id']"
+										},
+										"sink": {
+											"name": "item.ref_id",
+											"type": "String"
+										}
+									}
+								],
+								"collectionReference": "$['transactions']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveLedger",
+								"type": "DatasetReference",
+								"parameters": {
+									"api_key": "dd67a9b5637524a10ef8934566db6abc"
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveLedger",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Orders",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"QueryParameters.{skip}": "RANGE:0:70000:100"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"Order Id"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "Order Id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['owner']"
+										},
+										"sink": {
+											"name": "owner",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['created_at']"
+										},
+										"sink": {
+											"name": "Created At",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['purchase_price']"
+										},
+										"sink": {
+											"name": "Purchase Price",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['net_price']"
+										},
+										"sink": {
+											"name": "net_price",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"path": "[['type']"
+										},
+										"sink": {
+											"name": "type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['success']"
+										},
+										"sink": {
+											"name": "success",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['tax_collected']"
+										},
+										"sink": {
+											"name": "tax collected",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['event_bucket']['id']"
+										},
+										"sink": {
+											"name": "Event Bucket ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['id']"
+										},
+										"sink": {
+											"name": "Person ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['person']['details']['email']"
+										},
+										"sink": {
+											"name": "email",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['ip']"
+										},
+										"sink": {
+											"name": "ip",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['city']"
+										},
+										"sink": {
+											"name": "city",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['continent']"
+										},
+										"sink": {
+											"name": "continent",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['continent_name']"
+										},
+										"sink": {
+											"name": "continent_name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['region']"
+										},
+										"sink": {
+											"name": "region",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['region_code']"
+										},
+										"sink": {
+											"name": "region_code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['country']"
+										},
+										"sink": {
+											"name": "country",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['country_name']"
+										},
+										"sink": {
+											"name": "country_name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['postal']"
+										},
+										"sink": {
+											"name": "postal",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['latitude']"
+										},
+										"sink": {
+											"name": "latitude",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['longitude']"
+										},
+										"sink": {
+											"name": "longitude",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['asn']"
+										},
+										"sink": {
+											"name": "asn",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['origin_location']['org']"
+										},
+										"sink": {
+											"name": "org",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['summary']"
+										},
+										"sink": {
+											"name": "summary",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['coupon']['id']"
+										},
+										"sink": {
+											"name": "Coupon ID",
+											"type": "String"
+										}
+									}
+								],
+								"collectionReference": "$['orders']",
+								"mapComplexValuesToString": false
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveOrders",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveOrders",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Virtual Content",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"QueryParameters.{skip}": "RANGE:0:50000:100"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"id"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['type']"
+										},
+										"sink": {
+											"name": "type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['label']"
+										},
+										"sink": {
+											"name": "label",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['status']"
+										},
+										"sink": {
+											"name": "status",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['live_chat_visible']"
+										},
+										"sink": {
+											"name": "live_chat_visible",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['live_chat_participation_enabled']"
+										},
+										"sink": {
+											"name": "live_chat_participation_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['live_chat_show_viewer_count']"
+										},
+										"sink": {
+											"name": "live_chat_show_viewer_count",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['ams_drm_enabled']"
+										},
+										"sink": {
+											"name": "ams_drm_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['duration']"
+										},
+										"sink": {
+											"name": "duration",
+											"type": "Double"
+										}
+									},
+									{
+										"source": {
+											"path": "[['file_size']"
+										},
+										"sink": {
+											"name": "file_size",
+											"type": "Int64"
+										}
+									},
+									{
+										"source": {
+											"path": "[['egress_url']"
+										},
+										"sink": {
+											"name": "egress_url",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['created_at']"
+										},
+										"sink": {
+											"name": "created_at",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['updated_at']"
+										},
+										"sink": {
+											"name": "updated_at",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"path": "[['platform']"
+										},
+										"sink": {
+											"name": "platform",
+											"type": "String"
+										}
+									}
+								],
+								"collectionReference": "$['virtual_content']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveVirtualContent",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveEventiveVirtual_Content",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2020-10-30T23:35:37Z"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/FBATLFFEvents')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_tgx",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "dbo.MARKETING_FACEBOOK_ATLFF_Events"
+							},
+							{
+								"name": "Destination",
+								"value": "FacebookMasterEvents"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureTableSink",
+								"azureTableInsertType": "merge",
+								"azureTableRowKeyName": "RowKey",
+								"writeBatchSize": 10000
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RowKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "attending_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "attending_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "category",
+											"type": "String"
+										},
+										"sink": {
+											"name": "category",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "declined_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "declined_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "description",
+											"type": "String"
+										},
+										"sink": {
+											"name": "description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "end_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "end_time",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "interested_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "interested_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_draft",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_draft",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_online",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_online",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "maybe_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "maybe_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "noreply_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "noreply_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "start_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "start_time",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"name": "timezone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "timezone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "type",
+											"type": "String"
+										},
+										"sink": {
+											"name": "type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "updated_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "updated_time",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"name": "ticket_uri",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ticket_uri",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SourceDataset_tgx",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationDataset_tgx",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2020-06-17T19:11:13Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_tgx')]"
+			]
+		}
+	]
+}

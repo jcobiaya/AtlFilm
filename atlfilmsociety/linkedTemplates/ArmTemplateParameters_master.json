@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "atlfilmsociety"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzurePostgreSql1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabaseRAW_ATLFS_DATA_connectionString": {
+			"value": ""
+		},
+		"AzureTableStorage1_connectionString": {
+			"value": ""
+		},
+		"CosmosEventiveEvents_connectionString": {
+			"value": ""
+		},
+		"FailedSalesforceruns_connectionString": {
+			"value": ""
+		},
+		"MatomoData_connectionString": {
+			"value": ""
+		},
+		"PostgreSqlATLFS_STITCH_DATA_connectionString": {
+			"value": ""
+		},
+		"Salesforce_password": {
+			"value": ""
+		},
+		"Salesforce_securityToken": {
+			"value": ""
+		},
+		"Salesforce1_connectionString": {
+			"value": ""
+		},
+		"Stripe_password": {
+			"value": ""
+		},
+		"Stripe_Data_password": {
+			"value": ""
+		},
+		"Eventbrite_properties_typeProperties_url": {
+			"value": "https://www.eventbriteapi.com/v3"
+		},
+		"Eventive_properties_typeProperties_url": {
+			"value": "https://api.eventive.org/"
+		},
+		"FacebookATLFS_properties_typeProperties_url": {
+			"value": "https://graph.facebook.com/"
+		},
+		"Salesforce_properties_typeProperties_environmentUrl": {
+			"value": "https://login.salesforce.com"
+		},
+		"Salesforce_properties_typeProperties_username": {
+			"value": "justice@atlantafilmfestival.com"
+		},
+		"Stripe_properties_typeProperties_url": {
+			"value": "https://api.stripe.com"
+		},
+		"Stripe_properties_typeProperties_userName": {
+			"value": "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"
+		},
+		"Stripe_Data_properties_typeProperties_url": {
+			"value": "https://api.stripe.com/v1"
+		},
+		"Stripe_Data_properties_typeProperties_userName": {
+			"value": "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"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

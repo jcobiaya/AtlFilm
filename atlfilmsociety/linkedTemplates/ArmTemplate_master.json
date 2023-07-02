@@ -1,0 +1,336 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "atlfilmsociety"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzurePostgreSql1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzurePostgreSql1'"
+		},
+		"AzureSqlDatabaseRAW_ATLFS_DATA_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabaseRAW_ATLFS_DATA'"
+		},
+		"AzureTableStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureTableStorage1'"
+		},
+		"CosmosEventiveEvents_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosEventiveEvents'"
+		},
+		"FailedSalesforceruns_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'FailedSalesforceruns'"
+		},
+		"MatomoData_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'MatomoData'"
+		},
+		"PostgreSqlATLFS_STITCH_DATA_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'PostgreSqlATLFS_STITCH_DATA'"
+		},
+		"Salesforce_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Salesforce'"
+		},
+		"Salesforce_securityToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'securityToken' of 'Salesforce'"
+		},
+		"Salesforce1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Salesforce1'"
+		},
+		"Stripe_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Stripe'"
+		},
+		"Stripe_Data_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Stripe_Data'"
+		},
+		"Eventbrite_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://www.eventbriteapi.com/v3"
+		},
+		"Eventive_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://api.eventive.org/"
+		},
+		"FacebookATLFS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://graph.facebook.com/"
+		},
+		"Salesforce_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://login.salesforce.com"
+		},
+		"Salesforce_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "justice@atlantafilmfestival.com"
+		},
+		"Stripe_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://api.stripe.com"
+		},
+		"Stripe_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "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"
+		},
+		"Stripe_Data_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://api.stripe.com/v1"
+		},
+		"Stripe_Data_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "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"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "atlfilmsociety_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzurePostgreSql1_connectionString": {
+						"value": "[parameters('AzurePostgreSql1_connectionString')]"
+					},
+					"AzureSqlDatabaseRAW_ATLFS_DATA_connectionString": {
+						"value": "[parameters('AzureSqlDatabaseRAW_ATLFS_DATA_connectionString')]"
+					},
+					"AzureTableStorage1_connectionString": {
+						"value": "[parameters('AzureTableStorage1_connectionString')]"
+					},
+					"CosmosEventiveEvents_connectionString": {
+						"value": "[parameters('CosmosEventiveEvents_connectionString')]"
+					},
+					"FailedSalesforceruns_connectionString": {
+						"value": "[parameters('FailedSalesforceruns_connectionString')]"
+					},
+					"MatomoData_connectionString": {
+						"value": "[parameters('MatomoData_connectionString')]"
+					},
+					"PostgreSqlATLFS_STITCH_DATA_connectionString": {
+						"value": "[parameters('PostgreSqlATLFS_STITCH_DATA_connectionString')]"
+					},
+					"Salesforce_password": {
+						"value": "[parameters('Salesforce_password')]"
+					},
+					"Salesforce_securityToken": {
+						"value": "[parameters('Salesforce_securityToken')]"
+					},
+					"Salesforce1_connectionString": {
+						"value": "[parameters('Salesforce1_connectionString')]"
+					},
+					"Stripe_password": {
+						"value": "[parameters('Stripe_password')]"
+					},
+					"Stripe_Data_password": {
+						"value": "[parameters('Stripe_Data_password')]"
+					},
+					"Eventbrite_properties_typeProperties_url": {
+						"value": "[parameters('Eventbrite_properties_typeProperties_url')]"
+					},
+					"Eventive_properties_typeProperties_url": {
+						"value": "[parameters('Eventive_properties_typeProperties_url')]"
+					},
+					"FacebookATLFS_properties_typeProperties_url": {
+						"value": "[parameters('FacebookATLFS_properties_typeProperties_url')]"
+					},
+					"Salesforce_properties_typeProperties_environmentUrl": {
+						"value": "[parameters('Salesforce_properties_typeProperties_environmentUrl')]"
+					},
+					"Salesforce_properties_typeProperties_username": {
+						"value": "[parameters('Salesforce_properties_typeProperties_username')]"
+					},
+					"Stripe_properties_typeProperties_url": {
+						"value": "[parameters('Stripe_properties_typeProperties_url')]"
+					},
+					"Stripe_properties_typeProperties_userName": {
+						"value": "[parameters('Stripe_properties_typeProperties_userName')]"
+					},
+					"Stripe_Data_properties_typeProperties_url": {
+						"value": "[parameters('Stripe_Data_properties_typeProperties_url')]"
+					},
+					"Stripe_Data_properties_typeProperties_userName": {
+						"value": "[parameters('Stripe_Data_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "atlfilmsociety_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'atlfilmsociety_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "atlfilmsociety_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'atlfilmsociety_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "atlfilmsociety_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'atlfilmsociety_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "atlfilmsociety_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'atlfilmsociety_ArmTemplate_3')]"
+			]
+		},
+		{
+			"name": "atlfilmsociety_ArmTemplate_5",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_5.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'atlfilmsociety_ArmTemplate_4')]"
+			]
+		},
+		{
+			"name": "atlfilmsociety_ArmTemplate_6",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_6.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'atlfilmsociety_ArmTemplate_5')]"
+			]
+		},
+		{
+			"name": "atlfilmsociety_ArmTemplate_7",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_7.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'atlfilmsociety_ArmTemplate_6')]"
+			]
+		}
+	]
+}
