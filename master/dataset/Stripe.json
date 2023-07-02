@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "/charges"
+				"relativeUrl": "v1/charges"
 			}
 		},
 		"schema": {}
