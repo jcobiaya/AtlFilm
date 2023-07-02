@@ -21306,7 +21306,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Eventive Daily Backup')]",
+			"name": "[concat(parameters('factoryName'), '/Daily Backup')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -21316,6 +21316,13 @@
 					{
 						"pipelineReference": {
 							"referenceName": "EventiveToSQL",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "SalesforcetoSQL",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
@@ -21341,7 +21348,8 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/EventiveToSQL')]"
+				"[concat(variables('factoryId'), '/pipelines/EventiveToSQL')]",
+				"[concat(variables('factoryId'), '/pipelines/SalesforcetoSQL')]"
 			]
 		}
 	]
