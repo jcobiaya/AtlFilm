@@ -168,6 +168,7 @@
 				"     updateable: false,",
 				"     deletable: false,",
 				"     upsertable: true,",
+				"     keys:['Submission ID'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     saveOrder: 1,",
