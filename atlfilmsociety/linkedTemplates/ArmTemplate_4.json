@@ -217,6 +217,274 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Filmfreeway_Submissions_Film')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "CSV will all film submissions",
+				"linkedServiceName": {
+					"referenceName": "ATLFS Azure Blob Storage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "FilmFreeway-Submissions-2023-07-02-02-43-45.csv",
+						"container": "azure-webjobs-hosts"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Project Website",
+						"type": "String"
+					},
+					{
+						"name": "Twitter",
+						"type": "String"
+					},
+					{
+						"name": "Facebook",
+						"type": "String"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "String"
+					},
+					{
+						"name": "Language",
+						"type": "String"
+					},
+					{
+						"name": "Trailer URL",
+						"type": "String"
+					},
+					{
+						"name": "Country of Filming",
+						"type": "String"
+					},
+					{
+						"name": "Project Type",
+						"type": "String"
+					},
+					{
+						"name": "Genres",
+						"type": "String"
+					},
+					{
+						"name": "Student Project",
+						"type": "String"
+					},
+					{
+						"name": "Completion Date",
+						"type": "String"
+					},
+					{
+						"name": "Production Budget",
+						"type": "String"
+					},
+					{
+						"name": "Shooting Format",
+						"type": "String"
+					},
+					{
+						"name": "Aspect Ratio",
+						"type": "String"
+					},
+					{
+						"name": "Film Color",
+						"type": "String"
+					},
+					{
+						"name": "Camera",
+						"type": "String"
+					},
+					{
+						"name": "Lens",
+						"type": "String"
+					},
+					{
+						"name": "Focal Length",
+						"type": "String"
+					},
+					{
+						"name": "Shutter Speed",
+						"type": "String"
+					},
+					{
+						"name": "Aperture",
+						"type": "String"
+					},
+					{
+						"name": "ISO / Film",
+						"type": "String"
+					},
+					{
+						"name": "First-time Filmmaker",
+						"type": "String"
+					},
+					{
+						"name": "Directors",
+						"type": "String"
+					},
+					{
+						"name": "Writers",
+						"type": "String"
+					},
+					{
+						"name": "Producers",
+						"type": "String"
+					},
+					{
+						"name": "Key Cast",
+						"type": "String"
+					},
+					{
+						"name": "Other Credits",
+						"type": "String"
+					},
+					{
+						"name": "Screenings / Awards",
+						"type": "String"
+					},
+					{
+						"name": "Distributor Information",
+						"type": "String"
+					},
+					{
+						"name": "First Name",
+						"type": "String"
+					},
+					{
+						"name": "Last Name",
+						"type": "String"
+					},
+					{
+						"name": "Birthdate",
+						"type": "String"
+					},
+					{
+						"name": "Gender",
+						"type": "String"
+					},
+					{
+						"name": "Email",
+						"type": "String"
+					},
+					{
+						"name": "Phone",
+						"type": "String"
+					},
+					{
+						"name": "Address",
+						"type": "String"
+					},
+					{
+						"name": "Address 2",
+						"type": "String"
+					},
+					{
+						"name": "City",
+						"type": "String"
+					},
+					{
+						"name": "State",
+						"type": "String"
+					},
+					{
+						"name": "Postal Code",
+						"type": "String"
+					},
+					{
+						"name": "Country",
+						"type": "String"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "String"
+					},
+					{
+						"name": "Project Title",
+						"type": "String"
+					},
+					{
+						"name": "Project Title (Original Language)",
+						"type": "String"
+					},
+					{
+						"name": "Synopsis",
+						"type": "String"
+					},
+					{
+						"name": "Synopsis (Original Language)",
+						"type": "String"
+					},
+					{
+						"name": "Lyrics",
+						"type": "String"
+					},
+					{
+						"name": "Duration",
+						"type": "String"
+					},
+					{
+						"name": "Submission Date",
+						"type": "String"
+					},
+					{
+						"name": "Submission Status",
+						"type": "String"
+					},
+					{
+						"name": "Judging Status",
+						"type": "String"
+					},
+					{
+						"name": "Submission Deadlines",
+						"type": "String"
+					},
+					{
+						"name": "Submission Categories",
+						"type": "String"
+					},
+					{
+						"name": "Submission Fee",
+						"type": "String"
+					},
+					{
+						"name": "Discount Code",
+						"type": "String"
+					},
+					{
+						"name": "Submission Link",
+						"type": "String"
+					},
+					{
+						"name": "Submission Password",
+						"type": "String"
+					},
+					{
+						"name": "Assigned Judges",
+						"type": "String"
+					},
+					{
+						"name": "Submission ID",
+						"type": "String"
+					},
+					{
+						"name": "Submission Notes",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SQLBalanceTransactionFeeDetails')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1322,97 +1590,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "FINANCE_STRIPE_customers__subscriptions"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SQLCustomers')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "_sdc_batched_at",
-						"type": "nvarchar"
-					},
-					{
-						"name": "_sdc_extracted_at",
-						"type": "nvarchar"
-					},
-					{
-						"name": "_sdc_received_at",
-						"type": "nvarchar"
-					},
-					{
-						"name": "_sdc_sequence",
-						"type": "float",
-						"precision": 15
-					},
-					{
-						"name": "_sdc_table_version",
-						"type": "bit"
-					},
-					{
-						"name": "account_balance",
-						"type": "bit"
-					},
-					{
-						"name": "created",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "currency",
-						"type": "nvarchar"
-					},
-					{
-						"name": "default_card",
-						"type": "nvarchar"
-					},
-					{
-						"name": "default_source",
-						"type": "nvarchar"
-					},
-					{
-						"name": "delinquent",
-						"type": "bit"
-					},
-					{
-						"name": "email",
-						"type": "nvarchar"
-					},
-					{
-						"name": "id",
-						"type": "nvarchar"
-					},
-					{
-						"name": "invoice_prefix",
-						"type": "nvarchar"
-					},
-					{
-						"name": "livemode",
-						"type": "bit"
-					},
-					{
-						"name": "object",
-						"type": "nvarchar"
-					},
-					{
-						"name": "updated",
-						"type": "datetime2",
-						"scale": 7
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "FINANCE_STRIPE_customers"
 				}
 			},
 			"dependsOn": []

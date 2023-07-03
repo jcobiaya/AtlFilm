@@ -11539,13 +11539,197 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"name": "[concat(parameters('factoryName'), '/dataflow1')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "Submissions_Filmfreeway_Films",
+								"type": "DatasetReference"
+							},
+							"name": "SubmissionExcel"
+						}
+					],
+					"sinks": [
+						{
+							"linkedService": {
+								"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+								"type": "LinkedServiceReference"
+							},
+							"name": "sink1"
+						}
+					],
+					"transformations": [
+						{
+							"name": "AlterRow1"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          {Project Website} as string,",
+						"          Twitter as string,",
+						"          Facebook as string,",
+						"          {Country of Origin} as string,",
+						"          Language as string,",
+						"          {Trailer URL} as string,",
+						"          {Country of Filming} as string,",
+						"          {Project Type} as string,",
+						"          Genres as string,",
+						"          {Student Project} as boolean,",
+						"          {Completion Date} as date,",
+						"          {Production Budget} as string,",
+						"          {Shooting Format} as string,",
+						"          {Aspect Ratio} as string,",
+						"          {Film Color} as string,",
+						"          Camera as string,",
+						"          Lens as string,",
+						"          {Focal Length} as string,",
+						"          {Shutter Speed} as string,",
+						"          Aperture as string,",
+						"          {ISO / Film} as string,",
+						"          {First-time Filmmaker} as boolean,",
+						"          Directors as string,",
+						"          Writers as string,",
+						"          Producers as string,",
+						"          {Key Cast} as string,",
+						"          {Other Credits} as string,",
+						"          {Screenings / Awards} as string,",
+						"          {Distributor Information} as string,",
+						"          {First Name} as string,",
+						"          {Last Name} as string,",
+						"          Birthdate as date,",
+						"          Gender as string,",
+						"          Email as string,",
+						"          Phone as string,",
+						"          Address as string,",
+						"          {Address 2} as string,",
+						"          City as string,",
+						"          State as string,",
+						"          {Postal Code} as string,",
+						"          Country as string,",
+						"          {Tracking Number} as string,",
+						"          {Project Title} as string,",
+						"          {Project Title (Original Language)} as string,",
+						"          Synopsis as string,",
+						"          {Synopsis (Original Language)} as string,",
+						"          Lyrics as string,",
+						"          Duration as string,",
+						"          {Submission Date} as string,",
+						"          {Submission Status} as string,",
+						"          {Judging Status} as string,",
+						"          {Submission Deadlines} as string,",
+						"          {Submission Categories} as string,",
+						"          {Submission Fee} as double,",
+						"          {Discount Code} as string,",
+						"          {Submission Link} as string,",
+						"          {Submission Password} as string,",
+						"          {Assigned Judges} as string,",
+						"          {Submission ID} as integer,",
+						"          {Submission Notes} as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     inferDriftedColumnTypes: true,",
+						"     limit: 100,",
+						"     ignoreNoFilesFound: false) ~> SubmissionExcel",
+						"SubmissionExcel alterRow(upsertIf({Submission ID}=={Submission ID})) ~> AlterRow1",
+						"AlterRow1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          {Project Website} as string,",
+						"          Twitter as string,",
+						"          Facebook as string,",
+						"          {Country of Origin} as string,",
+						"          Language as string,",
+						"          {Trailer URL} as string,",
+						"          {Country of Filming} as string,",
+						"          {Project Type} as string,",
+						"          Genres as string,",
+						"          {Student Project} as string,",
+						"          {Completion Date} as timestamp,",
+						"          {Production Budget} as string,",
+						"          {Shooting Format} as string,",
+						"          {Aspect Ratio} as timestamp,",
+						"          {Film Color} as string,",
+						"          Camera as string,",
+						"          Lens as string,",
+						"          {Focal Length} as string,",
+						"          {Shutter Speed} as string,",
+						"          Aperture as string,",
+						"          {ISO / Film} as string,",
+						"          {First-time Filmmaker} as string,",
+						"          Directors as string,",
+						"          Writers as string,",
+						"          Producers as string,",
+						"          {Key Cast} as string,",
+						"          {Other Credits} as string,",
+						"          {Screenings / Awards} as string,",
+						"          {Distributor Information} as string,",
+						"          {First Name} as string,",
+						"          {Last Name} as string,",
+						"          Birthdate as string,",
+						"          Gender as string,",
+						"          Email as string,",
+						"          Phone as string,",
+						"          Address as string,",
+						"          {Address 2} as string,",
+						"          City as string,",
+						"          State as string,",
+						"          {Postal Code} as string,",
+						"          Country as string,",
+						"          {Tracking Number} as string,",
+						"          {Project Title} as string,",
+						"          {Project Title (Original Language)} as string,",
+						"          Synopsis as string,",
+						"          {Synopsis (Original Language)} as string,",
+						"          Lyrics as string,",
+						"          Duration as timestamp,",
+						"          {Submission Date} as timestamp,",
+						"          {Submission Status} as string,",
+						"          {Judging Status} as string,",
+						"          {Submission Deadlines} as string,",
+						"          {Submission Categories} as string,",
+						"          {Submission Fee} as decimal(19,4),",
+						"          {Discount Code} as string,",
+						"          {Submission Link} as string,",
+						"          {Submission Password} as string,",
+						"          {Assigned Judges} as string,",
+						"          {Submission ID} as double,",
+						"          {Submission Notes} as string,",
+						"          SSMA_TimeStamp as binary",
+						"     ),",
+						"     format: 'table',",
+						"     store: 'sqlserver',",
+						"     schemaName: 'dbo',",
+						"     tableName: 'PROGRAMMING_SUBMISSIONS_FILMFREEWAY_Films',",
+						"     insertable: false,",
+						"     updateable: false,",
+						"     deletable: false,",
+						"     upsertable: true,",
+						"     keys:['Submission ID'],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     saveOrder: 1,",
+						"     errorHandlingOption: 'allErrors',",
+						"     transactionCommit: 'single',",
+						"     reportSuccessOnError: false) ~> sink1"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Submissions Data')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy data1",
+						"name": "Filmfreeway_FILMS",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -11558,12 +11742,11 @@
 						"userProperties": [],
 						"typeProperties": {
 							"source": {
-								"type": "RestSource",
-								"httpRequestTimeout": "00:01:40",
-								"requestInterval": "00.00:00:00.010",
-								"requestMethod": "GET",
-								"paginationRules": {
-									"supportRFC5988": "true"
+								"type": "ExcelSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
 								}
 							},
 							"sink": {
@@ -11572,7 +11755,7 @@
 								"upsertSettings": {
 									"useTempDB": true,
 									"keys": [
-										"id"
+										"Submission_ID"
 									]
 								},
 								"sqlWriterUseTableLock": false,
@@ -11584,356 +11767,754 @@
 								"mappings": [
 									{
 										"source": {
-											"path": "[['id']"
+											"name": "Project Website",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "id",
-											"type": "String"
+											"name": "Project_Website",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['amount']"
+											"name": "Twitter",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Amount",
-											"type": "Double"
+											"name": "Twitter",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['amount_refunded']"
+											"name": "Facebook",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Amount Refunded",
-											"type": "Double"
+											"name": "Facebook",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['billing_details']['address']['city']"
+											"name": "Country of Origin",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Card Address City",
-											"type": "String"
+											"name": "Country_of_Origin",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['billing_details']['address']['country']"
+											"name": "Language",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Card Address Country",
-											"type": "String"
+											"name": "Language",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['billing_details']['address']['line1']"
+											"name": "Trailer URL",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Card Address Line1",
-											"type": "String"
+											"name": "Trailer_URL",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['billing_details']['address']['line2']"
+											"name": "Country of Filming",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Card Address Line2",
-											"type": "String"
+											"name": "Country_of_Filming",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['billing_details']['address']['postal_code']"
+											"name": "Project Type",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Card Address Zip",
-											"type": "String"
+											"name": "Project_Type",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['billing_details']['address']['state']"
+											"name": "Genres",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Card Address State",
-											"type": "String"
+											"name": "Genres",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['calculated_statement_descriptor']"
+											"name": "Completion Date",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Statement Descriptor",
-											"type": "String"
+											"name": "Completion_Date",
+											"type": "DateTime",
+											"physicalType": "datetime2"
 										}
 									},
 									{
 										"source": {
-											"path": "[['captured']"
+											"name": "Production Budget",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Captured",
-											"type": "Boolean"
+											"name": "Production_Budget",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['card']"
-										},
-										"sink": {}
-									},
-									{
-										"source": {
-											"path": "[['created']"
+											"name": "Shooting Format",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Created (UTC)",
-											"type": "DateTime"
+											"name": "Shooting_Format",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['currency']"
+											"name": "Aspect Ratio",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Currency",
-											"type": "String"
+											"name": "Aspect_Ratio",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['customer']"
+											"name": "Film Color",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Customer ID",
-											"type": "String"
+											"name": "Film_Color",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['description']"
+											"name": "Camera",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Description",
-											"type": "String"
+											"name": "Camera",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['destination']"
+											"name": "Lens",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Destination",
-											"type": "String"
+											"name": "Lens",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['dispute']"
+											"name": "Focal Length",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Dispute Status",
-											"type": "String"
+											"name": "Focal_Length",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['fee']"
+											"name": "Shutter Speed",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Fee",
-											"type": "Double"
+											"name": "Shutter_Speed",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['invoice']"
+											"name": "Aperture",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Invoice ID",
-											"type": "String"
+											"name": "Aperture",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['livemode']"
+											"name": "ISO / Film",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Mode",
-											"type": "String"
+											"name": "ISO___Film",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['id']"
+											"name": "Directors",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "id (metadata)",
-											"type": "String"
+											"name": "Directors",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['metadata']['websiteId']"
+											"name": "Writers",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "websiteId (metadata)",
-											"type": "String"
+											"name": "Writers",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['order']"
+											"name": "Producers",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "orderId (metadata)",
-											"type": "String"
+											"name": "Producers",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['payment_intent']"
+											"name": "Key Cast",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "PaymentIntent ID",
-											"type": "String"
+											"name": "Key_Cast",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "[['payment_method_details']['card']['brand']"
+											"name": "Other Credits",
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Card Brand",
-											"type": "String"
+											"name": "Other_Credits",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['receipt_email']"
+											"name": "Screenings / Awards",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Screenings___Awards",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['receipt_number']"
+											"name": "Distributor Information",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Distributor_Information",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['receipt_url']"
+											"name": "First Name",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "First_Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['refunded']"
+											"name": "Last Name",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Last_Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['refunds'][0]"
+											"name": "Birthdate",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Birthdate",
+											"type": "DateTime",
+											"physicalType": "datetime2"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['review']"
+											"name": "Gender",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Gender",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['shipping']"
+											"name": "Email",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Email",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['source']"
+											"name": "Phone",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Phone",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['source_transfer']"
+											"name": "Address",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Address",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['statement_description']"
+											"name": "Address 2",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Address_2",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['statement_descriptor']"
+											"name": "City",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "City",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['statement_descriptor_suffix']"
+											"name": "State",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "State",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['status']"
+											"name": "Postal Code",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Postal_Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['transfer_data']"
+											"name": "Country",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Country",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['transfer_group']"
+											"name": "Tracking Number",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Tracking_Number",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['has_more']"
+											"name": "Project Title",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Project_Title",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									},
 									{
 										"source": {
-											"path": "$['url']"
+											"name": "Project Title (Original Language)",
+											"type": "String",
+											"physicalType": "String"
 										},
-										"sink": {}
+										"sink": {
+											"name": "Project_Title__Original_Language_",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Synopsis",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Synopsis",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Synopsis (Original Language)",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Synopsis__Original_Language_",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Lyrics",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Lyrics",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Duration",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Duration",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Submission Date",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Submission_Date",
+											"type": "DateTime",
+											"physicalType": "date"
+										}
+									},
+									{
+										"source": {
+											"name": "Submission Status",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Submission_Status",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Judging Status",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Judging_Status",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Submission Deadlines",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Submission_Deadlines",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Submission Categories",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Submission_Categories",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Submission Fee",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Submission_Fee",
+											"type": "Decimal",
+											"physicalType": "money",
+											"scale": 4,
+											"precision": 19
+										}
+									},
+									{
+										"source": {
+											"name": "Discount Code",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Discount_Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Submission Link",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Submission_Link",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Submission Password",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Submission_Password",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Assigned Judges",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Assigned_Judges",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Submission ID",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Submission_ID",
+											"type": "Int64",
+											"physicalType": "bigint"
+										}
+									},
+									{
+										"source": {
+											"name": "Submission Notes",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Submission_Notes",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
 									}
 								],
-								"collectionReference": "$['data']",
-								"mapComplexValuesToString": true
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
 							}
 						},
 						"inputs": [
 							{
-								"referenceName": "StripeCharges",
+								"referenceName": "Submissions_Filmfreeway_Films",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "SQLStripeCharges",
+								"referenceName": "AzureSqlFilmfreewayFilmSubmissions",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "Data flow1",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "dataflow1",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SubmissionExcel": {},
+									"sink1": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
 					}
 				],
 				"policy": {
@@ -11942,47 +12523,8 @@
 				},
 				"annotations": []
 			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/FacebookEventsDailyBackup')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "FacebookEvents",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Week",
-						"interval": 1,
-						"startTime": "2020-06-17T18:56:00Z",
-						"timeZone": "UTC",
-						"schedule": {
-							"minutes": [
-								0
-							],
-							"hours": [
-								4
-							],
-							"weekDays": [
-								"Sunday"
-							]
-						}
-					}
-				}
-			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/FacebookEvents')]"
+				"[concat(variables('factoryId'), '/dataflows/dataflow1')]"
 			]
 		},
 		{
@@ -12030,6 +12572,47 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/EventiveToSQL')]",
 				"[concat(variables('factoryId'), '/pipelines/SalesforcetoSQL')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/FacebookEventsDailyBackup')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "FacebookEvents",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Week",
+						"interval": 1,
+						"startTime": "2020-06-17T18:56:00Z",
+						"timeZone": "UTC",
+						"schedule": {
+							"minutes": [
+								0
+							],
+							"hours": [
+								4
+							],
+							"weekDays": [
+								"Sunday"
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/FacebookEvents')]"
 			]
 		}
 	]

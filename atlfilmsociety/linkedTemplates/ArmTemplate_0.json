@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "atlfilmsociety"
 		},
+		"ATLFS Azure Blob Storage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ATLFS Azure Blob Storage'"
+		},
 		"AzureBlobStorage1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
@@ -51,14 +55,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Salesforce1'"
 		},
-		"Stripe_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'Stripe'"
-		},
-		"Stripe_Data_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'Stripe_Data'"
-		},
 		"Eventbrite_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://www.eventbriteapi.com/v3"
@@ -78,28 +74,26 @@
 		"Salesforce_properties_typeProperties_username": {
 			"type": "string",
 			"defaultValue": "justice@atlantafilmfestival.com"
-		},
-		"Stripe_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://api.stripe.com"
-		},
-		"Stripe_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "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"
-		},
-		"Stripe_Data_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://api.stripe.com/v1"
-		},
-		"Stripe_Data_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "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"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/ATLFS Azure Blob Storage')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Use this account to upload all CSV files to back up to the ATLFS database.",
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('ATLFS Azure Blob Storage_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
@@ -286,46 +280,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Stripe')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "HttpServer",
-				"typeProperties": {
-					"url": "[parameters('Stripe_properties_typeProperties_url')]",
-					"enableServerCertificateValidation": true,
-					"authenticationType": "Basic",
-					"userName": "[parameters('Stripe_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('Stripe_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Stripe_Data')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "RestService",
-				"typeProperties": {
-					"url": "[parameters('Stripe_Data_properties_typeProperties_url')]",
-					"enableServerCertificateValidation": true,
-					"authenticationType": "Basic",
-					"userName": "[parameters('Stripe_Data_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('Stripe_Data_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/EventiveDailyBackup')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -468,6 +422,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ATLFFEvents')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "FacebookATLFS",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": "6251553423/events?fields=attending_count,category,declined_count,end_time,event_times,id,interested_count,maybe_count,name,noreply_count,owner,place,start_time,ticket_uri,type,parent_group,description,can_guests_invite,discount_code_enabled,guest_list_enabled,is_canceled,is_draft,is_online,is_page_owned,scheduled_publish_time,ticket_uri_start_sales_time,ticketing_privacy_uri,ticketing_terms_uri,timezone,updated_time&pretty=0&limit=500&access_token=EAAJQIFyOneABAKjFMvDohL4pRT0tZCTNUZAGy12CZBhFSZC93tGw8olZCJ7xjwqKobNom2b84GL2p7zyKgaZCacgwp8XiBBDD2r954qsgB8o7fgZBSXTZC3ZBZCvRkKdGZB5ehuv0Iqv3dimLlmMHzLWJtvlAhmRHiZB73c1clX73HRkpQZDZD"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/FacebookATLFS')]"
+			]
 		}
 	]
 }
