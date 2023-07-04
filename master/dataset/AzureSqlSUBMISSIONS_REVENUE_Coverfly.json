@@ -1,0 +1,85 @@
+{
+	"name": "AzureSqlSUBMISSIONS_REVENUE_Coverfly",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Customer User ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Customer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Customer Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Customer Paid",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "Coverfly Fee",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "Net Takeaway",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "Competition",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Entry Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submission ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submission Title",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submission Page Count",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Transaction Date",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "Transaction Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Coupon Used",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SSMA_TimeStamp",
+				"type": "timestamp"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "SUBMISSIONS_REVENUE_Coverfly"
+		}
+	}
+}
