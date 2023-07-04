@@ -1,0 +1,113 @@
+{
+	"name": "AzureSqlSUBMISSIONS_COVERFLY_Screenplays",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Coverfly ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Writer 1 Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Writer 1 Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Writer 1 Bio",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Writer 2 Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Writer 2 Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Writer 2 Bio",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submitter Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Title",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Page Count",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Package/Category",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Program Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Logline (by writer)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Format",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Genre",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Network",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Placement",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Admin Notes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "File",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Customer Paid",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Coverfly Share",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Submitted At",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "SSMA_TimeStamp",
+				"type": "timestamp"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "SUBMISSIONS_COVERFLY_Screenplays"
+		}
+	}
+}
