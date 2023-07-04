@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Filmfreeway Film Revenue",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -208,8 +208,8 @@
 								},
 								"sink": {
 									"name": "Duration",
-									"type": "DateTime",
-									"physicalType": "datetime2"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
