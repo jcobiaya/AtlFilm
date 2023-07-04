@@ -13,6 +13,42 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SalesforceCampaigns')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Campaign"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SalesforceContacts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Contact"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SalesforceData')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1025,289 +1061,6 @@
 						"type": "Expression"
 					}
 				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_yxm')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "FacebookATLFS",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": "710409332435854/events?fields=attending_count,category,declined_count,end_time,event_times,id,interested_count,maybe_count,name,noreply_count,owner,place,start_time,ticket_uri,type,parent_group,can_guests_invite,description,guest_list_enabled,discount_code_enabled,is_canceled,is_draft,is_online,is_page_owned,scheduled_publish_time,ticketing_privacy_uri,updated_time,ticket_uri_start_sales_time,ticketing_terms_uri,timezone&after=QVFIUmhDVU96dTFlcGhKNlR1R193RGw1cFZAmcWpJV29sQ2FVNWF5MkxiQkpGcFZAlMFUwV3ducHp0d0FWeTFnR1BTdFZAVbmJlLW5XZAUNqSXhuc09sMkJJdHhR&limit=1000&pretty=0&access_token=EAAJQIFyOneABAIipZBruESCqZCqeUNo8DOpSGEqZAtwdNzjxC9yAIzVH0knZBeCDVzbaUEaBpXQKu3odNKAYbo6ZBv8QqrgukFZCyHb75TC8qK4fAYoq4HVwGf678mpLoR4casr6qqn8T7qcLG6o6eaeM8VylA4SeVZAO647D22ZC8i8CelkZAEfWaIPrcQhbmTQZD"
-				},
-				"schema": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Submissions_Filmfreeway_Films')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ATLFS Azure Blob Storage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Excel",
-				"typeProperties": {
-					"sheetName": "Filmfreeway_FILMS",
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "Submissions_Filmfreeway_FILMS.xlsx",
-						"container": "azure-webjobs-hosts"
-					},
-					"firstRowAsHeader": true
-				},
-				"schema": [
-					{
-						"name": "Project Website",
-						"type": "String"
-					},
-					{
-						"name": "Twitter",
-						"type": "String"
-					},
-					{
-						"name": "Facebook",
-						"type": "String"
-					},
-					{
-						"name": "Country of Origin",
-						"type": "String"
-					},
-					{
-						"name": "Language",
-						"type": "String"
-					},
-					{
-						"name": "Trailer URL",
-						"type": "String"
-					},
-					{
-						"name": "Country of Filming",
-						"type": "String"
-					},
-					{
-						"name": "Project Type",
-						"type": "String"
-					},
-					{
-						"name": "Genres",
-						"type": "String"
-					},
-					{
-						"name": "Student Project",
-						"type": "String"
-					},
-					{
-						"name": "Completion Date",
-						"type": "String"
-					},
-					{
-						"name": "Production Budget",
-						"type": "String"
-					},
-					{
-						"name": "Shooting Format",
-						"type": "String"
-					},
-					{
-						"name": "Aspect Ratio",
-						"type": "String"
-					},
-					{
-						"name": "Film Color",
-						"type": "String"
-					},
-					{
-						"name": "Camera",
-						"type": "String"
-					},
-					{
-						"name": "Lens",
-						"type": "String"
-					},
-					{
-						"name": "Focal Length",
-						"type": "String"
-					},
-					{
-						"name": "Shutter Speed",
-						"type": "String"
-					},
-					{
-						"name": "Aperture",
-						"type": "String"
-					},
-					{
-						"name": "ISO / Film",
-						"type": "String"
-					},
-					{
-						"name": "First-time Filmmaker",
-						"type": "String"
-					},
-					{
-						"name": "Directors",
-						"type": "String"
-					},
-					{
-						"name": "Writers",
-						"type": "String"
-					},
-					{
-						"name": "Producers",
-						"type": "String"
-					},
-					{
-						"name": "Key Cast",
-						"type": "String"
-					},
-					{
-						"name": "Other Credits",
-						"type": "String"
-					},
-					{
-						"name": "Screenings / Awards",
-						"type": "String"
-					},
-					{
-						"name": "Distributor Information",
-						"type": "String"
-					},
-					{
-						"name": "First Name",
-						"type": "String"
-					},
-					{
-						"name": "Last Name",
-						"type": "String"
-					},
-					{
-						"name": "Birthdate",
-						"type": "String"
-					},
-					{
-						"name": "Gender",
-						"type": "String"
-					},
-					{
-						"name": "Email",
-						"type": "String"
-					},
-					{
-						"name": "Phone",
-						"type": "String"
-					},
-					{
-						"name": "Address",
-						"type": "String"
-					},
-					{
-						"name": "Address 2",
-						"type": "String"
-					},
-					{
-						"name": "City",
-						"type": "String"
-					},
-					{
-						"name": "State",
-						"type": "String"
-					},
-					{
-						"name": "Postal Code",
-						"type": "String"
-					},
-					{
-						"name": "Country",
-						"type": "String"
-					},
-					{
-						"name": "Tracking Number",
-						"type": "String"
-					},
-					{
-						"name": "Project Title",
-						"type": "String"
-					},
-					{
-						"name": "Project Title (Original Language)",
-						"type": "String"
-					},
-					{
-						"name": "Synopsis",
-						"type": "String"
-					},
-					{
-						"name": "Synopsis (Original Language)",
-						"type": "String"
-					},
-					{
-						"name": "Lyrics",
-						"type": "String"
-					},
-					{
-						"name": "Duration",
-						"type": "String"
-					},
-					{
-						"name": "Submission Date",
-						"type": "String"
-					},
-					{
-						"name": "Submission Status",
-						"type": "String"
-					},
-					{
-						"name": "Judging Status",
-						"type": "String"
-					},
-					{
-						"name": "Submission Deadlines",
-						"type": "String"
-					},
-					{
-						"name": "Submission Categories",
-						"type": "String"
-					},
-					{
-						"name": "Submission Fee",
-						"type": "String"
-					},
-					{
-						"name": "Discount Code",
-						"type": "String"
-					},
-					{
-						"name": "Submission Link",
-						"type": "String"
-					},
-					{
-						"name": "Submission Password",
-						"type": "String"
-					},
-					{
-						"name": "Assigned Judges",
-						"type": "String"
-					},
-					{
-						"name": "Submission ID",
-						"type": "String"
-					},
-					{
-						"name": "Submission Notes",
-						"type": "String"
-					}
-				]
 			},
 			"dependsOn": []
 		}

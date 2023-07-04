@@ -13,6 +13,292 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSTAGINGSUBMISSIONS_REVENUE_FIlmFreeway_Films')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "STAGING SUBMISSIONS_REVENUE_FIlmFreeway_Screenplays"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_Films')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Project Website",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Twitter",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Facebook",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Language",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Trailer URL",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Filming",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Genres",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Student Project",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Production Budget",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Shooting Format",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Film Color",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Camera",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Lens",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Focal Length",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Shutter Speed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Aperture",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ISO / Film",
+						"type": "nvarchar"
+					},
+					{
+						"name": "First-time Filmmaker",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Directors",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writers",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Producers",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Key Cast",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Other Credits",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Screenings / Awards",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Distributor Information",
+						"type": "nvarchar"
+					},
+					{
+						"name": "First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Birthdate",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Gender",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Address",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Address 2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "City",
+						"type": "nvarchar"
+					},
+					{
+						"name": "State",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Postal Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title (Original Language)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Synopsis",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Synopsis (Original Language)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Lyrics",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Submission Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Judging Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Deadlines",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Categories",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Fee",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Discount Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Password",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Assigned Judges",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Notes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Placement",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Completion Date",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Duration",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "SUBMISSIONS_FILMFREEWAY_Films"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlSalesforceEvents')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -911,42 +1197,6 @@
 				"type": "RestResource",
 				"typeProperties": {
 					"relativeUrl": "events?api_key=dd67a9b5637524a10ef8934566db6abc"
-				},
-				"schema": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/EventiveFilms')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Eventive",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": "films?api_key=dd67a9b5637524a10ef8934566db6abc"
-				},
-				"schema": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/EventiveItemBucket')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Eventive",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": "item_buckets?api_key=dd67a9b5637524a10ef8934566db6abc"
 				},
 				"schema": []
 			},
