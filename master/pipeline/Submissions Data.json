@@ -1377,18 +1377,6 @@
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
-							},
-							{
-								"source": {
-									"name": "SSMA_TimeStamp",
-									"type": "Byte[]",
-									"physicalType": "timestamp"
-								},
-								"sink": {
-									"name": "SSMA_TimeStamp",
-									"type": "Byte[]",
-									"physicalType": "timestamp"
-								}
 							}
 						],
 						"typeConversion": true,
@@ -2215,18 +2203,6 @@
 									"name": "Submission Notes",
 									"type": "String",
 									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "SSMA_TimeStamp",
-									"type": "Byte[]",
-									"physicalType": "timestamp"
-								},
-								"sink": {
-									"name": "SSMA_TimeStamp",
-									"type": "Byte[]",
-									"physicalType": "timestamp"
 								}
 							}
 						],
