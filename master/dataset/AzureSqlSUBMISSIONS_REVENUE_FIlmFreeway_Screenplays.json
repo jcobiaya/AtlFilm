@@ -1,0 +1,116 @@
+{
+	"name": "AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_Screenplays",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Invoice",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Platform",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Date",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "First Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Last Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Phone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Postal Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Gross",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "Net",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "Fee Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tracking Number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Project Title",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Duration",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "Pages",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Category",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Season",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Country of Origin",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Promo Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Promo Code Label",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Project Link",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Project Password",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SSMA_TimeStamp",
+				"type": "timestamp"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "SUBMISSIONS_REVENUE_FIlmFreeway_Screenplays"
+		}
+	}
+}
