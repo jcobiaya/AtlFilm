@@ -1,0 +1,16 @@
+{
+	"name": "AzureSqlSTAGINGSUBMISSIONS_REVENUE_FIlmFreeway_Films",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "STAGING SUBMISSIONS_REVENUE_FIlmFreeway_Screenplays"
+		}
+	}
+}
