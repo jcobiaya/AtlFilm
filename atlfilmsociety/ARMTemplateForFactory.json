@@ -11680,764 +11680,6 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Filmfreeway_FILMS",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "ExcelSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"writeBehavior": "upsert",
-								"upsertSettings": {
-									"useTempDB": true,
-									"keys": [
-										"Submission_ID"
-									]
-								},
-								"sqlWriterUseTableLock": false,
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "Project Website",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Project_Website",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Twitter",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Twitter",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Facebook",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Facebook",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Country of Origin",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Country_of_Origin",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Language",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Language",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Trailer URL",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Trailer_URL",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Country of Filming",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Country_of_Filming",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Project Type",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Project_Type",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Genres",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Genres",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Completion Date",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Completion_Date",
-											"type": "DateTime",
-											"physicalType": "datetime2"
-										}
-									},
-									{
-										"source": {
-											"name": "Production Budget",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Production_Budget",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Shooting Format",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Shooting_Format",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Aspect Ratio",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Aspect_Ratio",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Film Color",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Film_Color",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Camera",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Camera",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Lens",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Lens",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Focal Length",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Focal_Length",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Shutter Speed",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Shutter_Speed",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Aperture",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Aperture",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "ISO / Film",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "ISO___Film",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Directors",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Directors",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Writers",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Writers",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Producers",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Producers",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Key Cast",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Key_Cast",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Other Credits",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Other_Credits",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Screenings / Awards",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Screenings___Awards",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Distributor Information",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Distributor_Information",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "First Name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "First_Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Last Name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Last_Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Birthdate",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Birthdate",
-											"type": "DateTime",
-											"physicalType": "datetime2"
-										}
-									},
-									{
-										"source": {
-											"name": "Gender",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Gender",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Email",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Email",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Phone",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Phone",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Address",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Address",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Address 2",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Address_2",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "City",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "City",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "State",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "State",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Postal Code",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Postal_Code",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Country",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Country",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Tracking Number",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Tracking_Number",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Project Title",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Project_Title",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Project Title (Original Language)",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Project_Title__Original_Language_",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Synopsis",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Synopsis",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Synopsis (Original Language)",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Synopsis__Original_Language_",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Lyrics",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Lyrics",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Duration",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Duration",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Submission Date",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Submission_Date",
-											"type": "DateTime",
-											"physicalType": "date"
-										}
-									},
-									{
-										"source": {
-											"name": "Submission Status",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Submission_Status",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Judging Status",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Judging_Status",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Submission Deadlines",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Submission_Deadlines",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Submission Categories",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Submission_Categories",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Submission Fee",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Submission_Fee",
-											"type": "Decimal",
-											"physicalType": "money",
-											"scale": 4,
-											"precision": 19
-										}
-									},
-									{
-										"source": {
-											"name": "Discount Code",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Discount_Code",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Submission Link",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Submission_Link",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Submission Password",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Submission_Password",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Assigned Judges",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Assigned_Judges",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Submission ID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Submission_ID",
-											"type": "Int64",
-											"physicalType": "bigint"
-										}
-									},
-									{
-										"source": {
-											"name": "Submission Notes",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Submission_Notes",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "Submissions_Filmfreeway_Films",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "AzureSqlFilmfreewayFilmSubmissions",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					},
-					{
 						"name": "Data flow1",
 						"type": "ExecuteDataFlow",
 						"dependsOn": [],
@@ -12475,8 +11717,6 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Submissions_Filmfreeway_Films')]",
-				"[concat(variables('factoryId'), '/datasets/AzureSqlFilmfreewayFilmSubmissions')]",
 				"[concat(variables('factoryId'), '/dataflows/dataflow1')]"
 			]
 		},
@@ -15837,6 +15077,117 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSTAGINGSUBMISSIONS_REVENUE_FIlmFreeway_Screenplays')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Invoice",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Platform",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Postal Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Gross",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Net",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Fee Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Duration",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Season",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code Label",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Password",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "STAGING SUBMISSIONS_REVENUE_FIlmFreeway_Screenplays"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseRAW_ATLFS_DATA')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_Films')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -16098,7 +15449,128 @@
 				],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "SUBMISSIONS_FILMFREEWAY_Films"
+					"table": "SUBMISSIONS_REVENUE_FIlmFreeway_Films"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseRAW_ATLFS_DATA')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_Screenplays')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Invoice",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Platform",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Postal Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Gross",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Net",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Fee Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Duration",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Pages",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Season",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code Label",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Password",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "SUBMISSIONS_REVENUE_FIlmFreeway_Screenplays"
 				}
 			},
 			"dependsOn": [

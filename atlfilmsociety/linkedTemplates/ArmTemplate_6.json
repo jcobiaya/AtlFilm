@@ -13,6 +13,42 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SalesforceAccount')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Account"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SalesforceAccounts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Account"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SalesforceCampaigns')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -738,328 +774,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "MARKETING_FACEBOOK_ATLFS_Events"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_tgx')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "id",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "attending_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "can_guest_invite",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "category",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "declined_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "description",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "discount_code_enabled",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "end_time",
-						"type": "datetime2",
-						"precision": 27,
-						"scale": 7
-					},
-					{
-						"name": "event_times",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "guest_list_enabled",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "interested_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "is_canceled",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "is_draft",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "is_online",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "is_page_owned",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "maybe_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "name",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "noreply_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "owner.name",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "parent_group",
-						"type": "nchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.id",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.name",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.overall_rating",
-						"type": "float",
-						"precision": 53,
-						"scale": 0
-					},
-					{
-						"name": "place.location.city",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.country",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.country_code",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.latitude",
-						"type": "float",
-						"precision": 53,
-						"scale": 0
-					},
-					{
-						"name": "place.location.located_in",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.longitude",
-						"type": "float",
-						"precision": 53,
-						"scale": 0
-					},
-					{
-						"name": "place.location.name",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.region",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.region_id",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.state",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.street",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.zip",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.city_id",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "scheduled_publish_time",
-						"type": "datetime2",
-						"precision": 27,
-						"scale": 7
-					},
-					{
-						"name": "start_time",
-						"type": "datetime2",
-						"precision": 27,
-						"scale": 7
-					},
-					{
-						"name": "ticket_uri",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "ticket_uri_start_sales_time",
-						"type": "datetime2",
-						"precision": 27,
-						"scale": 7
-					},
-					{
-						"name": "ticketing_privacy_uri",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "ticketing_terms_uri",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "timezone",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "type",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "updated_time",
-						"type": "datetime2",
-						"precision": 27,
-						"scale": 7
-					},
-					{
-						"name": "owner.id",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "MARKETING_FACEBOOK_ATLFF_Events"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_vyp')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Salesforce",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"cw_objectApiName": {
-						"type": "String"
-					}
-				},
-				"annotations": [],
-				"type": "SalesforceObject",
-				"schema": [],
-				"typeProperties": {
-					"objectApiName": {
-						"value": "@dataset().cw_objectApiName",
-						"type": "Expression"
-					}
 				}
 			},
 			"dependsOn": []

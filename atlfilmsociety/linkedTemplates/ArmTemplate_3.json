@@ -32,6 +32,115 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSTAGINGSUBMISSIONS_REVENUE_FIlmFreeway_Screenplays')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Invoice",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Platform",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Postal Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Gross",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Net",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Fee Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Duration",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Season",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code Label",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Password",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "STAGING SUBMISSIONS_REVENUE_FIlmFreeway_Screenplays"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_Films')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -293,7 +402,126 @@
 				],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "SUBMISSIONS_FILMFREEWAY_Films"
+					"table": "SUBMISSIONS_REVENUE_FIlmFreeway_Films"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_Screenplays')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Invoice",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Platform",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Postal Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Gross",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Net",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Fee Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Duration",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Pages",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Season",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code Label",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Password",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "SUBMISSIONS_REVENUE_FIlmFreeway_Screenplays"
 				}
 			},
 			"dependsOn": []
@@ -1155,48 +1383,6 @@
 				"type": "RestResource",
 				"typeProperties": {
 					"relativeUrl": "coupons?api_key=dd67a9b5637524a10ef8934566db6abc"
-				},
-				"schema": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/EventiveEventBuckets')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Eventive",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": "event_buckets?api_key=dd67a9b5637524a10ef8934566db6abc"
-				},
-				"schema": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/EventiveEvents')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Eventive",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"api_key": {
-						"type": "string",
-						"defaultValue": "dd67a9b5637524a10ef8934566db6abc"
-					}
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": "events?api_key=dd67a9b5637524a10ef8934566db6abc"
 				},
 				"schema": []
 			},
