@@ -258,7 +258,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "SUBMISSIONS_FILMFREEWAY_Films"
+			"table": "SUBMISSIONS_REVENUE_FIlmFreeway_Films"
 		}
 	}
 }
