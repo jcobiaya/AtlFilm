@@ -15829,7 +15829,7 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "STAGING SUBMISSIONS_REVENUE_FIlmFreeway_Screenplays"
+					"table": "STAGING SUBMISSIONS_REVENUE_FIlmFreeway_Films"
 				}
 			},
 			"dependsOn": [
