@@ -13,6 +13,763 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSTAGINGSUBMISSIONS_COVERFLY_Screenplays')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Coverfly ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 1 Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 1 Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 1 Bio",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 2 Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 2 Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 2 Bio",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submitter Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Page Count",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Package/Category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Program Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Logline (by writer)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Format",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Genre",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Network",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Placement",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Admin Notes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "File",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Customer Paid",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Coverfly Share",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Submitted At",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "STAGING SUBMISSIONS_COVERFLY_Screenplays"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSTAGINGSUBMISSIONS_FILMFREEWAY_Films')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Project Website",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Twitter",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Facebook",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Language",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Trailer URL",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Filming",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Genres",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Student Project",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Production Budget",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Shooting Format",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Film Color",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Camera",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Lens",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Focal Length",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Shutter Speed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Aperture",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ISO / Film",
+						"type": "nvarchar"
+					},
+					{
+						"name": "First-time Filmmaker",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Directors",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writers",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Producers",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Key Cast",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Other Credits",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Screenings / Awards",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Distributor Information",
+						"type": "nvarchar"
+					},
+					{
+						"name": "First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Birthdate",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Gender",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Address",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Address 2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "City",
+						"type": "nvarchar"
+					},
+					{
+						"name": "State",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Postal Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title (Original Language)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Synopsis",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Synopsis (Original Language)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Lyrics",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Submission Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Judging Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Deadlines",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Categories",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Fee",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Discount Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Password",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Assigned Judges",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Notes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Completion Date",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Duration",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Aspect Ratio",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "STAGING SUBMISSIONS_FILMFREEWAY_Films"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSTAGINGSUBMISSIONS_FILMFREEWAY_Screenplay')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Project Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title (Original Language)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Synopsis",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Synopsis (Original Language)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Website",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Twitter",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Facebook",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Duration",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Lyrics",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Language",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Trailer URL",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Filming",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Genres",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Student Project",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Completion Date",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Production Budget",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Shooting Format",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Aspect Ratio",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Film Color",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Camera",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Lens",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Focal Length",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Shutter Speed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Aperture",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ISO / Film",
+						"type": "nvarchar"
+					},
+					{
+						"name": "First-time Filmmaker",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Directors",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writers",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Producers",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Key Cast",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Other Credits",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Screenings / Awards",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Distributor Information",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submitter Statement",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submitter Biography",
+						"type": "nvarchar"
+					},
+					{
+						"name": "First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Birthdate",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Gender",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Address",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Address 2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "City",
+						"type": "nvarchar"
+					},
+					{
+						"name": "State",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Postal Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Submission Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Judging Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Deadlines",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Categories",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Fee",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Discount Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Password",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Assigned Judges",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Rating",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Flag",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission ID",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Submission Notes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "STAGING SUBMISSIONS_FILMFREEWAY_Screenplay"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSTAGINGSUBMISSIONS_REVENUE_Coverfly')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Customer User ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Customer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Customer Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Customer Paid",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Coverfly Fee",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Net Takeaway",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Competition",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Entry Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Page Count",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Transaction Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Transaction Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Coupon Used",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "STAGING SUBMISSIONS_REVENUE_Coverfly"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlSTAGINGSUBMISSIONS_REVENUE_FIlmFreeway_Films')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -141,7 +898,123 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_Films')]",
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_COVERFLY_Screenplays')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Coverfly ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 1 Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 1 Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 1 Bio",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 2 Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 2 Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writer 2 Bio",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submitter Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Page Count",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Package/Category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Program Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Logline (by writer)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Format",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Genre",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Network",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Placement",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Admin Notes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "File",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Customer Paid",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Coverfly Share",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Submitted At",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "SUBMISSIONS_COVERFLY_Screenplays"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_FILMFREEWAY_Films')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -393,6 +1266,502 @@
 					},
 					{
 						"name": "Duration",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "SUBMISSIONS_FILMFREEWAY_Films"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_FILMFREEWAY_Screenplay')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Project Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title (Original Language)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Synopsis",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Synopsis (Original Language)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Website",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Twitter",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Facebook",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Duration",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Lyrics",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Language",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Trailer URL",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Filming",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Genres",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Student Project",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Completion Date",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Production Budget",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Shooting Format",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Aspect Ratio",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Film Color",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Camera",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Lens",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Focal Length",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Shutter Speed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Aperture",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ISO / Film",
+						"type": "nvarchar"
+					},
+					{
+						"name": "First-time Filmmaker",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Directors",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Writers",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Producers",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Key Cast",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Other Credits",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Screenings / Awards",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Distributor Information",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submitter Statement",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submitter Biography",
+						"type": "nvarchar"
+					},
+					{
+						"name": "First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Birthdate",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Gender",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Address",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Address 2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "City",
+						"type": "nvarchar"
+					},
+					{
+						"name": "State",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Postal Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Submission Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Judging Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Deadlines",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Categories",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Fee",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Discount Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Password",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Assigned Judges",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Rating",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Flag",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission ID",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Submission Notes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Placement",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "SUBMISSIONS_FILMFREEWAY_Screenplay"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_REVENUE_Coverfly')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Customer User ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Customer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Customer Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Customer Paid",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Coverfly Fee",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Net Takeaway",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Competition",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Entry Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission Page Count",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Transaction Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Transaction Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Coupon Used",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "SUBMISSIONS_REVENUE_Coverfly"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_Films')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Invoice",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Platform",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Postal Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Gross",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Net",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Fee Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Duration",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Pages",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Season",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code Label",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Password",
 						"type": "nvarchar"
 					},
 					{
@@ -769,622 +2138,6 @@
 				"typeProperties": {
 					"tableName": "SalesforceEvents"
 				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_brj')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureTableStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureTable",
-				"schema": [],
-				"typeProperties": {
-					"tableName": "Table3"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_emx')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureTableStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureTable",
-				"schema": [],
-				"typeProperties": {
-					"tableName": "Table2"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_gb0')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "id",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "attending_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "can_guest_invite",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "category",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "declined_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "description",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "discount_code_enabled",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "end_time",
-						"type": "datetime2",
-						"precision": 27,
-						"scale": 7
-					},
-					{
-						"name": "event_times",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "guest_list_enabled",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "interested_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "is_canceled",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "is_draft",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "is_online",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "is_page_owned",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "maybe_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "name",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "noreply_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "owner.name",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "parent_group",
-						"type": "nchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.id",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.name",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.overall_rating",
-						"type": "float",
-						"precision": 53,
-						"scale": 0
-					},
-					{
-						"name": "place.location.city",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.country",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.country_code",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.latitude",
-						"type": "float",
-						"precision": 53,
-						"scale": 0
-					},
-					{
-						"name": "place.location.located_in",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.longitude",
-						"type": "float",
-						"precision": 53,
-						"scale": 0
-					},
-					{
-						"name": "place.location.name",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.region",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.region_id",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.state",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.street",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.zip",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "place.location.city_id",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "scheduled_publish_time",
-						"type": "datetime2",
-						"precision": 27,
-						"scale": 7
-					},
-					{
-						"name": "start_time",
-						"type": "datetime2",
-						"precision": 27,
-						"scale": 7
-					},
-					{
-						"name": "ticket_uri",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "ticket_uri_start_sales_time",
-						"type": "datetime2",
-						"precision": 27,
-						"scale": 7
-					},
-					{
-						"name": "ticketing_privacy_uri",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "ticketing_terms_uri",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "timezone",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "type",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "updated_time",
-						"type": "datetime2",
-						"precision": 27,
-						"scale": 7
-					},
-					{
-						"name": "owner.id",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "MARKETING_FACEBOOK_ALL_PAGES_Events"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_pcs')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureTableStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureTable",
-				"schema": [],
-				"typeProperties": {
-					"tableName": "FacebookMasterEvents"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_tgx')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureTableStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureTable",
-				"schema": [],
-				"typeProperties": {
-					"tableName": "FacebookMasterEvents"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_xto')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "_sdc_batched_at",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "_sdc_extracted_at",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "_sdc_received_at",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "_sdc_sequence",
-						"type": "float",
-						"precision": 15,
-						"scale": 255
-					},
-					{
-						"name": "_sdc_table_version",
-						"type": "bit",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "amount",
-						"type": "int",
-						"precision": 10,
-						"scale": 255
-					},
-					{
-						"name": "amount_reversed",
-						"type": "int",
-						"precision": 10,
-						"scale": 255
-					},
-					{
-						"name": "arrival_date",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "automatic",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "balance_transaction",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "bank_account__bank_name",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "bank_account__country",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "bank_account__currency",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "bank_account__fingerprint",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "bank_account__id",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "bank_account__last4",
-						"type": "int",
-						"precision": 10,
-						"scale": 255
-					},
-					{
-						"name": "bank_account__object",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "bank_account__routing_number",
-						"type": "int",
-						"precision": 10,
-						"scale": 255
-					},
-					{
-						"name": "bank_account__status",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "created",
-						"type": "datetime2",
-						"precision": 255,
-						"scale": 7
-					},
-					{
-						"name": "currency",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "date",
-						"type": "datetime2",
-						"precision": 255,
-						"scale": 7
-					},
-					{
-						"name": "description",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "destination",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "id",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "livemode",
-						"type": "bit",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "method",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "object",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "source_type",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "status",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "type",
-						"type": "nvarchar",
-						"precision": 255,
-						"scale": 255
-					},
-					{
-						"name": "updated",
-						"type": "datetime2",
-						"precision": 255,
-						"scale": 7
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "FINANCE_STRIPE_payouts"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_yxm')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureTableStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureTable",
-				"schema": [],
-				"typeProperties": {
-					"tableName": "ATLFSEvents"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/EventiveCoupons')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Eventive",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": "coupons?api_key=dd67a9b5637524a10ef8934566db6abc"
-				},
-				"schema": []
 			},
 			"dependsOn": []
 		}
