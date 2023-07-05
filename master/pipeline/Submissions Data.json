@@ -3111,9 +3111,16 @@
 				]
 			},
 			{
-				"name": "Filmfreeway Film Revenue_copy1",
+				"name": "Filmfreeway Film Revenue_to ALL",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Filmfreeway Screenplay Revenue_to ALL",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -3420,7 +3427,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_Films",
+						"referenceName": "AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_ALL",
 						"type": "DatasetReference"
 					}
 				]
