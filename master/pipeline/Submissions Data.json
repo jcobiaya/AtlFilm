@@ -3317,18 +3317,6 @@
 							},
 							{
 								"source": {
-									"name": "Duration",
-									"type": "String",
-									"physicalType": "nvarchar"
-								},
-								"sink": {
-									"name": "Duration",
-									"type": "DateTime",
-									"physicalType": "datetime2"
-								}
-							},
-							{
-								"source": {
 									"name": "Category",
 									"type": "String",
 									"physicalType": "nvarchar"
