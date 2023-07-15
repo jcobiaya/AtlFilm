@@ -674,6 +674,51 @@
 									"name": "Is_active",
 									"type": "Boolean"
 								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription']['id']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription']['should_autorenew']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.should_renew",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription']['renewal_date']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.renewal_date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription']['expired_date']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.expired_date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription']['status']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.status",
+									"type": "String"
+								}
 							}
 						],
 						"collectionReference": "$['passes']",
