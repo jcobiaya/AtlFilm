@@ -1376,13 +1376,13 @@
 							{
 								"source": {
 									"name": "Duration",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								},
 								"sink": {
-									"name": "Duration",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "Runtime",
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								}
 							}
 						],
