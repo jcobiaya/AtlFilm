@@ -1526,18 +1526,6 @@
 							},
 							{
 								"source": {
-									"name": "Duration",
-									"type": "String",
-									"physicalType": "nvarchar"
-								},
-								"sink": {
-									"name": "Duration",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
 									"name": "Country of Origin",
 									"type": "String",
 									"physicalType": "nvarchar"
@@ -2210,6 +2198,30 @@
 									"name": "Submission Notes",
 									"type": "String",
 									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SSMA_TimeStamp",
+									"type": "Byte[]",
+									"physicalType": "timestamp"
+								},
+								"sink": {
+									"name": "SSMA_TimeStamp",
+									"type": "Byte[]",
+									"physicalType": "timestamp"
+								}
+							},
+							{
+								"source": {
+									"name": "Duration",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "Page Count",
+									"type": "Double",
+									"physicalType": "float"
 								}
 							}
 						],
