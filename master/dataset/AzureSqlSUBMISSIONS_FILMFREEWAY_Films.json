@@ -254,6 +254,11 @@
 			{
 				"name": "SSMA_TimeStamp",
 				"type": "timestamp"
+			},
+			{
+				"name": "Runtime",
+				"type": "datetime2",
+				"scale": 0
 			}
 		],
 		"typeProperties": {
