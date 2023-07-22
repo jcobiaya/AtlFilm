@@ -2202,18 +2202,6 @@
 							},
 							{
 								"source": {
-									"name": "SSMA_TimeStamp",
-									"type": "Byte[]",
-									"physicalType": "timestamp"
-								},
-								"sink": {
-									"name": "SSMA_TimeStamp",
-									"type": "Byte[]",
-									"physicalType": "timestamp"
-								}
-							},
-							{
-								"source": {
 									"name": "Duration",
 									"type": "Int32",
 									"physicalType": "int"
