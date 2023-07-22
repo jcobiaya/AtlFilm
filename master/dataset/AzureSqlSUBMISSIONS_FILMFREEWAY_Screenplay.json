@@ -277,6 +277,11 @@
 			{
 				"name": "SSMA_TimeStamp",
 				"type": "timestamp"
+			},
+			{
+				"name": "Page Count",
+				"type": "float",
+				"precision": 15
 			}
 		],
 		"typeProperties": {
