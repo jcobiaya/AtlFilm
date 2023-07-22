@@ -1,0 +1,30 @@
+{
+	"name": "AzureSqlSubmissionsWithDuration",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Duration",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "Tracking Number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submission ID",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Submissions with Duration Time"
+		}
+	}
+}
