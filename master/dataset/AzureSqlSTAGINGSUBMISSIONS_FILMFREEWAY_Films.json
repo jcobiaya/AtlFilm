@@ -245,7 +245,8 @@
 			},
 			{
 				"name": "Duration",
-				"type": "nvarchar"
+				"type": "datetime2",
+				"scale": 0
 			},
 			{
 				"name": "Aspect Ratio",
