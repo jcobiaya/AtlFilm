@@ -38,7 +38,8 @@
 			},
 			{
 				"name": "Duration",
-				"type": "nvarchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "Country of Origin",
