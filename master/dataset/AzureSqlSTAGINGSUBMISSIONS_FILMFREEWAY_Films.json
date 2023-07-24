@@ -253,6 +253,15 @@
 				"type": "nvarchar"
 			},
 			{
+				"name": "Flag",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Rating",
+				"type": "float",
+				"precision": 15
+			},
+			{
 				"name": "SSMA_TimeStamp",
 				"type": "timestamp"
 			}
