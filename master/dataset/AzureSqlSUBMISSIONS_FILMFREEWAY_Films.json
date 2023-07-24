@@ -259,6 +259,15 @@
 				"name": "Runtime",
 				"type": "datetime2",
 				"scale": 0
+			},
+			{
+				"name": "Flag",
+				"type": "nchar"
+			},
+			{
+				"name": "Rating",
+				"type": "float",
+				"precision": 15
 			}
 		],
 		"typeProperties": {
