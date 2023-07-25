@@ -8,7 +8,7 @@
 		"annotations": [],
 		"type": "RestResource",
 		"typeProperties": {
-			"relativeUrl": "/scripts?contest_id=1340"
+			"relativeUrl": "/scripts"
 		},
 		"schema": []
 	}
