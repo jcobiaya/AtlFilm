@@ -71,7 +71,7 @@
 							},
 							{
 								"source": {
-									"path": "$['passes'][0]['pass_subscription']['renewal_date']"
+									"path": "['pass_subscription']['renewal_date']"
 								},
 								"sink": {
 									"name": "Pass_Subscriptions.renewal_date",
@@ -79,6 +79,9 @@
 								}
 							},
 							{
+								"source": {
+									"path": "['pass_subscription']['expired_date']"
+								},
 								"sink": {
 									"name": "Pass_Subscriptions.expired_date",
 									"type": "DateTime"
