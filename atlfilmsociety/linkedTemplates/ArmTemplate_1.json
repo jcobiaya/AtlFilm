@@ -1546,6 +1546,11 @@
 						"scale": 7
 					},
 					{
+						"name": "Pass_Subscriptions.expired_date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
 						"name": "Pass_Subscriptions.status",
 						"type": "nvarchar"
 					}

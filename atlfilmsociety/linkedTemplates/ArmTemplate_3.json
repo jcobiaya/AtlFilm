@@ -377,11 +377,21 @@
 					},
 					{
 						"name": "Duration",
-						"type": "nvarchar"
+						"type": "datetime2",
+						"scale": 0
 					},
 					{
 						"name": "Aspect Ratio",
 						"type": "nvarchar"
+					},
+					{
+						"name": "Flag",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Rating",
+						"type": "float",
+						"precision": 15
 					},
 					{
 						"name": "SSMA_TimeStamp",
@@ -437,7 +447,8 @@
 					},
 					{
 						"name": "Duration",
-						"type": "nvarchar"
+						"type": "int",
+						"precision": 10
 					},
 					{
 						"name": "Country of Origin",
@@ -1271,6 +1282,20 @@
 					{
 						"name": "SSMA_TimeStamp",
 						"type": "timestamp"
+					},
+					{
+						"name": "Runtime",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Flag",
+						"type": "nchar"
+					},
+					{
+						"name": "Rating",
+						"type": "float",
+						"precision": 15
 					}
 				],
 				"typeProperties": {
@@ -1561,6 +1586,11 @@
 					{
 						"name": "SSMA_TimeStamp",
 						"type": "timestamp"
+					},
+					{
+						"name": "Page Count",
+						"type": "float",
+						"precision": 15
 					}
 				],
 				"typeProperties": {
@@ -1654,6 +1684,129 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "SUBMISSIONS_REVENUE_Coverfly"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_ALL')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Invoice",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Platform",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Postal Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Gross",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Net",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Fee Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Duration",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Pages",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Season",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code Label",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Password",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "SUBMISSIONS_REVENUE_FIlmFreeway"
 				}
 			},
 			"dependsOn": []
@@ -1934,6 +2087,39 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSubmissionsWithDuration')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Duration",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission ID",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Submissions with Duration Time"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlTestEvent')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -2101,42 +2287,6 @@
 				"schema": [],
 				"typeProperties": {
 					"tableName": "Salesforce_Programs"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_4mh')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureTableStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureTable",
-				"schema": [],
-				"typeProperties": {
-					"tableName": "SalesforceAccounts"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_7xa')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureTableStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureTable",
-				"schema": [],
-				"typeProperties": {
-					"tableName": "SalesforceEvents"
 				}
 			},
 			"dependsOn": []

@@ -793,6 +793,15 @@
 									},
 									{
 										"source": {
+											"path": "[['pass_subscription']['expired_date']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.expired_date",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
 											"path": "[['pass_subscription']['status']"
 										},
 										"sink": {
@@ -11999,7 +12008,14 @@
 					{
 						"name": "Filmfreeway Screenplay Revenue",
 						"type": "Copy",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "Filmfreeway Film Revenue",
+								"dependencyConditions": [
+									"Completed"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
@@ -13050,13 +13066,37 @@
 									{
 										"source": {
 											"name": "Duration",
+											"type": "DateTime",
+											"physicalType": "datetime2"
+										},
+										"sink": {
+											"name": "Runtime",
+											"type": "DateTime",
+											"physicalType": "datetime2"
+										}
+									},
+									{
+										"source": {
+											"name": "Flag",
 											"type": "String",
 											"physicalType": "nvarchar"
 										},
 										"sink": {
-											"name": "Duration",
+											"name": "Flag",
 											"type": "String",
-											"physicalType": "nvarchar"
+											"physicalType": "nchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Rating",
+											"type": "Double",
+											"physicalType": "float"
+										},
+										"sink": {
+											"name": "Rating",
+											"type": "Double",
+											"physicalType": "float"
 										}
 									}
 								],
@@ -14469,6 +14509,642 @@
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "Filmfreeway Screenplay Revenue_to ALL",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Filmfreeway Screenplay Revenue",
+								"dependencyConditions": [
+									"Completed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"Project Link"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Invoice",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Invoice",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Platform",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Platform",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Date",
+											"type": "DateTime",
+											"physicalType": "datetime2"
+										},
+										"sink": {
+											"name": "Date",
+											"type": "DateTime",
+											"physicalType": "datetime2"
+										}
+									},
+									{
+										"source": {
+											"name": "First Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "First Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Last Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Last Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Email",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Email",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Phone",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Phone",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Postal Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Postal Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Gross",
+											"type": "Decimal",
+											"physicalType": "money",
+											"scale": 4,
+											"precision": 19
+										},
+										"sink": {
+											"name": "Gross",
+											"type": "Decimal",
+											"physicalType": "money",
+											"scale": 4,
+											"precision": 19
+										}
+									},
+									{
+										"source": {
+											"name": "Net",
+											"type": "Decimal",
+											"physicalType": "money",
+											"scale": 4,
+											"precision": 19
+										},
+										"sink": {
+											"name": "Net",
+											"type": "Decimal",
+											"physicalType": "money",
+											"scale": 4,
+											"precision": 19
+										}
+									},
+									{
+										"source": {
+											"name": "Fee Type",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Fee Type",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Tracking Number",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Tracking Number",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Project Title",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Project Title",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Duration",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Duration",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Category",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Category",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Season",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Season",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Country of Origin",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Country of Origin",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Promo Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Promo Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Promo Code Label",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Promo Code Label",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Project Link",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Project Link",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Project Password",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Project Password",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzureSqlSTAGINGSUBMISSIONS_REVENUE_FIlmFreeway_Screenplays",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_Screenplays",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Filmfreeway Film Revenue_to ALL",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Filmfreeway Screenplay Revenue_to ALL",
+								"dependencyConditions": [
+									"Completed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"Project Link"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Invoice",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Invoice",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Platform",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Platform",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Date",
+											"type": "DateTime",
+											"physicalType": "datetime2"
+										},
+										"sink": {
+											"name": "Date",
+											"type": "DateTime",
+											"physicalType": "datetime2"
+										}
+									},
+									{
+										"source": {
+											"name": "First Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "First Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Last Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Last Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Email",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Email",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Phone",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Phone",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Postal Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Postal Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Gross",
+											"type": "Decimal",
+											"physicalType": "money",
+											"scale": 4,
+											"precision": 19
+										},
+										"sink": {
+											"name": "Gross",
+											"type": "Decimal",
+											"physicalType": "money",
+											"scale": 4,
+											"precision": 19
+										}
+									},
+									{
+										"source": {
+											"name": "Net",
+											"type": "Decimal",
+											"physicalType": "money",
+											"scale": 4,
+											"precision": 19
+										},
+										"sink": {
+											"name": "Net",
+											"type": "Decimal",
+											"physicalType": "money",
+											"scale": 4,
+											"precision": 19
+										}
+									},
+									{
+										"source": {
+											"name": "Fee Type",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Fee Type",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Tracking Number",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Tracking Number",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Project Title",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Project Title",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Category",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Category",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Season",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Season",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Country of Origin",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Country of Origin",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Promo Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Promo Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Promo Code Label",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Promo Code Label",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Project Link",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Project Link",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Project Password",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Project Password",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzureSqlSTAGINGSUBMISSIONS_REVENUE_FIlmFreeway_Films",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_ALL",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
 					}
 				],
 				"policy": {
@@ -14489,7 +15165,8 @@
 				"[concat(variables('factoryId'), '/datasets/AzureSqlSTAGINGSUBMISSIONS_REVENUE_Coverfly')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlSUBMISSIONS_REVENUE_Coverfly')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlSTAGINGSUBMISSIONS_COVERFLY_Screenplays')]",
-				"[concat(variables('factoryId'), '/datasets/AzureSqlSUBMISSIONS_COVERFLY_Screenplays')]"
+				"[concat(variables('factoryId'), '/datasets/AzureSqlSUBMISSIONS_COVERFLY_Screenplays')]",
+				"[concat(variables('factoryId'), '/datasets/AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_ALL')]"
 			]
 		},
 		{
@@ -16072,6 +16749,11 @@
 					},
 					{
 						"name": "Pass_Subscriptions.renewal_date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Pass_Subscriptions.expired_date",
 						"type": "datetime2",
 						"scale": 7
 					},
@@ -18194,11 +18876,21 @@
 					},
 					{
 						"name": "Duration",
-						"type": "nvarchar"
+						"type": "datetime2",
+						"scale": 0
 					},
 					{
 						"name": "Aspect Ratio",
 						"type": "nvarchar"
+					},
+					{
+						"name": "Flag",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Rating",
+						"type": "float",
+						"precision": 15
 					},
 					{
 						"name": "SSMA_TimeStamp",
@@ -18256,7 +18948,8 @@
 					},
 					{
 						"name": "Duration",
-						"type": "nvarchar"
+						"type": "int",
+						"precision": 10
 					},
 					{
 						"name": "Country of Origin",
@@ -19100,6 +19793,20 @@
 					{
 						"name": "SSMA_TimeStamp",
 						"type": "timestamp"
+					},
+					{
+						"name": "Runtime",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Flag",
+						"type": "nchar"
+					},
+					{
+						"name": "Rating",
+						"type": "float",
+						"precision": 15
 					}
 				],
 				"typeProperties": {
@@ -19392,6 +20099,11 @@
 					{
 						"name": "SSMA_TimeStamp",
 						"type": "timestamp"
+					},
+					{
+						"name": "Page Count",
+						"type": "float",
+						"precision": 15
 					}
 				],
 				"typeProperties": {
@@ -19487,6 +20199,131 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "SUBMISSIONS_REVENUE_Coverfly"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseRAW_ATLFS_DATA')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSUBMISSIONS_REVENUE_FIlmFreeway_ALL')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Invoice",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Platform",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Postal Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Gross",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Net",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Fee Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Duration",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Pages",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Season",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country of Origin",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Promo Code Label",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Link",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Project Password",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "SUBMISSIONS_REVENUE_FIlmFreeway"
 				}
 			},
 			"dependsOn": [
@@ -19770,6 +20607,41 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "DEVELOPMENT_SALESFORCE_Programs"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseRAW_ATLFS_DATA')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSubmissionsWithDuration')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Duration",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Tracking Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Submission ID",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Submissions with Duration Time"
 				}
 			},
 			"dependsOn": [
@@ -26573,6 +27445,214 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Submissions_Filmfreeway_Films')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseRAW_ATLFS_DATA')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/EventiveSubscriptions')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Eventive",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": "event_buckets/5af48fef06841b0014912e12/passes?api_key=dd67a9b5637524a10ef8934566db6abc"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Eventive')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveSubscriptionsLog')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Is_active",
+						"type": "bit"
+					},
+					{
+						"name": "Pass_Subscriptions.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Pass_Subscriptions.should_renew",
+						"type": "bit"
+					},
+					{
+						"name": "Pass_Subscriptions.renewal_date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Pass_Subscriptions.expired_date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Pass_Subscriptions.status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Timestamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Subscriptions_Log"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseRAW_ATLFS_DATA')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/EventivePassSubscriptionsLog')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"supportRFC5988": "true"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_active']"
+										},
+										"sink": {
+											"name": "Is_active",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['id']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['should_autorenew']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.should_renew",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['renewal_date']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.renewal_date",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['expired_date']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.expired_date",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['status']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.status",
+											"type": "String"
+										}
+									}
+								],
+								"collectionReference": "$['passes']",
+								"mapComplexValuesToString": false
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveSubscriptions",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveSubscriptionsLog",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/EventiveSubscriptions')]",
+				"[concat(variables('factoryId'), '/datasets/AzureSqlEventiveSubscriptionsLog')]"
 			]
 		}
 	]

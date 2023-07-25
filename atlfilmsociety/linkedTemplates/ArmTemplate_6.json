@@ -13,6 +13,357 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SQLLogActions')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "idaction",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "hash",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "type",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "url_prefix",
+						"type": "int",
+						"precision": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "MARKETING_WEBSITE_Matomo_log_action"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLMatomoLogVisits')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "﻿idvisit",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "idsite",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "idvisitor",
+						"type": "nvarchar"
+					},
+					{
+						"name": "visit_last_action_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "config_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location_ip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "user_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "visit_first_action_time",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "visit_goal_buyer",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_goal_converted",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visitor_days_since_first",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visitor_days_since_order",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visitor_returning",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visitor_count_visits",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_entry_idaction_name",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_entry_idaction_url",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_exit_idaction_name",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_exit_idaction_url",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_total_actions",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_total_interactions",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visit_total_searches",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "referer_keyword",
+						"type": "nvarchar"
+					},
+					{
+						"name": "referer_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "referer_type",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "referer_url",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location_browser_lang",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_browser_engine",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_browser_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_browser_version",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_device_brand",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_device_model",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_device_type",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "config_os",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_os_version",
+						"type": "nvarchar"
+					},
+					{
+						"name": "visit_total_events",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "visitor_localtime",
+						"type": "time",
+						"scale": 7
+					},
+					{
+						"name": "visitor_days_since_last",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "config_resolution",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_cookie",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_director",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_flash",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_gears",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_java",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_pdf",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_quicktime",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_realplayer",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_silverlight",
+						"type": "nvarchar"
+					},
+					{
+						"name": "config_windowsmedia",
+						"type": "nvarchar"
+					},
+					{
+						"name": "visit_total_time",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "location_city",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location_country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location_latitude",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "location_longitude",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "location_region",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_k1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_v1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_k2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_v2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_k3",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_v3",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_k4",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_v4",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_k5",
+						"type": "nvarchar"
+					},
+					{
+						"name": "custom_var_v5",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SSMA_TimeStamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "MARKETING_WEBSITE_Matomo_log_visit"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SQLPayoutTransactions')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1289,42 +1640,6 @@
 				"schema": [],
 				"typeProperties": {
 					"objectApiName": "PricebookEntry"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SalesforcePriceBooks')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Salesforce",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SalesforceObject",
-				"schema": [],
-				"typeProperties": {
-					"objectApiName": "Pricebook2"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SalesforceProducts')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Salesforce",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SalesforceObject",
-				"schema": [],
-				"typeProperties": {
-					"objectApiName": "Product2"
 				}
 			},
 			"dependsOn": []
