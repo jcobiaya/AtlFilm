@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "EventivePassSubscriptionsLog",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -89,7 +89,7 @@
 							},
 							{
 								"source": {
-									"path": "$['passes'][0]['pass_subscription']['status']"
+									"path": "['pass_subscription']['status']"
 								},
 								"sink": {
 									"name": "Pass_Subscriptions.status",
