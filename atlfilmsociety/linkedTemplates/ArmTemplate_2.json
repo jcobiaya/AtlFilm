@@ -13,6 +13,63 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveVenues')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Venue Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Capacity",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Venue ID",
+						"type": "nchar"
+					},
+					{
+						"name": "Address",
+						"type": "nchar"
+					},
+					{
+						"name": "Color",
+						"type": "nchar"
+					},
+					{
+						"name": "Use Reserved Seating",
+						"type": "bit"
+					},
+					{
+						"name": "Short Name",
+						"type": "nchar"
+					},
+					{
+						"name": "Short Description",
+						"type": "nchar"
+					},
+					{
+						"name": "Event Bucket",
+						"type": "nchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Venues"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlFBEventsALL')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1370,25 +1427,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "DEVELOPMENT_SALESFORCE_Products"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlReports_email_activity')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "MARKETING_MAILCHIMP_Reports_email_activity"
 				}
 			},
 			"dependsOn": []

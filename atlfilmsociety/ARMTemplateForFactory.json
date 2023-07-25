@@ -81,6 +81,138 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/EventivePassSubscriptionsLog')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "EventivePassSubscriptionsLog",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"supportRFC5988": "true"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_active']"
+										},
+										"sink": {
+											"name": "Is_active",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['id']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['should_autorenew']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.should_renew",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['renewal_date']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.renewal_date",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['expired_date']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.expired_date",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['pass_subscription']['status']"
+										},
+										"sink": {
+											"name": "Pass_Subscriptions.status",
+											"type": "String"
+										}
+									}
+								],
+								"collectionReference": "$['passes']",
+								"mapComplexValuesToString": false
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "EventiveSubscriptions",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlEventiveSubscriptionsLog",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/EventiveSubscriptions')]",
+				"[concat(variables('factoryId'), '/datasets/AzureSqlEventiveSubscriptionsLog')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/EventiveToSQL')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -16830,6 +16962,62 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveSubscriptionsLog')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Is_active",
+						"type": "bit"
+					},
+					{
+						"name": "Pass_Subscriptions.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Pass_Subscriptions.should_renew",
+						"type": "bit"
+					},
+					{
+						"name": "Pass_Subscriptions.renewal_date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Pass_Subscriptions.expired_date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Pass_Subscriptions.status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Timestamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Subscriptions_Log"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseRAW_ATLFS_DATA')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveTicketBuckets')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -21705,6 +21893,26 @@
 				"type": "RestResource",
 				"typeProperties": {
 					"relativeUrl": "people?api_key=dd67a9b5637524a10ef8934566db6abc"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Eventive')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/EventiveSubscriptions')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Eventive",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": "event_buckets/5af48fef06841b0014912e12/passes?api_key=dd67a9b5637524a10ef8934566db6abc"
 				},
 				"schema": []
 			},
@@ -27076,6 +27284,44 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DailyBackupPassSubscriptions')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "EventivePassSubscriptionsLog",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2023-07-25T15:40:00",
+						"timeZone": "Eastern Standard Time",
+						"schedule": {
+							"minutes": [
+								0
+							],
+							"hours": [
+								0
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/EventivePassSubscriptionsLog')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/EventiveDailyBackup')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -27445,214 +27691,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Submissions_Filmfreeway_Films')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseRAW_ATLFS_DATA')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/EventiveSubscriptions')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Eventive",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": "event_buckets/5af48fef06841b0014912e12/passes?api_key=dd67a9b5637524a10ef8934566db6abc"
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Eventive')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveSubscriptionsLog')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "ID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Is_active",
-						"type": "bit"
-					},
-					{
-						"name": "Pass_Subscriptions.ID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Pass_Subscriptions.should_renew",
-						"type": "bit"
-					},
-					{
-						"name": "Pass_Subscriptions.renewal_date",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "Pass_Subscriptions.expired_date",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "Pass_Subscriptions.status",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Timestamp",
-						"type": "timestamp"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "TICKETING_EVENTIVE_Subscriptions_Log"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseRAW_ATLFS_DATA')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/EventivePassSubscriptionsLog')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy data1",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "RestSource",
-								"httpRequestTimeout": "00:01:40",
-								"requestInterval": "00.00:00:00.010",
-								"requestMethod": "GET",
-								"paginationRules": {
-									"supportRFC5988": "true"
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"path": "[['id']"
-										},
-										"sink": {
-											"name": "ID",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"path": "[['is_active']"
-										},
-										"sink": {
-											"name": "Is_active",
-											"type": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"path": "[['pass_subscription']['id']"
-										},
-										"sink": {
-											"name": "Pass_Subscriptions.ID",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"path": "[['pass_subscription']['should_autorenew']"
-										},
-										"sink": {
-											"name": "Pass_Subscriptions.should_renew",
-											"type": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"path": "[['pass_subscription']['renewal_date']"
-										},
-										"sink": {
-											"name": "Pass_Subscriptions.renewal_date",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"path": "[['pass_subscription']['expired_date']"
-										},
-										"sink": {
-											"name": "Pass_Subscriptions.expired_date",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"path": "[['pass_subscription']['status']"
-										},
-										"sink": {
-											"name": "Pass_Subscriptions.status",
-											"type": "String"
-										}
-									}
-								],
-								"collectionReference": "$['passes']",
-								"mapComplexValuesToString": false
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "EventiveSubscriptions",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "AzureSqlEventiveSubscriptionsLog",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/EventiveSubscriptions')]",
-				"[concat(variables('factoryId'), '/datasets/AzureSqlEventiveSubscriptionsLog')]"
 			]
 		}
 	]

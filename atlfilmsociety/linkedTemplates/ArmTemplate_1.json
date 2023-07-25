@@ -1619,6 +1619,60 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveSubscriptionsLog')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Is_active",
+						"type": "bit"
+					},
+					{
+						"name": "Pass_Subscriptions.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Pass_Subscriptions.should_renew",
+						"type": "bit"
+					},
+					{
+						"name": "Pass_Subscriptions.renewal_date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Pass_Subscriptions.expired_date",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Pass_Subscriptions.status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Timestamp",
+						"type": "timestamp"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Subscriptions_Log"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveTicketBuckets')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1810,63 +1864,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "TICKETING_EVENTIVE_Tickets"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveVenues')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "Venue Name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Capacity",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "Venue ID",
-						"type": "nchar"
-					},
-					{
-						"name": "Address",
-						"type": "nchar"
-					},
-					{
-						"name": "Color",
-						"type": "nchar"
-					},
-					{
-						"name": "Use Reserved Seating",
-						"type": "bit"
-					},
-					{
-						"name": "Short Name",
-						"type": "nchar"
-					},
-					{
-						"name": "Short Description",
-						"type": "nchar"
-					},
-					{
-						"name": "Event Bucket",
-						"type": "nchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "TICKETING_EVENTIVE_Venues"
 				}
 			},
 			"dependsOn": []

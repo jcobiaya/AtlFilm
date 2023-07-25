@@ -13,6 +13,1907 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/FacebookEvents')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "ATLFSEvents",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"id"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"enableSkipIncompatibleRow": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['attending_count']"
+										},
+										"sink": {
+											"name": "attending_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['category']"
+										},
+										"sink": {
+											"name": "category",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['declined_count']"
+										},
+										"sink": {
+											"name": "declined_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['end_time']"
+										},
+										"sink": {
+											"name": "end_time",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['interested_count']"
+										},
+										"sink": {
+											"name": "interested_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['maybe_count']"
+										},
+										"sink": {
+											"name": "maybe_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['name']"
+										},
+										"sink": {
+											"name": "name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['noreply_count']"
+										},
+										"sink": {
+											"name": "noreply_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['owner']['name']"
+										},
+										"sink": {
+											"name": "owner.name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['owner']['id']"
+										},
+										"sink": {
+											"name": "owner.id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['start_time']"
+										},
+										"sink": {
+											"name": "start_time",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['ticket_uri']"
+										},
+										"sink": {
+											"name": "ticket_uri",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['type']"
+										},
+										"sink": {
+											"name": "type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['description']"
+										},
+										"sink": {
+											"name": "description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['can_guests_invite']"
+										},
+										"sink": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['discount_code_enabled']"
+										},
+										"sink": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['guest_list_enabled']"
+										},
+										"sink": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_canceled']"
+										},
+										"sink": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_draft']"
+										},
+										"sink": {
+											"name": "is_draft",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_online']"
+										},
+										"sink": {
+											"name": "is_online",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_page_owned']"
+										},
+										"sink": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['timezone']"
+										},
+										"sink": {
+											"name": "timezone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['updated_time']"
+										},
+										"sink": {
+											"name": "updated_time",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['id']"
+										},
+										"sink": {
+											"name": "place.id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['name']"
+										},
+										"sink": {
+											"name": "place.name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['name']"
+										},
+										"sink": {
+											"name": "place.location.name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['city']"
+										},
+										"sink": {
+											"name": "place.location.city",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['country']"
+										},
+										"sink": {
+											"name": "place.location.country",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['country_code']"
+										},
+										"sink": {
+											"name": "place.location.country_code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['latitude']"
+										},
+										"sink": {
+											"name": "place.location.latitude",
+											"type": "Double"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['longitude']"
+										},
+										"sink": {
+											"name": "place.location.longitude",
+											"type": "Double"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['located_in']"
+										},
+										"sink": {
+											"name": "place.location.located_in",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['region']"
+										},
+										"sink": {
+											"name": "place.location.region",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['region_id']"
+										},
+										"sink": {
+											"name": "place.location.region_id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['state']"
+										},
+										"sink": {
+											"name": "place.location.state",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['street']"
+										},
+										"sink": {
+											"name": "place.location.street",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['city_id']"
+										},
+										"sink": {
+											"name": "place.location.city_id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['zip']"
+										},
+										"sink": {
+											"name": "place.location.zip",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['overall_rating']"
+										},
+										"sink": {
+											"name": "place.overall_rating",
+											"type": "Double"
+										}
+									}
+								],
+								"collectionReference": "$['data']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ATLFSEvents",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlFBEventsATLFS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "ATLFFEvents",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"AbsoluteUrl": "$.paging.next"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "upsert",
+								"upsertSettings": {
+									"useTempDB": true,
+									"keys": [
+										"id"
+									]
+								},
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"enableSkipIncompatibleRow": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['attending_count']"
+										},
+										"sink": {
+											"name": "attending_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['category']"
+										},
+										"sink": {
+											"name": "category",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['declined_count']"
+										},
+										"sink": {
+											"name": "declined_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['end_time']"
+										},
+										"sink": {
+											"name": "end_time",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['interested_count']"
+										},
+										"sink": {
+											"name": "interested_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['maybe_count']"
+										},
+										"sink": {
+											"name": "maybe_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['name']"
+										},
+										"sink": {
+											"name": "name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['noreply_count']"
+										},
+										"sink": {
+											"name": "noreply_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"path": "[['owner']['name']"
+										},
+										"sink": {
+											"name": "owner.name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['owner']['id']"
+										},
+										"sink": {
+											"name": "owner.id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['start_time']"
+										},
+										"sink": {
+											"name": "start_time",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['ticket_uri']"
+										},
+										"sink": {
+											"name": "ticket_uri",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['type']"
+										},
+										"sink": {
+											"name": "type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['description']"
+										},
+										"sink": {
+											"name": "description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['can_guests_invite']"
+										},
+										"sink": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['discount_code_enabled']"
+										},
+										"sink": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['guest_list_enabled']"
+										},
+										"sink": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_canceled']"
+										},
+										"sink": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_draft']"
+										},
+										"sink": {
+											"name": "is_draft",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_online']"
+										},
+										"sink": {
+											"name": "is_online",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['is_page_owned']"
+										},
+										"sink": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "[['timezone']"
+										},
+										"sink": {
+											"name": "timezone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['updated_time']"
+										},
+										"sink": {
+											"name": "updated_time",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['id']"
+										},
+										"sink": {
+											"name": "place.id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['name']"
+										},
+										"sink": {
+											"name": "place.name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['name']"
+										},
+										"sink": {
+											"name": "place.location.name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['city']"
+										},
+										"sink": {
+											"name": "place.location.city",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['country']"
+										},
+										"sink": {
+											"name": "place.location.country",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['country_code']"
+										},
+										"sink": {
+											"name": "place.location.country_code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['latitude']"
+										},
+										"sink": {
+											"name": "place.location.latitude",
+											"type": "Double"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['longitude']"
+										},
+										"sink": {
+											"name": "place.location.longitude",
+											"type": "Double"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['located_in']"
+										},
+										"sink": {
+											"name": "place.location.located_in",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['region']"
+										},
+										"sink": {
+											"name": "place.location.region",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['region_id']"
+										},
+										"sink": {
+											"name": "place.location.region_id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['state']"
+										},
+										"sink": {
+											"name": "place.location.state",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['street']"
+										},
+										"sink": {
+											"name": "place.location.street",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['city_id']"
+										},
+										"sink": {
+											"name": "place.location.city_id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['location'].['zip']"
+										},
+										"sink": {
+											"name": "place.location.zip",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['place'].['overall_rating']"
+										},
+										"sink": {
+											"name": "place.overall_rating",
+											"type": "Double"
+										}
+									}
+								],
+								"collectionReference": "$['data']"
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ATLFFEvents",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlFBEventsATLFF",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "FBEventsToTableATLFF",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "ATLFFEvents",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureTableSink",
+								"azureTableInsertType": "merge",
+								"azureTableRowKeyName": "RowKey",
+								"writeBatchSize": 10000
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RowKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "attending_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "attending_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "category",
+											"type": "String"
+										},
+										"sink": {
+											"name": "category",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "declined_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "declined_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "description",
+											"type": "String"
+										},
+										"sink": {
+											"name": "description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "end_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "end_time",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "interested_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "interested_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_draft",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_draft",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_online",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_online",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "maybe_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "maybe_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "noreply_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "noreply_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "start_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "start_time",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"name": "timezone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "timezone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "type",
+											"type": "String"
+										},
+										"sink": {
+											"name": "type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "updated_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "updated_time",
+											"type": "DateTimeOffset"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzureSqlFBEventsATLFF",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "FBEventsATLFF",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "FBEventsToTableATLFS",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "ATLFSEvents",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureTableSink",
+								"azureTableInsertType": "merge",
+								"azureTableRowKeyName": "RowKey",
+								"writeBatchSize": 10000
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RowKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "attending_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "attending_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "category",
+											"type": "String"
+										},
+										"sink": {
+											"name": "category",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "declined_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "declined_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "description",
+											"type": "String"
+										},
+										"sink": {
+											"name": "description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "end_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "end_time",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "interested_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "interested_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_draft",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_draft",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_online",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_online",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "maybe_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "maybe_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "noreply_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "noreply_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "start_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "start_time",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"name": "timezone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "timezone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "type",
+											"type": "String"
+										},
+										"sink": {
+											"name": "type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "updated_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "updated_time",
+											"type": "DateTimeOffset"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzureSqlFBEventsATLFS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "FBEventsATLFF",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "ATLFFToFBMaster",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "FBEventsToTableATLFF",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureTableSink",
+								"azureTableInsertType": "merge",
+								"azureTableRowKeyName": "RowKey",
+								"writeBatchSize": 10000
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RowKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "attending_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "attending_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "category",
+											"type": "String"
+										},
+										"sink": {
+											"name": "category",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "declined_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "declined_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "description",
+											"type": "String"
+										},
+										"sink": {
+											"name": "description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "end_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "end_time",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "interested_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "interested_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_draft",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_draft",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_online",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_online",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "maybe_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "maybe_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "noreply_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "noreply_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "start_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "start_time",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"name": "timezone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "timezone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "type",
+											"type": "String"
+										},
+										"sink": {
+											"name": "type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "updated_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "updated_time",
+											"type": "DateTimeOffset"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzureSqlFBEventsATLFF",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureFBMMasterEvents",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "ATLFSToFBMaster",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "FBEventsToTableATLFS",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureTableSink",
+								"azureTableInsertType": "merge",
+								"azureTableRowKeyName": "RowKey",
+								"writeBatchSize": 10000
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RowKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "attending_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "attending_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "can_guest_invite",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "category",
+											"type": "String"
+										},
+										"sink": {
+											"name": "category",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "declined_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "declined_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "description",
+											"type": "String"
+										},
+										"sink": {
+											"name": "description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "discount_code_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "end_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "end_time",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "guest_list_enabled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "interested_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "interested_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_canceled",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_draft",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_draft",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_online",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_online",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "is_page_owned",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "maybe_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "maybe_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "noreply_count",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "noreply_count",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "start_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "start_time",
+											"type": "DateTimeOffset"
+										}
+									},
+									{
+										"source": {
+											"name": "timezone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "timezone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "type",
+											"type": "String"
+										},
+										"sink": {
+											"name": "type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "updated_time",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "updated_time",
+											"type": "DateTimeOffset"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzureSqlFBEventsATLFS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureFBMMasterEvents",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2020-06-22T10:15:29Z"
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SalesforcetoSQL')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -9808,135 +11709,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/EventivePassSubscriptionsLog')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy data1",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "RestSource",
-								"httpRequestTimeout": "00:01:40",
-								"requestInterval": "00.00:00:00.010",
-								"requestMethod": "GET",
-								"paginationRules": {
-									"supportRFC5988": "true"
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"path": "[['id']"
-										},
-										"sink": {
-											"name": "ID",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"path": "[['is_active']"
-										},
-										"sink": {
-											"name": "Is_active",
-											"type": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"path": "[['pass_subscription']['id']"
-										},
-										"sink": {
-											"name": "Pass_Subscriptions.ID",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"path": "[['pass_subscription']['should_autorenew']"
-										},
-										"sink": {
-											"name": "Pass_Subscriptions.should_renew",
-											"type": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"path": "[['pass_subscription']['renewal_date']"
-										},
-										"sink": {
-											"name": "Pass_Subscriptions.renewal_date",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"path": "[['pass_subscription']['expired_date']"
-										},
-										"sink": {
-											"name": "Pass_Subscriptions.expired_date",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"path": "[['pass_subscription']['status']"
-										},
-										"sink": {
-											"name": "Pass_Subscriptions.status",
-											"type": "String"
-										}
-									}
-								],
-								"collectionReference": "$['passes']",
-								"mapComplexValuesToString": false
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "EventiveSubscriptions",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "AzureSqlEventiveSubscriptionsLog",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/Daily Backup')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -9983,6 +11755,42 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DailyBackupPassSubscriptions')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "EventivePassSubscriptionsLog",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2023-07-25T15:40:00",
+						"timeZone": "Eastern Standard Time",
+						"schedule": {
+							"minutes": [
+								0
+							],
+							"hours": [
+								0
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/FacebookEventsDailyBackup')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -10019,7 +11827,9 @@
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/FacebookEvents')]"
+			]
 		}
 	]
 }
