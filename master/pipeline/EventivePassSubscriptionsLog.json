@@ -36,181 +36,61 @@
 							{
 								"source": {
 									"path": "['id']"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['name']"
+									"path": "['is_active']"
+								},
+								"sink": {
+									"name": "Is_active",
+									"type": "Boolean"
 								}
 							},
 							{
 								"source": {
-									"path": "$['passes'][0]['event_bucket']"
+									"path": "['pass_subscription']['id']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.ID",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['passes'][0]['person']['id']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['person']['name']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['person']['email']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['id']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['name']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['code']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['price']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['rules'][0]['restrictions']['uses']['total']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['rules'][0]['restrictions']['bypass_geographic_restrictions']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['rules'][0]['type']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['rules'][0]['_id']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['rules'][0]['target']['pass_bucket']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['rules'][0]['global_target']['event_bucket']['id'][0]"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['rules'][0]['result']['price']['percent_off']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['supplementary_data'][0]['type']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['supplementary_data'][0]['key']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['supplementary_data'][0]['label']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['supplementary_data'][0]['required']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_bucket']['hide_barcode_from_users']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_subscription']['id']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['pass_subscription']['should_autorenew']"
+									"path": "['pass_subscription']['should_autorenew']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.should_renew",
+									"type": "Boolean"
 								}
 							},
 							{
 								"source": {
 									"path": "$['passes'][0]['pass_subscription']['renewal_date']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.renewal_date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"sink": {
+									"name": "Pass_Subscriptions.expired_date",
+									"type": "DateTime"
 								}
 							},
 							{
 								"source": {
 									"path": "$['passes'][0]['pass_subscription']['status']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['order']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['created_at']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['updated_at']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['is_active']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['uses'][0]"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['uses_passes'][0]"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['supplementary_data']['data_1538440558105']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['qr_code_path']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['preview_available_ticket_uses']['total']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['passes'][0]['preview_available_ticket_uses']['remaining']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.status",
+									"type": "String"
 								}
 							}
 						],
