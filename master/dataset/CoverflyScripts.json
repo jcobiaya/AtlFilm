@@ -7,6 +7,9 @@
 		},
 		"annotations": [],
 		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "/scripts?contest_id=1340"
+		},
 		"schema": []
 	}
 }
