@@ -24,7 +24,7 @@
 							"X-Authorization": "aFE2yXRTRvFKxRoZjelr8ueCK4s259oe"
 						},
 						"paginationRules": {
-							"QueryParameters.{offset}": "RANGE:0:2000:10"
+							"QueryParameters.{offset}": "RANGE:0:2000:50"
 						}
 					},
 					"enableStaging": false
