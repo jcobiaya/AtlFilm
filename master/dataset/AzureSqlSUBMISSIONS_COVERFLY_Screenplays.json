@@ -103,6 +103,14 @@
 			{
 				"name": "SSMA_TimeStamp",
 				"type": "timestamp"
+			},
+			{
+				"name": "Submitter First Name",
+				"type": "nchar"
+			},
+			{
+				"name": "Submitter Last Name",
+				"type": "nchar"
 			}
 		],
 		"typeProperties": {
