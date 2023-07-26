@@ -27,11 +27,29 @@
 							"QueryParameters.{offset}": "RANGE:0:2000:50"
 						}
 					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Coverfly ID"
+							]
+						},
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "CoverflyScripts",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlSUBMISSIONS_COVERFLY_Screenplays",
 						"type": "DatasetReference"
 					}
 				]
