@@ -73,56 +73,55 @@
 							{
 								"source": {
 									"path": "$['first_name']"
+								},
+								"sink": {
+									"name": "Submitter First Name",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
 									"path": "$['last_name']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['writers'][0]['first_name']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['writers'][0]['last_name']"
+								},
+								"sink": {
+									"name": "Submitter Last Name",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
 									"path": "$['package']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['eliminated']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['has_file']"
+								},
+								"sink": {
+									"name": "Package/Category",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
 									"path": "$['placement']"
+								},
+								"sink": {
+									"name": "Placement",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
 									"path": "$['network']"
+								},
+								"sink": {
+									"name": "Network",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
 									"path": "$['paid']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['score']"
+								},
+								"sink": {
+									"name": "Customer Paid",
+									"type": "Double"
 								}
 							}
 						]
