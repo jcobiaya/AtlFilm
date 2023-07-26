@@ -24,7 +24,6 @@
 							"X-Authorization": "aFE2yXRTRvFKxRoZjelr8ueCK4s259oe"
 						},
 						"paginationRules": {
-							"supportRFC5988": "true",
 							"QueryParameters.{offset}": "RANGE:0:2000:10"
 						}
 					},
