@@ -39,7 +39,94 @@
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['id']"
+								},
+								"sink": {
+									"name": "Coverfly ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['title']"
+								},
+								"sink": {
+									"name": "Title",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['email']"
+								},
+								"sink": {
+									"name": "Submitter Email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['first_name']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['last_name']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['writers'][0]['first_name']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['writers'][0]['last_name']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['package']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['eliminated']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['has_file']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['placement']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['network']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paid']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['score']"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
