@@ -20,7 +20,10 @@
 						"additionalColumns": [
 							{
 								"name": "UTC",
-								"value": "utcnow()"
+								"value": {
+									"value": "@utcnow()",
+									"type": "Expression"
+								}
 							}
 						],
 						"httpRequestTimeout": "00:01:40",
