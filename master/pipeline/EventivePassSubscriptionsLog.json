@@ -50,15 +50,6 @@
 							},
 							{
 								"source": {
-									"path": "['is_active']"
-								},
-								"sink": {
-									"name": "Is_active",
-									"type": "Boolean"
-								}
-							},
-							{
-								"source": {
 									"path": "['pass_subscription']['id']"
 								},
 								"sink": {
@@ -86,20 +77,29 @@
 							},
 							{
 								"source": {
-									"path": "['pass_subscription']['expired_date']"
-								},
-								"sink": {
-									"name": "Pass_Subscriptions.expired_date",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
 									"path": "['pass_subscription']['status']"
 								},
 								"sink": {
 									"name": "Pass_Subscriptions.status",
 									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['is_active']"
+								},
+								"sink": {
+									"name": "Is_active",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "$['UTC']"
+								},
+								"sink": {
+									"name": "Record Date",
+									"type": "DateTime"
 								}
 							}
 						],
