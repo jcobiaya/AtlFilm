@@ -41,6 +41,10 @@
 			{
 				"name": "Timestamp",
 				"type": "timestamp"
+			},
+			{
+				"name": "Record Date",
+				"type": "date"
 			}
 		],
 		"typeProperties": {
