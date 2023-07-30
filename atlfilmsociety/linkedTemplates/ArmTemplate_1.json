@@ -13,6 +13,24 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/ATLFFEvents')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "FacebookATLFS",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": "6251553423/events?fields=attending_count,category,declined_count,end_time,event_times,id,interested_count,maybe_count,name,noreply_count,owner,place,start_time,ticket_uri,type,parent_group,description,can_guests_invite,discount_code_enabled,guest_list_enabled,is_canceled,is_draft,is_online,is_page_owned,scheduled_publish_time,ticket_uri_start_sales_time,ticketing_privacy_uri,ticketing_terms_uri,timezone,updated_time&pretty=0&limit=500&access_token=EAAJQIFyOneABAKjFMvDohL4pRT0tZCTNUZAGy12CZBhFSZC93tGw8olZCJ7xjwqKobNom2b84GL2p7zyKgaZCacgwp8XiBBDD2r954qsgB8o7fgZBSXTZC3ZBZCvRkKdGZB5ehuv0Iqv3dimLlmMHzLWJtvlAhmRHiZB73c1clX73HRkpQZDZD"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ATLFSEvents')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1663,6 +1681,10 @@
 					{
 						"name": "Timestamp",
 						"type": "timestamp"
+					},
+					{
+						"name": "Record Date",
+						"type": "date"
 					}
 				],
 				"typeProperties": {
@@ -1768,102 +1790,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "TICKETING_EVENTIVE_Ticket Buckets"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveTickets')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "ID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Event_Bucket",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Ticket_Bucket.Name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Ticket_Bucket.ID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Ticket_Bucket.Price",
-						"type": "decimal",
-						"precision": 18,
-						"scale": 0
-					},
-					{
-						"name": "Event.ID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Event.Event_Bucket.ID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Event.Name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Event.Venue.ID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Event.Venue.Name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Order_ID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Created_At",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "Used_At",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "Probably_Customer_Cancellable",
-						"type": "bit"
-					},
-					{
-						"name": "Probably_Customer_Transferrable",
-						"type": "bit"
-					},
-					{
-						"name": "Person_ID",
-						"type": "nchar"
-					},
-					{
-						"name": "Person_Email",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Pass_ID",
-						"type": "nvarchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "TICKETING_EVENTIVE_Tickets"
 				}
 			},
 			"dependsOn": []

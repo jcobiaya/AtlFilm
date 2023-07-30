@@ -13,6 +13,25 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlProducts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DEVELOPMENT_SALESFORCE_Products"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlReports_email_activity')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1034,6 +1053,14 @@
 					{
 						"name": "SSMA_TimeStamp",
 						"type": "timestamp"
+					},
+					{
+						"name": "Submitter First Name",
+						"type": "nchar"
+					},
+					{
+						"name": "Submitter Last Name",
+						"type": "nchar"
 					}
 				],
 				"typeProperties": {
@@ -2269,25 +2296,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "MARKETING_MAILCHIMP_Unsubscribes"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlcampaigns__recipients__segment_opts__conditions')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "MARKETING_MAILCHIMP_Campaigns__recipients__segment_opts__conditions"
 				}
 			},
 			"dependsOn": []

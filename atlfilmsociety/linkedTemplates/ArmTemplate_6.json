@@ -13,6 +13,331 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SQLDisputeBalanceTransactions')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_level_0_id",
+						"type": "bit"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_source_key_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_disputes__balance_transactions"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLDisputes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "amount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "charge",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "evidence",
+						"type": "nvarchar"
+					},
+					{
+						"name": "evidence_details__due_by",
+						"type": "nvarchar"
+					},
+					{
+						"name": "evidence_details__has_evidence",
+						"type": "nvarchar"
+					},
+					{
+						"name": "evidence_details__past_due",
+						"type": "nvarchar"
+					},
+					{
+						"name": "evidence_details__submission_count",
+						"type": "tinyint",
+						"precision": 3
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "is_charge_refundable",
+						"type": "bit"
+					},
+					{
+						"name": "livemode",
+						"type": "bit"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "reason",
+						"type": "nvarchar"
+					},
+					{
+						"name": "status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated",
+						"type": "datetime2",
+						"scale": 7
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_disputes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLInvoiceLineItems')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "_sdc_batched_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "nvarchar"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "bit"
+					},
+					{
+						"name": "amount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discountable",
+						"type": "bit"
+					},
+					{
+						"name": "id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "invoice",
+						"type": "nvarchar"
+					},
+					{
+						"name": "livemode",
+						"type": "bit"
+					},
+					{
+						"name": "object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "period__end",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "period__start",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "plan__active",
+						"type": "bit"
+					},
+					{
+						"name": "plan__amount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "plan__billing_scheme",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__created",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "plan__currency",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__interval",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__interval_count",
+						"type": "bit"
+					},
+					{
+						"name": "plan__livemode",
+						"type": "bit"
+					},
+					{
+						"name": "plan__name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__object",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__product",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__statement_description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__statement_descriptor",
+						"type": "nvarchar"
+					},
+					{
+						"name": "plan__usage_type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "proration",
+						"type": "bit"
+					},
+					{
+						"name": "quantity",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "subscription",
+						"type": "nvarchar"
+					},
+					{
+						"name": "subscription_item",
+						"type": "nvarchar"
+					},
+					{
+						"name": "type",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FINANCE_STRIPE_invoice_line_items"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SQLInvoiceLines')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1860,60 +2185,6 @@
 						"value": "@dataset().cw_objectApiName",
 						"type": "Expression"
 					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SalesforceEvents')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Salesforce",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SalesforceObject",
-				"schema": [],
-				"typeProperties": {
-					"objectApiName": "Events__c"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SalesforceLeads')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Salesforce",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SalesforceObject",
-				"schema": [],
-				"typeProperties": {
-					"objectApiName": "Lead"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SalesforceOpportunity')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Salesforce",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SalesforceObject",
-				"schema": [],
-				"typeProperties": {
-					"objectApiName": "Opportunity"
 				}
 			},
 			"dependsOn": []

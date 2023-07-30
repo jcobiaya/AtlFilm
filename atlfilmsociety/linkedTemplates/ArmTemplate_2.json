@@ -13,6 +13,102 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveTickets')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event_Bucket",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Ticket_Bucket.Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Ticket_Bucket.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Ticket_Bucket.Price",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "Event.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event.Event_Bucket.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event.Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event.Venue.ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Event.Venue.Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Order_ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Created_At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Used_At",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "Probably_Customer_Cancellable",
+						"type": "bit"
+					},
+					{
+						"name": "Probably_Customer_Transferrable",
+						"type": "bit"
+					},
+					{
+						"name": "Person_ID",
+						"type": "nchar"
+					},
+					{
+						"name": "Person_Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Pass_ID",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "TICKETING_EVENTIVE_Tickets"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlEventiveVenues')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1408,25 +1504,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "DEVELOPMENT_SALESFORCE_Price_Books"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlProducts')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DEVELOPMENT_SALESFORCE_Products"
 				}
 			},
 			"dependsOn": []

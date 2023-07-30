@@ -55,6 +55,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Salesforce1'"
 		},
+		"Coverfly_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://api.coverfly.com/v1/contests"
+		},
 		"Eventbrite_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://www.eventbriteapi.com/v3"
@@ -137,6 +141,9 @@
 					},
 					"Salesforce1_connectionString": {
 						"value": "[parameters('Salesforce1_connectionString')]"
+					},
+					"Coverfly_properties_typeProperties_url": {
+						"value": "[parameters('Coverfly_properties_typeProperties_url')]"
 					},
 					"Eventbrite_properties_typeProperties_url": {
 						"value": "[parameters('Eventbrite_properties_typeProperties_url')]"

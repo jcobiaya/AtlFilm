@@ -41,6 +41,9 @@
 		"Salesforce1_connectionString": {
 			"value": ""
 		},
+		"Coverfly_properties_typeProperties_url": {
+			"value": "https://api.coverfly.com/v1/contests"
+		},
 		"Eventbrite_properties_typeProperties_url": {
 			"value": "https://www.eventbriteapi.com/v3"
 		},
