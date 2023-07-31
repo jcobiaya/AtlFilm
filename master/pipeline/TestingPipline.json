@@ -1,6 +1,232 @@
 {
 	"name": "TestingPipline",
 	"properties": {
+		"activities": [
+			{
+				"name": "Passes",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"ID"
+							]
+						},
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "['id']"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['name']"
+								},
+								"sink": {
+									"name": "Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['event_bucket']"
+								},
+								"sink": {
+									"name": "Event_Bucket",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['person']['id']"
+								},
+								"sink": {
+									"name": "Person.ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['person']['name']"
+								},
+								"sink": {
+									"name": "Person.Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['person']['email']"
+								},
+								"sink": {
+									"name": "Person.Email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_bucket']['id']"
+								},
+								"sink": {
+									"name": "Pass_Bucket.ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_bucket']['name']"
+								},
+								"sink": {
+									"name": "Pass_Bucket.Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_bucket']['code']"
+								},
+								"sink": {
+									"name": "Pass_Bucket.Code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_bucket']['price']"
+								},
+								"sink": {
+									"name": "Pass_Bucket.Price",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "['order']"
+								},
+								"sink": {
+									"name": "Order_ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['created_at']"
+								},
+								"sink": {
+									"name": "Created_At",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['updated_at']"
+								},
+								"sink": {
+									"name": "Updated_At",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['is_active']"
+								},
+								"sink": {
+									"name": "Is_active",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription']['id']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription']['should_autorenew']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.should_renew",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription']['renewal_date']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.renewal_date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription']['expired_date']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.expired_date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_subscription']['status']"
+								},
+								"sink": {
+									"name": "Pass_Subscriptions.status",
+									"type": "String"
+								}
+							}
+						],
+						"collectionReference": "$['passes']",
+						"mapComplexValuesToString": false
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "EventivePasses",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlEventivePasses",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
 		"annotations": []
 	}
 }
