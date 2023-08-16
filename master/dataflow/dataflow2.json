@@ -1,0 +1,92 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "coverfly_submissions",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlSTAGINGSUBMISSIONS_COVERFLY_Screenplays",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          {Coverfly ID} as string,",
+				"          {Writer 1 Name} as string,",
+				"          {Writer 1 Email} as string,",
+				"          {Writer 1 Bio} as string,",
+				"          {Writer 2 Name} as string,",
+				"          {Writer 2 Email} as string,",
+				"          {Writer 2 Bio} as string,",
+				"          {Submitter Email} as string,",
+				"          Title as string,",
+				"          {Page Count} as string,",
+				"          {Package/Category} as string,",
+				"          {Program Name} as string,",
+				"          {Logline (by writer)} as string,",
+				"          Format as string,",
+				"          Genre as string,",
+				"          Network as string,",
+				"          Placement as string,",
+				"          {Admin Notes} as string,",
+				"          File as string,",
+				"          {Customer Paid} as float,",
+				"          {Coverfly Share} as float,",
+				"          {Submitted At} as timestamp 'MM/dd/yyyy HH:mm:ss'",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          {Coverfly ID} as string,",
+				"          {Writer 1 Name} as string,",
+				"          {Writer 1 Email} as string,",
+				"          {Writer 1 Bio} as string,",
+				"          {Writer 2 Name} as string,",
+				"          {Writer 2 Email} as string,",
+				"          {Writer 2 Bio} as string,",
+				"          {Submitter Email} as string,",
+				"          Title as string,",
+				"          {Page Count} as double,",
+				"          {Package/Category} as string,",
+				"          {Program Name} as string,",
+				"          {Logline (by writer)} as string,",
+				"          Format as string,",
+				"          Genre as string,",
+				"          Network as string,",
+				"          Placement as string,",
+				"          {Admin Notes} as string,",
+				"          File as string,",
+				"          {Customer Paid} as double,",
+				"          {Coverfly Share} as double,",
+				"          {Submitted At} as timestamp,",
+				"          SSMA_TimeStamp as binary",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     preSQLs:['DELETE FROM [dbo].[STAGING SUBMISSIONS_COVERFLY_Screenplays]'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+			]
+		}
+	}
+}
