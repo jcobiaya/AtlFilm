@@ -28,7 +28,7 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "USE [RAW ATLFS DATA]\nGO\n\nDELETE FROM [dbo].[STAGING SUBMISSIONS_COVERFLY_Screenplays]\n   \nGO",
+						"preCopyScript": "DELETE FROM [dbo].[STAGING SUBMISSIONS_COVERFLY_Screenplays]\n",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
