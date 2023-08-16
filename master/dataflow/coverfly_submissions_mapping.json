@@ -1,5 +1,5 @@
 {
-	"name": "dataflow2",
+	"name": "coverfly_submissions_mapping",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -85,7 +85,30 @@
 				"     preSQLs:['DELETE FROM [dbo].[STAGING SUBMISSIONS_COVERFLY_Screenplays]'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          {Coverfly ID},",
+				"          {Writer 1 Name},",
+				"          {Writer 1 Email},",
+				"          {Writer 1 Bio},",
+				"          {Writer 2 Name},",
+				"          {Writer 2 Email},",
+				"          {Writer 2 Bio},",
+				"          {Submitter Email},",
+				"          Title,",
+				"          {Package/Category},",
+				"          {Program Name},",
+				"          {Logline (by writer)},",
+				"          Format,",
+				"          Genre,",
+				"          Network,",
+				"          Placement,",
+				"          {Admin Notes},",
+				"          File,",
+				"          {Customer Paid},",
+				"          {Coverfly Share},",
+				"          {Submitted At}",
+				"     )) ~> sink1"
 			]
 		}
 	}
