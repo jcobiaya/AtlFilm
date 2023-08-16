@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "coverfly_submissions",
+						"referenceName": "coverfly_submissions_xls",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -43,8 +43,8 @@
 				"          Placement as string,",
 				"          {Admin Notes} as string,",
 				"          File as string,",
-				"          {Customer Paid} as float,",
-				"          {Coverfly Share} as float,",
+				"          {Customer Paid} as float '000.##',",
+				"          {Coverfly Share} as float '000.##',",
 				"          {Submitted At} as timestamp 'MM/dd/yyyy HH:mm:ss'",
 				"     ),",
 				"     allowSchemaDrift: true,",
