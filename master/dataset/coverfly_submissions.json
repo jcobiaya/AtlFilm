@@ -1,0 +1,112 @@
+{
+	"name": "coverfly_submissions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ATLFS Azure Blob Storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Coverfly_Submissions.csv",
+				"container": "azure-webjobs-hosts"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Coverfly ID",
+				"type": "String"
+			},
+			{
+				"name": "Writer 1 Name",
+				"type": "String"
+			},
+			{
+				"name": "Writer 1 Email",
+				"type": "String"
+			},
+			{
+				"name": "Writer 1 Bio",
+				"type": "String"
+			},
+			{
+				"name": "Writer 2 Name",
+				"type": "String"
+			},
+			{
+				"name": "Writer 2 Email",
+				"type": "String"
+			},
+			{
+				"name": "Writer 2 Bio",
+				"type": "String"
+			},
+			{
+				"name": "Submitter Email",
+				"type": "String"
+			},
+			{
+				"name": "Title",
+				"type": "String"
+			},
+			{
+				"name": "Page Count",
+				"type": "String"
+			},
+			{
+				"name": "Package/Category",
+				"type": "String"
+			},
+			{
+				"name": "Program Name",
+				"type": "String"
+			},
+			{
+				"name": "Logline (by writer)",
+				"type": "String"
+			},
+			{
+				"name": "Format",
+				"type": "String"
+			},
+			{
+				"name": "Genre",
+				"type": "String"
+			},
+			{
+				"name": "Network",
+				"type": "String"
+			},
+			{
+				"name": "Placement",
+				"type": "String"
+			},
+			{
+				"name": "Admin Notes",
+				"type": "String"
+			},
+			{
+				"name": "File",
+				"type": "String"
+			},
+			{
+				"name": "Customer Paid",
+				"type": "String"
+			},
+			{
+				"name": "Coverfly Share",
+				"type": "String"
+			},
+			{
+				"name": "Submitted At",
+				"type": "String"
+			}
+		]
+	}
+}
