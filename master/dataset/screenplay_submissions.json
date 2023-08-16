@@ -1,0 +1,278 @@
+{
+	"name": "screenplay_submissions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ATLFS Azure Blob Storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Screenplay Submissions",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Screenplay_Submissions.xlsx",
+				"container": "azure-webjobs-hosts"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "Project Title",
+				"type": "String"
+			},
+			{
+				"name": "Project Title (Original Language)",
+				"type": "String"
+			},
+			{
+				"name": "Synopsis",
+				"type": "String"
+			},
+			{
+				"name": "Synopsis (Original Language)",
+				"type": "String"
+			},
+			{
+				"name": "Project Website",
+				"type": "String"
+			},
+			{
+				"name": "Twitter",
+				"type": "String"
+			},
+			{
+				"name": "Facebook",
+				"type": "String"
+			},
+			{
+				"name": "Duration",
+				"type": "String"
+			},
+			{
+				"name": "Country of Origin",
+				"type": "String"
+			},
+			{
+				"name": "Lyrics",
+				"type": "String"
+			},
+			{
+				"name": "Language",
+				"type": "String"
+			},
+			{
+				"name": "Trailer URL",
+				"type": "String"
+			},
+			{
+				"name": "Country of Filming",
+				"type": "String"
+			},
+			{
+				"name": "Project Type",
+				"type": "String"
+			},
+			{
+				"name": "Genres",
+				"type": "String"
+			},
+			{
+				"name": "Student Project",
+				"type": "String"
+			},
+			{
+				"name": "Completion Date",
+				"type": "String"
+			},
+			{
+				"name": "Production Budget",
+				"type": "String"
+			},
+			{
+				"name": "Shooting Format",
+				"type": "String"
+			},
+			{
+				"name": "Aspect Ratio",
+				"type": "String"
+			},
+			{
+				"name": "Film Color",
+				"type": "String"
+			},
+			{
+				"name": "Camera",
+				"type": "String"
+			},
+			{
+				"name": "Lens",
+				"type": "String"
+			},
+			{
+				"name": "Focal Length",
+				"type": "String"
+			},
+			{
+				"name": "Shutter Speed",
+				"type": "String"
+			},
+			{
+				"name": "Aperture",
+				"type": "String"
+			},
+			{
+				"name": "ISO / Film",
+				"type": "String"
+			},
+			{
+				"name": "First-time Filmmaker",
+				"type": "String"
+			},
+			{
+				"name": "Directors",
+				"type": "String"
+			},
+			{
+				"name": "Writers",
+				"type": "String"
+			},
+			{
+				"name": "Producers",
+				"type": "String"
+			},
+			{
+				"name": "Key Cast",
+				"type": "String"
+			},
+			{
+				"name": "Other Credits",
+				"type": "String"
+			},
+			{
+				"name": "Screenings / Awards",
+				"type": "String"
+			},
+			{
+				"name": "Distributor Information",
+				"type": "String"
+			},
+			{
+				"name": "Submitter Statement",
+				"type": "String"
+			},
+			{
+				"name": "Submitter Biography",
+				"type": "String"
+			},
+			{
+				"name": "First Name",
+				"type": "String"
+			},
+			{
+				"name": "Last Name",
+				"type": "String"
+			},
+			{
+				"name": "Birthdate",
+				"type": "String"
+			},
+			{
+				"name": "Gender",
+				"type": "String"
+			},
+			{
+				"name": "Email",
+				"type": "String"
+			},
+			{
+				"name": "Phone",
+				"type": "String"
+			},
+			{
+				"name": "Address",
+				"type": "String"
+			},
+			{
+				"name": "Address 2",
+				"type": "String"
+			},
+			{
+				"name": "City",
+				"type": "String"
+			},
+			{
+				"name": "State",
+				"type": "String"
+			},
+			{
+				"name": "Postal Code",
+				"type": "String"
+			},
+			{
+				"name": "Country",
+				"type": "String"
+			},
+			{
+				"name": "Tracking Number",
+				"type": "String"
+			},
+			{
+				"name": "Submission Date",
+				"type": "String"
+			},
+			{
+				"name": "Submission Status",
+				"type": "String"
+			},
+			{
+				"name": "Judging Status",
+				"type": "String"
+			},
+			{
+				"name": "Submission Deadlines",
+				"type": "String"
+			},
+			{
+				"name": "Submission Categories",
+				"type": "String"
+			},
+			{
+				"name": "Submission Fee",
+				"type": "String"
+			},
+			{
+				"name": "Discount Code",
+				"type": "String"
+			},
+			{
+				"name": "Submission Link",
+				"type": "String"
+			},
+			{
+				"name": "Submission Password",
+				"type": "String"
+			},
+			{
+				"name": "Assigned Judges",
+				"type": "String"
+			},
+			{
+				"name": "Rating",
+				"type": "String"
+			},
+			{
+				"name": "Flag",
+				"type": "String"
+			},
+			{
+				"name": "Submission ID",
+				"type": "String"
+			},
+			{
+				"name": "Submission Notes",
+				"type": "String"
+			}
+		]
+	}
+}
