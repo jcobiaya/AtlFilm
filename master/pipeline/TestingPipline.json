@@ -16,14 +16,11 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
+						"type": "ExcelSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"sink": {
@@ -311,7 +308,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "coverfly_submissions",
+						"referenceName": "coverfly_submissions_xls",
 						"type": "DatasetReference"
 					}
 				],
