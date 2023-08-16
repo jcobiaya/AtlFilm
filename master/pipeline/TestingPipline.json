@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
-				"type": "Copy",
+				"name": "CoverflySubmissionsDataFlow",
+				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,18 +15,75 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataflow": {
+						"referenceName": "coverfly_submissions_mapping",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "ScreenplaySubmissionsDataFlow",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "screenplay_submissions",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "Coverfly Screenplay Submissions",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "CoverflySubmissionsDataFlow",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
 					"source": {
-						"type": "ExcelSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						}
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "DELETE FROM [dbo].[STAGING SUBMISSIONS_COVERFLY_Screenplays]\n",
-						"writeBehavior": "insert",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Coverfly ID"
+							]
+						},
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
@@ -38,7 +95,7 @@
 								"source": {
 									"name": "Coverfly ID",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Coverfly ID",
@@ -50,7 +107,7 @@
 								"source": {
 									"name": "Writer 1 Name",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Writer 1 Name",
@@ -62,7 +119,7 @@
 								"source": {
 									"name": "Writer 1 Email",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Writer 1 Email",
@@ -74,7 +131,7 @@
 								"source": {
 									"name": "Writer 1 Bio",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Writer 1 Bio",
@@ -86,7 +143,7 @@
 								"source": {
 									"name": "Writer 2 Name",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Writer 2 Name",
@@ -98,7 +155,7 @@
 								"source": {
 									"name": "Writer 2 Email",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Writer 2 Email",
@@ -110,7 +167,7 @@
 								"source": {
 									"name": "Writer 2 Bio",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Writer 2 Bio",
@@ -122,7 +179,7 @@
 								"source": {
 									"name": "Submitter Email",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Submitter Email",
@@ -134,7 +191,7 @@
 								"source": {
 									"name": "Title",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Title",
@@ -145,8 +202,8 @@
 							{
 								"source": {
 									"name": "Page Count",
-									"type": "String",
-									"physicalType": "String"
+									"type": "Double",
+									"physicalType": "float"
 								},
 								"sink": {
 									"name": "Page Count",
@@ -158,7 +215,7 @@
 								"source": {
 									"name": "Package/Category",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Package/Category",
@@ -170,7 +227,7 @@
 								"source": {
 									"name": "Program Name",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Program Name",
@@ -182,7 +239,7 @@
 								"source": {
 									"name": "Logline (by writer)",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Logline (by writer)",
@@ -194,7 +251,7 @@
 								"source": {
 									"name": "Format",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Format",
@@ -206,7 +263,7 @@
 								"source": {
 									"name": "Genre",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Genre",
@@ -218,7 +275,7 @@
 								"source": {
 									"name": "Network",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Network",
@@ -230,7 +287,7 @@
 								"source": {
 									"name": "Placement",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Placement",
@@ -242,7 +299,7 @@
 								"source": {
 									"name": "Admin Notes",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Admin Notes",
@@ -254,7 +311,7 @@
 								"source": {
 									"name": "File",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "File",
@@ -265,8 +322,8 @@
 							{
 								"source": {
 									"name": "Customer Paid",
-									"type": "String",
-									"physicalType": "String"
+									"type": "Double",
+									"physicalType": "float"
 								},
 								"sink": {
 									"name": "Customer Paid",
@@ -277,8 +334,8 @@
 							{
 								"source": {
 									"name": "Coverfly Share",
-									"type": "String",
-									"physicalType": "String"
+									"type": "Double",
+									"physicalType": "float"
 								},
 								"sink": {
 									"name": "Coverfly Share",
@@ -289,8 +346,8 @@
 							{
 								"source": {
 									"name": "Submitted At",
-									"type": "String",
-									"physicalType": "String"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								},
 								"sink": {
 									"name": "Submitted At",
@@ -302,20 +359,853 @@
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false,
-							"dateTimeFormat": "m/d/yy h:mm;"
+							"treatBooleanAsNumber": false
 						}
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "coverfly_submissions_xls",
+						"referenceName": "AzureSqlSTAGINGSUBMISSIONS_COVERFLY_Screenplays",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlSTAGINGSUBMISSIONS_COVERFLY_Screenplays",
+						"referenceName": "AzureSqlSUBMISSIONS_COVERFLY_Screenplays",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Filmfreeway Screenplay Submissions",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "ScreenplaySubmissionsDataFlow",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Submission ID"
+							]
+						},
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Project Title",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Project Title",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Project Title (Original Language)",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Project Title (Original Language)",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Synopsis",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Synopsis",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Synopsis (Original Language)",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Synopsis (Original Language)",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Project Website",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Project Website",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Twitter",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Twitter",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Facebook",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Facebook",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Duration",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Duration",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Country of Origin",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Country of Origin",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Lyrics",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Lyrics",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Language",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Language",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Trailer URL",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Trailer URL",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Country of Filming",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Country of Filming",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Project Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Project Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Genres",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Genres",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Student Project",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Student Project",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Completion Date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Completion Date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Production Budget",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Production Budget",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Shooting Format",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Shooting Format",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Aspect Ratio",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Aspect Ratio",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Film Color",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Film Color",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Camera",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Camera",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Lens",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Lens",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Focal Length",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Focal Length",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Shutter Speed",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Shutter Speed",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Aperture",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Aperture",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ISO / Film",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "ISO / Film",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "First-time Filmmaker",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "First-time Filmmaker",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Directors",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Directors",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Writers",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Writers",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Producers",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Producers",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Key Cast",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Key Cast",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Other Credits",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Other Credits",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Screenings / Awards",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Screenings / Awards",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Distributor Information",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Distributor Information",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Submitter Statement",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Submitter Statement",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Submitter Biography",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Submitter Biography",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "First Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "First Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Last Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Last Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Birthdate",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								},
+								"sink": {
+									"name": "Birthdate",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "Gender",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Gender",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Email",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Email",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Phone",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Phone",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Address",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Address",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Address 2",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Address 2",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "City",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "City",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "State",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "State",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Postal Code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Postal Code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Country",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Country",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Tracking Number",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Tracking Number",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Submission Date",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								},
+								"sink": {
+									"name": "Submission Date",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "Submission Status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Submission Status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Judging Status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Judging Status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Submission Deadlines",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Submission Deadlines",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Submission Categories",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Submission Categories",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Submission Fee",
+									"type": "Decimal",
+									"physicalType": "money",
+									"scale": 4,
+									"precision": 19
+								},
+								"sink": {
+									"name": "Submission Fee",
+									"type": "Decimal",
+									"physicalType": "money",
+									"scale": 4,
+									"precision": 19
+								}
+							},
+							{
+								"source": {
+									"name": "Discount Code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Discount Code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Submission Link",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Submission Link",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Submission Password",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Submission Password",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Assigned Judges",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Assigned Judges",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Rating",
+									"type": "Double",
+									"physicalType": "float"
+								},
+								"sink": {
+									"name": "Rating",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "Flag",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Flag",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Submission ID",
+									"type": "Double",
+									"physicalType": "float"
+								},
+								"sink": {
+									"name": "Submission ID",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "Submission Notes",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Submission Notes",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureSqlSTAGINGSUBMISSIONS_FILMFREEWAY_Screenplay",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlSUBMISSIONS_FILMFREEWAY_Screenplay",
 						"type": "DatasetReference"
 					}
 				]
