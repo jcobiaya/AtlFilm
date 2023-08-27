@@ -5264,22 +5264,32 @@
 							},
 							{
 								"source": {
-									"name": "Goal_Number__c",
+									"name": "Tagging_Code__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Tagging_Code__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Goal_Sales__c",
 									"type": "Decimal"
 								},
 								"sink": {
-									"name": "Goal_Number__c",
+									"name": "Goal_Sales__c",
 									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "Tagging_Code__c",
-									"type": "String"
+									"name": "Goal_Revenue__c",
+									"type": "Decimal"
 								},
 								"sink": {
-									"name": "Tagging_Code__c",
-									"type": "String"
+									"name": "Goal_Revenue__c",
+									"type": "Decimal"
 								}
 							}
 						]
