@@ -39,6 +39,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'MatomoData'"
 		},
+		"MatomoData_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'MatomoData'"
+		},
 		"PostgreSqlATLFS_STITCH_DATA_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'PostgreSqlATLFS_STITCH_DATA'"
@@ -250,7 +254,11 @@
 				"annotations": [],
 				"type": "MySql",
 				"typeProperties": {
-					"connectionString": "[parameters('MatomoData_connectionString')]"
+					"connectionString": "[parameters('MatomoData_connectionString')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('MatomoData_password')]"
+					}
 				}
 			},
 			"dependsOn": []

@@ -39,6 +39,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'MatomoData'"
 		},
+		"MatomoData_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'MatomoData'"
+		},
 		"PostgreSqlATLFS_STITCH_DATA_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'PostgreSqlATLFS_STITCH_DATA'"
@@ -129,6 +133,9 @@
 					},
 					"MatomoData_connectionString": {
 						"value": "[parameters('MatomoData_connectionString')]"
+					},
+					"MatomoData_password": {
+						"value": "[parameters('MatomoData_password')]"
 					},
 					"PostgreSqlATLFS_STITCH_DATA_connectionString": {
 						"value": "[parameters('PostgreSqlATLFS_STITCH_DATA_connectionString')]"

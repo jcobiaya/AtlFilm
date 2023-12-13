@@ -29,6 +29,9 @@
 		"MatomoData_connectionString": {
 			"value": ""
 		},
+		"MatomoData_password": {
+			"value": ""
+		},
 		"PostgreSqlATLFS_STITCH_DATA_connectionString": {
 			"value": ""
 		},

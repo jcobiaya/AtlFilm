@@ -96,7 +96,228 @@
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
-				"schema": [],
+				"schema": [
+					{
+						"name": "Id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IsDeleted",
+						"type": "bit"
+					},
+					{
+						"name": "Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ParentId",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "RecordTypeId",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "StartDate",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "EndDate",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "ExpectedRevenue",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "BudgetedCost",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "ActualCost",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "ExpectedResponse",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "NumberSent",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "IsActive",
+						"type": "bit"
+					},
+					{
+						"name": "Description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NumberOfLeads",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "NumberOfConvertedLeads",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "NumberOfContacts",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "NumberOfResponses",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "NumberOfOpportunities",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "NumberOfWonOpportunities",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "AmountAllOpportunities",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "AmountWonOpportunities",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "OwnerId",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CreatedDate",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "CreatedById",
+						"type": "nvarchar"
+					},
+					{
+						"name": "LastModifiedDate",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "LastModifiedById",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SystemModstamp",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "LastActivityDate",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "LastViewedDate",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "LastReferencedDate",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "CampaignMemberRecordTypeId",
+						"type": "nvarchar"
+					},
+					{
+						"name": "GW_Volunteers__Volunteer_Website_Time_Zone__c",
+						"type": "nvarchar"
+					},
+					{
+						"name": "GW_Volunteers__Number_of_Volunteers__c",
+						"type": "decimal",
+						"precision": 5,
+						"scale": 0
+					},
+					{
+						"name": "GW_Volunteers__Volunteer_Completed_Hours__c",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 2
+					},
+					{
+						"name": "GW_Volunteers__Volunteer_Jobs__c",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "GW_Volunteers__Volunteer_Shifts__c",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "GW_Volunteers__Volunteers_Still_Needed__c",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "Goal_Number__c",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "Tagging_Code__c",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Goal_Sales__c",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "Goal_Revenue__c",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					}
+				],
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "DEVELOPMENT_SALESFORCE_Campaigns"
